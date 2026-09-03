@@ -29,21 +29,21 @@ NAV = []
 # eigen werkplaats zijn, vervangen die deze.
 SERVICES = [
     ("dienst-lasersnijden.html", "Lasersnijden",
-     "Nauwkeurig snijden van plaatmateriaal", "productiehal"),
+     "Nauwkeurig snijden van plaatmateriaal", "lasersnijden"),
     ("dienst-buislasersnijden.html", "Buislasersnijden",
-     "Snijden en bewerken van buis en profiel", "transport"),
+     "Snijden en bewerken van buis en profiel", "buislasersnijden"),
     ("dienst-kanten.html", "Kanten",
-     "Plaatmateriaal zetten tot de gewenste vorm", "productiehal"),
+     "Plaatmateriaal zetten tot de gewenste vorm", "kanten"),
     ("dienst-lassen.html", "Lassen",
      "Lassen met TIG, MIG of laser", "lassen"),
     ("dienst-nabewerking.html", "Nabewerking",
-     "Afbramen, tappen, boren en verzinken", "lassen"),
+     "Afbramen, tappen, boren en verzinken", "productiehal"),
     ("dienst-assemblage.html", "Assemblage",
-     "Samenbouwen via ons zusterbedrijf", "overleg"),
+     "Samenbouwen via ons zusterbedrijf", "werkplaats"),
     ("dienst-oppervlaktebehandeling.html", "Oppervlaktebehandeling",
-     "Poedercoaten, volledig geregeld", "haven"),
+     "Poedercoaten, volledig geregeld", "productiehal"),
     ("dienst-cnc-verspanen.html", "CNC-verspanen",
-     "Draaien en frezen in eigen huis", "bouwplaats"),
+     "Draaien en frezen in eigen huis", "verspanen"),
 ]
 
 
@@ -119,7 +119,7 @@ def bouw_nav():
                          "maakbaarheid en zetten de bewerkingen in de offerte.",
                 "knop": "Offerte aanvragen",
                 "href": "contact.html",
-                "foto": "productiehal",
+                "foto": "werkplaats",
             },
         },
         {"soort": "link", "href": "werkwijze.html", "label": "Werkwijze"},
@@ -180,20 +180,35 @@ OPENINGSTIJDEN = [
 # Bij de patronen staat wel een tussenmaat, want daar zit geen fijn detail in
 # dat zachter kan worden; het zijn vloeiende verlopen.
 FOTOS = {
-    'bouwplaats':   ('bouwplaats', 2400, 1350, 1200, 675, 'Bouwplaats met torenkraan', 'foto', None),
-    # Het eerste beeldje van de herovideo, zodat het stilstaande beeld en de
-    # eerste frame van de film op elkaar aansluiten. De maten zijn 1x en 2x het
-    # videobeeld (1130x720), niet de 2400 van de andere foto's: dan staat er
-    # geen opgeschaald beeld in de srcset dat scherper doet dan het is.
-    'werkplaats':   ('werkplaats', 2260, 1440, 1130, 720, 'Lasersnijmachine in een productiehal', 'foto', None),
-    # De film die hier eerder stond ging over logistiek en hoort bij de
-    # template. Foto en film staan er nog; geen pagina gebruikt ze.
-    'logistiek':    ('logistiek', 2400, 1350, 1200, 675, 'Vrachtwagen op een dijkweg langs het water', 'foto', None),
-    'productiehal': ('productiehal', 1024, 309, 640, 193, 'Productiehal met medewerkers aan de lijn', 'foto', None),
-    'lassen':       ('lassen', 1024, 683, 640, 427, 'Lasser aan het werk aan een constructie', 'foto', None),
-    'overleg':      ('overleg', 960, 640, 640, 427, 'Werkoverleg met een klein team', 'foto', None),
-    'transport':    ('transport', 1024, 683, 640, 427, 'Industri\u00eble transportbrug en constructie', 'foto', None),
-    'haven':        ('haven', 960, 540, 640, 360, 'Zeeschip aan de kade van een containerterminal', 'foto', None),
+    # Alle beelden hieronder zijn stilstaande beeldjes uit de herofilm, dus uit
+    # dezelfde reeks en met dezelfde kleuren en lichtval. Ze laten de bewerking
+    # zien die erbij staat.
+    #
+    # Hier stonden de foto's van de template: een torenkraan, een containerschip,
+    # een transportbrug en een vrachtwagen. Die zeggen niets over
+    # metaalbewerking; oppervlaktebehandeling had een containerschip en
+    # CNC-verspanen een torenkraan.
+    #
+    # De bron is 1280x720. Er staat geen opgeschaalde maat in de srcset: dan
+    # doet een beeld scherper dan het is. Op een scherm van 2x is de dienst-hero
+    # daardoor niet helemaal scherp; dat is de grens van deze bron.
+    'werkplaats':       ('werkplaats', 2260, 1440, 1130, 720,
+                         'Lasersnijmachine in een productiehal', 'foto', None),
+    'lasersnijden':     ('lasersnijden', 1280, 720, 640, 360,
+                         'Lasersnijmachine snijdt onderdelen uit een stalen plaat', 'foto', None),
+    'buislasersnijden': ('buislasersnijden', 1280, 720, 640, 360,
+                         'Buislaser snijdt een stalen koker op maat, met een regen van vonken', 'foto', None),
+    # 1130 breed en niet 1280: op de jas van de operator staat het beeldmerk van
+    # een ander bedrijf, tussen x=1136 en de rechterrand. Zie
+    # assets/video/HERKOMST.md.
+    'kanten':           ('kanten', 1130, 720, 640, 408,
+                         'Operator zet een plaat in de kantbank', 'foto', None),
+    'lassen':           ('lassen', 1280, 720, 640, 360,
+                         'Lasboog op de verbinding tussen een koker en een plaat', 'foto', None),
+    'verspanen':        ('verspanen', 1280, 720, 640, 360,
+                         'Freeskop met koelvloeistof bewerkt een metalen onderdeel', 'foto', None),
+    'productiehal':     ('productiehal', 1280, 720, 640, 360,
+                         'Werkplaats met medewerkers aan gesneden plaatdelen', 'foto', None),
 }
 
 

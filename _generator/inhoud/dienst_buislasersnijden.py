@@ -23,7 +23,7 @@ DIENST = {
     # Korte typering voor schema.org, in dezelfde lengte als de MADEGRO-waarde.
     "service_type": "Buislasersnijden en profielbewerking",
 
-    "hero_foto": "transport",
+    "hero_foto": "buislasersnijden",
     "eyebrow": "Dienst 02",
 
     # Twee alinea's, even lang als de MADEGRO-intro (circa 250 tekens per

@@ -34,7 +34,7 @@ DIENST = {
     # bewust geen claim dat de bewerking in eigen huis gebeurt.
     "service_type": "Oppervlaktebehandeling en poedercoaten",
 
-    "hero_foto": "haven",
+    "hero_foto": "productiehal",
     "eyebrow": "Dienst 07",
 
     # Twee alinea's, zelfde lengte als de MADEGRO-intro. Toets 1: de bezoeker

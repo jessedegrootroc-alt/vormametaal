@@ -50,7 +50,8 @@ diensten = "\n".join(dienstkaart(i, d, intro)
 # Zelfde rij: beeld rechts, meta, kop, tekst en de pijlknop. De metaregels
 # droegen branche en plaats van een case en dragen nu het rijnummer en het
 # woord "materiaal".
-_MAT_BEELD = ["lassen", "productiehal", "transport"]
+# Staal onder de laser, RVS in de kantbank, aluminium onder de freeskop.
+_MAT_BEELD = ["lasersnijden", "kanten", "verspanen"]
 materiaalrijen = "\n".join(f'''      <a class="cases-grid__row {'cases-grid__row--grey' if i % 2 == 0 else 'cases-grid__row--white'} hover--icon"
          href="materialen.html" aria-label="{m["naam"]}: voorbeeldkwaliteiten">
         <div class="cases-grid__body">
@@ -81,7 +82,10 @@ usps = "\n".join(f'''        <div>
 # ---- s07: was cursuskaarten, draagt nu de zes redenen -------------------
 # Zelfde paneel als cursuskaart(), met de foto erboven en een metaregel. Zes
 # items in panel-row--4 vullen anderhalve rij; het grid vangt dat op.
-_WAAROM_BEELD = ["productiehal", "lassen", "overleg", "transport", "haven", "bouwplaats"]
+# Zes verschillende beelden, elk een bewerking of de werkplaats. Hier stonden
+# een containerschip en een torenkraan bij.
+_WAAROM_BEELD = ["werkplaats", "kanten", "lasersnijden",
+                 "buislasersnijden", "productiehal", "verspanen"]
 waarom = "\n".join(f'''        <div>
           <div class="panel panel--{'grey' if i % 2 else 'wit'} panel--beeld">
             <figure class="panel__beeld">

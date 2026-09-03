@@ -32,7 +32,7 @@ DIENST = {
     # Korte typering voor de schema.org Service; geen marketingzin.
     "service_type": "Assemblage van metalen samenstellingen",
 
-    "hero_foto": "overleg",
+    "hero_foto": "werkplaats",
     "eyebrow": "Dienst 06",
 
     # Twee alinea's, zelfde lengte als de MADEGRO-intro (twee blokjes van

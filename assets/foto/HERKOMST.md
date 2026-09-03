@@ -1,66 +1,62 @@
 # Herkomst van de foto's
 
-Alle foto's hieronder staan onder **CC0** of in het **publiek domein**: ze mogen
-commercieel gebruikt worden en er is geen bronvermelding verplicht. Ze zijn
-gevonden via [Openverse](https://openverse.org), bijgesneden en omgezet naar WebP.
+## De beelden die de site nu gebruikt
 
-Dit is opvulbeeld. Zodra Martin eigen foto's heeft van zijn opdrachtgevers,
-projecten en cursussen, vervangen die deze bestanden een-op-een: zelfde
-bestandsnamen, zelfde formaten.
+Allemaal stilstaande beeldjes uit `assets/video/hero-werkplaats.mp4`, de
+herofilm. Daarmee komen alle foto's uit dezelfde reeks: dezelfde hal, dezelfde
+lichtval, dezelfde kleuren. En ze laten de bewerking zien die erbij staat.
 
-| Bestand | Oorspronkelijke titel | Licentie | Bron | Pagina |
-|---|---|---|---|---|
-| `bouwplaats-*.webp` | HK SKD 日出康城 Lohas Park Road construction site buildings August 2024 R12S.02 | cc0 | wikimedia | https://commons.wikimedia.org/w/index.php?curid=152100483 |
-| `productiehal-*.webp` | zonder titel | cc0 | rawpixel | https://www.rawpixel.com/image/5945466/free-public-domain-cc0-photo |
-| `lassen-*.webp` | Staff Sgt. Elizabeth Germain welds | cc0 | rawpixel | https://www.rawpixel.com/image/8729603/photo-image-light-public-domain-person |
-| `overleg-*.webp` | Business Team | cc0 | stocksnap | https://stocksnap.io/photo/business-team-W6PNBNYHM6 |
-| `transport-*.webp` | zonder titel | cc0 | rawpixel | https://www.rawpixel.com/image/6065610/free-public-domain-cc0-photo |
-| `haven-*.webp` | Boats Ships | cc0 | stocksnap | https://stocksnap.io/photo/boats-ships-27D9PQ26RJ |
+| bestand | uit de film op | wat er te zien is |
+|---|---|---|
+| `werkplaats-1130/2260.webp` | 0,0 s | de lasersnijmachine in de hal, wijd opgenomen |
+| `lasersnijden-640/1280.webp` | 1,4 s | de snijkop boven de plaat, met de uitgesneden delen eromheen |
+| `buislasersnijden-640/1280.webp` | 2,9 s | een koker in de spankop, met een regen van vonken |
+| `kanten-640/1130.webp` | 4,2 s | een operator die een plaat in de kantbank zet |
+| `lassen-640/1280.webp` | 5,9 s | de lasboog op de verbinding tussen een koker en een plaat |
+| `verspanen-640/1280.webp` | 7,6 s | de freeskop met koelvloeistof en wegspringende spanen |
+| `productiehal-640/1280.webp` | 9,2 s | de werkplaats met medewerkers aan gesneden plaatdelen |
 
-## Formaten
+Omgezet met `cwebp -q 90 -m 6`, na verkleinen met Lanczos.
 
-Elke foto staat er twee keer in, voor `srcset`: een grote en een kleine variant.
-De hero is 2400 en 1200 px breed; de overige beelden 1024 (of 960) en 640 px.
-Bijsnijden gebeurde op 16:9 voor banden en 3:2 voor de kaarten, met het
-zwaartepunt iets boven het midden.
+`werkplaats` is 1130 breed en niet 1280, en `kanten` ook: in de kantbankscene
+staat op de jas van de operator het beeldmerk van een ander bedrijf, tussen
+x=1136 en de rechterrand. De film is daarom op 1130 gesneden; zie
+`assets/video/HERKOMST.md` voor de afweging.
 
-## De illustratie
+## Waarom er geen grotere maat in de srcset staat
 
-`assets/illustratie/madegro-terrein-*.webp` is **geen stockbeeld**: die is door de
-opdrachtgever aangeleverd (`illustratie.png`, 4608 &times; 3072, met transparantie).
-Hij staat in de huisstijlkleuren en wordt gebruikt in `s03-hoe-we-werken` op de
-homepage. De eerste aangeleverde versie staat er nog naast als
-`illustratie-v1.png`; die wordt nergens meer gebruikt en mag weg.
+De bron is 1280x720. Er staat bewust niets van 1920 of 2400 bij: dan zou de
+browser een opgeschaald beeld ophalen dat scherper doet dan het is. De
+dienst-hero is de helft van het scherm breed, dus op een gewoon scherm tot
+2560px is 1280 genoeg; op een scherm met dubbele pixeldichtheid is hij niet
+helemaal scherp. Dat is de grens van deze bron en niet met verkleinen of
+comprimeren op te lossen.
 
-Bewerking: de doorzichtige rand eraf gesneden (4538 &times; 2965), daarna twee
-WebP-formaten met `cwebp -q 82 -alpha_q 90`: 1520 &times; 993 en
-800 &times; 523, samen 265 kB. Het bronbestand blijft ernaast staan, zodat er
-opnieuw uit gesneden kan worden.
+De brede baan op de homepage toont `productiehal` tot 70vw. Bij het beeld dat
+hier eerder stond was dat 1024 breed op een vak van ruim 1000px; nu is het
+1280.
 
-## martinv3.png en de martin-band-*.webp
+## Wat er eerder stond
 
-Door de klant aangeleverd (1 september 2026), geen stockbeeld: Martin op een trap
-voor het Viaduc de Passy in Parijs. Bron is 800x800 zonder balken, en hij zit
-midden in beeld, anders dan de eerdere strandfoto, waar hij ver naar links stond.
+De foto's van de template: een bouwplaats met torenkraan, een containerschip
+aan een containerterminal, een industriële transportbrug, een vrachtwagen op
+een dijkweg en een vergadering. Ze stonden onder CC0 of in het publiek domein
+en mochten commercieel gebruikt worden.
 
-De afgeleiden zijn de hele foto, verkleind naar 800 en 440 en geconverteerd met
-`cwebp -q 78`. Die 78 is lager dan de 86 die we elders gebruiken: het steen van
-de trap en de boog zit vol fijne structuur, en op 86 werd het bestand 206 kB.
-Op 78 is dat 156 kB en is er op weergavegrootte niets van te zien.
+Ze zeiden niets over metaalbewerking, en op sommige plekken werd dat pijnlijk:
+oppervlaktebehandeling had een containerschip en CNC-verspanen een torenkraan.
+De bestanden staan nog in deze map maar zijn uit de repo gehouden; geen pagina
+gebruikt ze.
 
-De uitsnede zit niet in het bestand maar in de CSS: `object-fit: cover` met
-`object-position: center 65%` in de modifier `.streamer--employee--portret`.
-Onder 992px is de band liggend en zou Martin bij een beeldpunt van 50% te laag
-uitvallen; op 65% toont hij de onderkant van de foto en staat Martin hoger in
-het kader.
+Ook uit de repo: `martin*`, foto's van een herkenbaar persoon uit het
+bronproject die niets met Vorma Metaal te maken heeft.
 
-    python3 -c "
-    from PIL import Image
-    Image.open('martinv3.png').convert('RGB').save('/tmp/m.png')"
-    cwebp -q 78 /tmp/m.png -o martin-band-800.webp
+## Twee dingen om na te gaan voor het live gaat
 
-## martin.png (strandfoto)
-
-**Niet meer in gebruik.** Vervangen door martinv3.png. De afgeleiden zijn
-verwijderd; het origineel blijft staan.
-
+1. **De licentie van de film is niet bekend**, en daarmee die van deze foto's
+   ook niet. Zie `assets/video/HERKOMST.md`. De oude foto's hadden een heldere
+   CC0-status; dat is met deze ruil ingeleverd voor beelden die wel over het
+   onderwerp gaan.
+2. **Het is niet de werkplaats van Vorma Metaal.** De machines, de hal en de
+   mensen zijn niet die aan Dammaten 14 in Goor. Eigen beeld is beter, en dan
+   kan de resolutie ook hoger dan 720p.

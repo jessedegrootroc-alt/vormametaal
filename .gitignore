@@ -26,7 +26,18 @@ assets/logo/madegro-*
 
 # De herofilm van het bronproject; deze site gebruikt hero-werkplaats.mp4.
 assets/video/hero-logistiek.mp4
+
+# De foto's van het bronproject. Ze gingen niet over metaalbewerking: een
+# torenkraan, een containerschip, een transportbrug, een vrachtwagen en een
+# vergadering. Vervangen door beeldjes uit de herofilm, die de bewerkingen wel
+# laten zien. Ook de oude 1024-maten van lassen en productiehal.
 assets/foto/logistiek-*
+assets/foto/bouwplaats-*
+assets/foto/haven-*
+assets/foto/transport-*
+assets/foto/overleg-*
+assets/foto/lassen-1024.webp
+assets/foto/productiehal-1024.webp
 
 # Oudere versies van het merkpatroon. De versie die de site gebruikt staat in
 # assets/patronen/bron/ en is gedocumenteerd in HERKOMST.md.

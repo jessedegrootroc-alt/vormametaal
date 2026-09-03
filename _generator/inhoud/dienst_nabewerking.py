@@ -31,7 +31,7 @@ DIENST = {
     # bewerking zoals een inkoper hem zou inkopen.
     "service_type": "Nabewerking van metaalonderdelen",
 
-    "hero_foto": "lassen",
+    "hero_foto": "productiehal",
     "eyebrow": "Dienst 05",
 
     # Twee alinea's, samen ongeveer 80 woorden zoals de MADEGRO-intro. Alinea 1

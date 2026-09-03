@@ -29,7 +29,7 @@ DIENST = {
     # Korte typering voor schema.org serviceType, zonder marketingwoorden.
     "service_type": "CNC-draaien en -frezen van metaalonderdelen",
 
-    "hero_foto": "bouwplaats",
+    "hero_foto": "verspanen",
     "eyebrow": "Dienst 08",
 
     # Twee alinea's, net als de MADEGRO-intro elk twee zinnen. Alinea 1 is voor

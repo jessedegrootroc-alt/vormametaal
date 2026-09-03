@@ -1728,12 +1728,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .field:focus-vi
 }
 .uitklap__kaart img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* Dezelfde twee lagen als de fotohero's: de gradient uit Figma met daaronder
-   een donkere laag voor de leesbaarheid. De tekst staat hier op 43% van de
-   kaart, net als in die hero's, dus dezelfde waarden werken.
+   een donkere laag voor de leesbaarheid. De tekst staat onderin de kaart, waar
+   beide lagen op hun sterkst zijn.
 
-   Doorgerekend over de twee kaartfoto's, op de lichtste vijf procent van elk
-   tekstvak: kop 5,6:1 en body 5,7:1, tegen een eis van 3:1 en 4,5:1. Met alleen
-   de gradient zou de kop op 2,11:1 staan. */
+   Doorgerekend over de kaartfoto op de gemeten kaart van 485x891, op de
+   lichtste vijf procent van elk tekstvak: kop 7,33:1, body 7,02:1 en de knop
+   7,76:1, tegen een eis van 3:1 en 4,5:1. Met de foto productiehal, die op de
+   dienstpagina's in deze kaart staat, is dat 6,63, 6,71 en 7,34.
+
+   Bij de foto's van de template stond hier 5,6 en 5,7. Dat het nu hoger is,
+   komt doordat deze beelden onderin donkerder zijn; met alleen de gradient en
+   zonder de zwarte laag zou de kop nog steeds zakken. */
 .uitklap__sluier {
   position: absolute; inset: 0;
   background:

@@ -292,11 +292,11 @@ HOME = {
     # slider als het antwoord op de kop erboven.
     "verwachten": [
         ("Wij kijken eerst of uw onderdeel te maken is zoals het getekend staat. Is er iets onduidelijk, dan nemen wij contact met u op.",
-         "Vorma Metaal", "Controle", "overleg"),
+         "Vorma Metaal", "Controle", "kanten"),
         ("Daarna ontvangt u een duidelijke, vrijblijvende offerte volgens een vaste calculatie. Het werk start pas nadat u die goedkeurt.",
-         "Vorma Metaal", "Offerte", "productiehal"),
+         "Vorma Metaal", "Offerte", "lasersnijden"),
         ("Uw producten worden geleverd of staan klaar om af te halen in Goor. Van offerte tot levering hoort u van ons wanneer het ertoe doet.",
-         "Vorma Metaal", "Levering", "transport"),
+         "Vorma Metaal", "Levering", "productiehal"),
     ],
 
     # --------------------------------------------------------------- s09 faq

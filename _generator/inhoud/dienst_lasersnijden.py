@@ -28,7 +28,7 @@ DIENST = {
     # MADEGRO-waarden ("Veiligheidsinspectie en audit").
     "service_type": "Lasersnijden van plaatmateriaal",
 
-    "hero_foto": "productiehal",
+    "hero_foto": "lasersnijden",
     "eyebrow": "Dienst 01",
 
     # Twee alinea's, even lang als de MADEGRO-intro (ca. 230 en 270 tekens).

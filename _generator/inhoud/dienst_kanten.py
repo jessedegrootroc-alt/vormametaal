@@ -23,7 +23,7 @@ DIENST = {
     # Korte typering voor schema.org serviceType, geen marketingzin.
     "service_type": "Kanten en zetten van plaatmateriaal",
 
-    "hero_foto": "productiehal",
+    "hero_foto": "kanten",
     "eyebrow": "Dienst 03",
 
     # Twee alinea's van dezelfde lengte als de MADEGRO-intro (circa 250 en 220
