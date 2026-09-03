@@ -56,7 +56,7 @@ HOME = {
     # en s04 splitsen dat meteen uit. De tweede alinea zegt voor wie en hoe een
     # aanvraag begint, met de inleesformaten in plaats van het vage
     # "CAD-bestand", zodat de bezoeker weet of hij het juiste bestand heeft.
-    "hero_intro": "<p>Vorma Metaal maakt onderdelen van metaal op maat: plaatwerk, buis- en profielwerk, verspaande delen en complete samenstellingen. Acht bewerkingen, van lasersnijden tot lassen en verspanen, onder &eacute;&eacute;n dak.</p>\n          <p>Wij werken voor zakelijke opdrachtgevers, van enkelstuks tot seriematige productie. Upload uw STEP-, DXF- of DWG-bestand in ons portaal en u ontvangt een duidelijke, vrijblijvende offerte.</p>",
+    "hero_intro": "<p>Vorma Metaal maakt onderdelen van metaal op maat: plaatwerk, buis- en profielwerk, verspaande delen en complete samenstellingen. Acht bewerkingen, van lasersnijden tot lassen en verspanen, onder &eacute;&eacute;n dak.</p>\n          <p>Wij werken voor zakelijke opdrachtgevers die metaalwerk op tekening nodig hebben. Uw aanvraag begint bij het bestand dat u al heeft liggen.</p>",
 
     # Knop 1 is de aanvraagfase, knop 2 de begrijpfase. "Wat wij doen" zei niet
     # waar de knop heen ging; deze wel. De knop van s07 heet "Bekijk alle
@@ -78,7 +78,7 @@ HOME = {
     # leest die nog niets van Vorma weet. Daarom in deze orde: wat het bedrijf
     # is, waar het staat, wat u aanlevert, wat u terugkrijgt en in welke
     # aantallen. Geen enkele claim, alleen de plaatsbepaling.
-    "wat_tekst": "Vorma Metaal is een metaalbewerker in Goor. Uit het CAD-bestand dat u aanlevert maken wij onderdelen op maat: gesneden, gekant, gelast, verspaand en nabewerkt, van &eacute;&eacute;n stuk tot een serie.",
+    "wat_tekst": "Wat u aanlevert is een CAD-bestand; wat u terugkrijgt is het onderdeel &mdash; gesneden, gekant, gelast, verspaand en nabewerkt. Voor de stappen daartussen hoeft u geen tweede leverancier te zoeken.",
 
     # ----------------------------------------------------- s03 hoe we werken
     # Blijft staan voor de sleutelverzameling; bouw_home.py rendert in deze
@@ -99,7 +99,12 @@ HOME = {
     # onzekerheden weg die hier spelen: welk bestand, en wat er gebeurt als de
     # opdracht niet standaard is. Dat laatste staat als "afstemmen" in de bron;
     # hier staat wanneer dat gebeurt, niet hoe.
-    "werkwijze_intro": "<p>Elke aanvraag loopt langs dezelfde vijf stappen. U levert uw tekening aan, wij controleren of die maakbaar is en u ontvangt een vrijblijvende offerte. Pas na uw akkoord gaat het werk de werkplaats in.</p>\n              <p>Het portaal leest STEP-, DXF- en DWG-bestanden in, eventueel met een PDF-tekening erbij. Bij een complexe opdracht nemen wij eerst contact met u op, voordat de offerte uitgaat.</p>",
+    # LET OP: de vijf stappen zelf staan NIET op de homepage, alleen op
+    # werkwijze.html. De kop belooft ze wel, dus deze intro moet ze noemen;
+    # anders staat er een kop over vijf stappen met niets eronder. Dit is ook
+    # de enige plek op de homepage waar "vrijblijvend" en "pas na uw akkoord"
+    # staan, de twee dingen die een bezoeker over de drempel helpen.
+    "werkwijze_intro": "<p>Aanvraag, controle, offerte, productie, levering. U levert uw tekening aan, wij controleren of die maakbaar is, en het werk start pas na uw akkoord op een vrijblijvende offerte.</p>\n              <p>Het portaal leest STEP-, DXF- en DWG-bestanden in, eventueel met een PDF-tekening erbij; overtekenen is niet nodig. Bij een complexe opdracht of een bijzonder materiaal beoordelen wij uw aanvraag persoonlijk.</p>",
 
     # De vijf stappen, letterlijk uit BRIEF.md. Ze staan hier voor de
     # sleutelverzameling; op de homepage rendert bouw_home.py ze niet, want s03
@@ -129,7 +134,11 @@ HOME = {
     # (50 tekens). Noemt het aantal, want acht bewerkingen bij &eacute;&eacute;n
     # leverancier is het argument van deze sectie, en noemt de eerste en de
     # laatste bewerking, zodat de kop ook zonder de kaarten eronder te lezen is.
-    "diensten_kop": "Acht bewerkingen, van lasersnijden tot verspanen",
+    # De hero zegt al "Acht bewerkingen, van lasersnijden tot lassen en
+    # verspanen". Deze kop zei dat bijna woordelijk na. Nu zegt hij wat de
+    # bezoeker hier als enige leest: welke zes Vorma zelf doet en welke twee
+    # het regelt.
+    "diensten_kop": "Zes bewerkingen in eigen huis, twee die wij voor u regelen",
 
     # De leadalinea. Levert dit bestand hem niet, dan bouwt bouw_home.py hem
     # uit SERVICES; hij staat hier omdat de bezoekersvraag "welke bewerkingen
@@ -138,7 +147,7 @@ HOME = {
     # dit veld zelf in een <p>. Ca. 230 tekens, als de opsomming die hij
     # vervangt. Zes / assemblage / oppervlaktebehandeling in die orde; nooit
     # omdraaien.
-    "diensten_tekst": "Zes bewerkingen doen wij in eigen huis: lasersnijden, buislasersnijden, kanten, lassen, nabewerking en CNC-verspanen. Assemblage loopt via ons zusterbedrijf, oppervlaktebehandeling besteden wij uit en regelen wij voor u.",
+    "diensten_tekst": "Assemblage loopt via ons zusterbedrijf Tentije, oppervlaktebehandeling via een coater. Beide staan op dezelfde aanvraag, dus u hoeft er zelf niets voor te regelen.",
 
     # Eén regel per bewerking, elk ca. 100 tekens zoals de MADEGRO-introregels
     # (106 tot 108). De kaart drukt hierboven al de korte typering uit SERVICES
@@ -178,7 +187,7 @@ HOME = {
     # sectie geen inleiding, alleen de kop, de knop en de drie rijen. Twee
     # zinnen, letterlijk uit de brief. Bijzondere metalen staan er bewust bij:
     # dat is de enige uitspraak die de bron over andere metalen doet.
-    "materialen_intro": "Wij verwerken staal, RVS en aluminium; bijzondere metalen zijn op aanvraag leverbaar. U selecteert het gewenste materiaal eenvoudig in het portaal.",
+    "materialen_intro": "Bij uw aanvraag kiest u het materiaal zelf. Staat de kwaliteit die u nodig heeft er niet bij, vermeld dat dan of neem eerst contact met ons op.",
 
     # De drie materialen, in de volgorde van de brief. Tekst en kwaliteiten
     # komen woord voor woord uit BRIEF.md; er is geen kwaliteit bij verzonnen
@@ -221,11 +230,11 @@ HOME = {
     # secties niet dezelfde zin twee keer afdrukken.
     "usps": [
         ("22", "jaar ervaring",
-         "Ervaring uit de machinebouw en automatisering, meegenomen naar het metaalwerk dat wij nu maken."),
+         "Zoveel jaar techniek zit er achter dit bedrijf, en dat merkt u zodra een tekening vragen oproept."),
         ("8", "bewerkingen",
-         "Van snijden en kanten tot lassen, verspanen en coaten &mdash; onder &eacute;&eacute;n dak geregeld."),
+         "Uw onderdeel gaat van de ene bewerking naar de volgende zonder tussentransport."),
         ("3", "materialen",
-         "Staal, RVS en aluminium. Bijzondere metalen zijn op aanvraag leverbaar."),
+         "Bijzondere metalen zijn op aanvraag leverbaar."),
     ],
 
     # ----------------------------------------------------- s07 waarom Vorma
@@ -244,7 +253,7 @@ HOME = {
     # en uw levering": een drieslag die niets toevoegde. Hier staan in plaats
     # daarvan de twee dingen die de zes panelen samen zeggen: het werk gebeurt
     # in Goor, en het aanvragen loopt langs een vaste route.
-    "waarom_intro": "Wij maken uw onderdelen in onze eigen werkplaats in Goor. Aanvragen doet u online, offreren gebeurt volgens een vaste calculatie en u heeft &eacute;&eacute;n aanspreekpunt.",
+    "waarom_intro": "Uw aanvraag komt terecht bij de mensen die het werk ook uitvoeren. Dat scheelt een schakel, bij het offreren en bij het maken.",
 
     # De zes punten uit BRIEF.md. Titels van 16 tot 22 tekens en teksten van 63
     # tot 122 tekens passen op de panelen, waar de bestaande panelen titels van
@@ -256,17 +265,17 @@ HOME = {
     # wij zelf contact opnemen.
     "waarom": [
         ("22 jaar in de techniek",
-         "Opgebouwd in diverse technische sectoren, met name in de machinebouw en automatisering."),
+         "Lang genoeg om te weten waar een tekening in de praktijk op stuk loopt."),
         ("Persoonlijk contact",
-         "Bel of mail ons over uw opdracht. Bij een complexe aanvraag nemen wij zelf contact met u op."),
+         "Bel of mail ons over uw opdracht; u krijgt iemand die het werk zelf kent."),
         ("Online aanvragen",
-         "Uw STEP-, DXF- of DWG-bestand wordt in ons portaal direct ingelezen, met het materiaal dat u kiest."),
+         "Via ons portaal, dus zonder mailwisseling over versies en bijlagen."),
         ("Vaste calculatie",
-         "U ontvangt een heldere offerte volgens een vaste calculatie, ook bij een herhaalaanvraag, zodat u weet waar u aan toe bent."),
+         "Dezelfde aanvraag levert later dezelfde prijsopbouw op, zodat een herhaalorder navolgbaar blijft."),
         ("U weet waar het staat",
-         "Van offerte tot levering hoort u van ons wanneer het ertoe doet."),
+         "Tussen uw akkoord en de levering blijft u niet in het ongewisse."),
         ("Van &eacute;&eacute;n stuk tot serie",
-         "Wij maken uniek maatwerk en seriematige productie; ook voor &eacute;&eacute;n onderdeel dient u een aanvraag in."),
+         "Een enkel onderdeel vraagt u op dezelfde manier aan als een serie."),
     ],
 
     # ------------------------------------------------------- s08 verwachten
@@ -291,12 +300,12 @@ HOME = {
     # (controle, offerte, levering) in plaats van door elkaar; daarmee leest de
     # slider als het antwoord op de kop erboven.
     "verwachten": [
-        ("Wij kijken eerst of uw onderdeel te maken is zoals het getekend staat. Is er iets onduidelijk, dan nemen wij contact met u op.",
-         "Vorma Metaal", "Controle", "kanten"),
-        ("Daarna ontvangt u een duidelijke, vrijblijvende offerte volgens een vaste calculatie. Het werk start pas nadat u die goedkeurt.",
-         "Vorma Metaal", "Offerte", "lasersnijden"),
-        ("Uw producten worden geleverd of staan klaar om af te halen in Goor. Van offerte tot levering hoort u van ons wanneer het ertoe doet.",
-         "Vorma Metaal", "Levering", "productiehal"),
+        ("Standaardwerk offreert het portaal volledig automatisch: uw offerte staat binnen enkele minuten online. Dagen wachten hoeft niet.",
+         "Vorma Metaal", "Offertetermijn", "lasersnijden"),
+        ("Loopt een deel van uw opdracht via ons zusterbedrijf of via een coater, dan regelen wij dat. U houdt &eacute;&eacute;n aanspreekpunt voor het geheel.",
+         "Vorma Metaal", "&Eacute;&eacute;n aanspreekpunt", "productiehal"),
+        ("Uw producten worden geleverd of staan klaar om af te halen. Van offerte tot levering hoort u van ons wanneer het ertoe doet.",
+         "Vorma Metaal", "Levering", "werkbank"),
     ],
 
     # --------------------------------------------------------------- s09 faq
