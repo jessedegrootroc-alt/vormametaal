@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vorma-metaal-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "_generator/server.js"
+      ],
+      "port": 5501,
+      "autoPort": true
+    }
+  ]
+}

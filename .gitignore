@@ -1,0 +1,42 @@
+# Rommel van het besturingssysteem en Python
+.DS_Store
+__pycache__/
+*.pyc
+
+# ---------------------------------------------------------------------------
+# Restanten uit de template die GEEN ENKELE pagina van deze site gebruikt.
+# Ze blijven op schijf staan; ze horen alleen niet in de repo, en zeker niet
+# in een openbare. Nagegaan met grep over alle html, css, js en generatorcode.
+# ---------------------------------------------------------------------------
+
+# Foto's van een herkenbaar persoon uit het bronproject. Hij heeft niets met
+# Vorma Metaal te maken en heeft er niet om gevraagd hier te staan.
+assets/foto/martin*
+
+# 11 MB illustraties, waaronder het bedrijfsterrein van het bronproject.
+assets/illustratie/
+
+# De bronbestanden en de niet-gebruikte reeksen van de logoband.
+assets/partners/bron/
+assets/partners/origineel/
+assets/partners/samenwerking/
+
+# De logo's van het bronproject.
+assets/logo/madegro-*
+
+# De herofilm van het bronproject; deze site gebruikt hero-werkplaats.mp4.
+assets/video/hero-logistiek.mp4
+assets/foto/logistiek-*
+
+# Oudere versies van het merkpatroon. De versie die de site gebruikt staat in
+# assets/patronen/bron/ en is gedocumenteerd in HERKOMST.md.
+assets/patronen/bron/v1/
+assets/patronen/bron/v2-groen/
+
+# De deelafbeelding van het bronproject; deze site gebruikt
+# vorma-metaal-deelafbeelding.png.
+assets/social/madegro-*
+
+# De drie voorlopige woordmerken bij de klantcitaten. Geen pagina gebruikt ze:
+# het citatencomponent draagt nu afspraken van Vorma Metaal zelf.
+assets/partners/*.svg

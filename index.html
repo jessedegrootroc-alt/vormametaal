@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vorma Metaal | Wij geven vorm aan uw metaal</title>
+<meta name="description" content="Vorma Metaal in Goor maakt onderdelen van metaal op maat: lasersnijden, kanten, lassen en CNC-verspanen. Vraag aan met uw eigen CAD-bestand." />
+<link rel="canonical" href="https://www.vormametaal.nl/index.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Vorma Metaal" />
+<meta name="theme-color" content="#143557" />
+<meta name="color-scheme" content="light" />
+
+<!-- GSAP en Barba komen van jsDelivr. Het opzetten van die verbinding (dns,
+     tcp, tls) kost op een telefoon een paar honderd ms en begint nu al terwijl
+     de HTML nog binnenkomt, in plaats van pas onderaan de pagina. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+<!-- Het lettertype staat in de kop van de pagina en is dus onderdeel van de
+     LCP. Zonder preload vindt de browser het pas nadat styleguide.css binnen is
+     en ontleed is. crossorigin moet erbij, ook al staat het bestand op dezelfde
+     server: een font wordt altijd in CORS-modus opgehaald, en zonder dat woord
+     haalt de browser het twee keer op. -->
+<link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+<link rel="stylesheet" href="styleguide.css" />
+<link rel="stylesheet" href="transitions.css" />
+<!-- De cookiebalk verschijnt pas als cookiebalk.js hem opbouwt, dus zijn stijl
+     hoeft de eerste weergave niet op te houden. media="print" laat de browser
+     hem buiten het kritieke pad ophalen; onload zet hem daarna alsnog aan. De
+     noscript-regel vangt op dat zonder JavaScript ook die onload niet afgaat. -->
+<link rel="stylesheet" href="cookiebalk.css" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="cookiebalk.css" /></noscript>
+<link rel="stylesheet" href="index.css" data-page-css="index" />
+
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Vorma Metaal" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:url" content="https://www.vormametaal.nl/index.html" />
+<meta property="og:title" content="Vorma Metaal | Wij geven vorm aan uw metaal" />
+<meta property="og:description" content="Vorma Metaal in Goor maakt onderdelen van metaal op maat: lasersnijden, kanten, lassen en CNC-verspanen. Vraag aan met uw eigen CAD-bestand." />
+<meta property="og:image" content="https://www.vormametaal.nl/assets/social/vorma-metaal-deelafbeelding.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Vorma Metaal | Wij geven vorm aan uw metaal" />
+<meta name="twitter:description" content="Vorma Metaal in Goor maakt onderdelen van metaal op maat: lasersnijden, kanten, lassen en CNC-verspanen. Vraag aan met uw eigen CAD-bestand." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Vorma Metaal",
+  "foundingDate": "2004",
+  "url": "https://www.vormametaal.nl/",
+  "logo": "https://www.vormametaal.nl/assets/logo/vorma-metaal.svg",
+  "email": "info@vormametaal.nl",
+  "telephone": "+31547227000",
+  "vatID": null,
+  "identifier": { "@type": "PropertyValue", "name": "KvK", "value": "" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dammaten 14",
+    "postalCode": "7472 DJ",
+    "addressLocality": "Goor",
+    "addressCountry": "NL"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hoe vraag ik een offerte aan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Via ons portaal. U uploadt uw CAD-bestanden — STEP, DXF of DWG — eventueel met een PDF-tekening erbij, en u kiest het materiaal: staal, RVS of aluminium. Wij nemen uw aanvraag daarna in behandeling en controleren of die maakbaar is. Wilt u liever eerst overleggen? Bel of mail ons uw tekening; ook dan gaat uw aanvraag in behandeling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Heb ik een account nodig om een offerte aan te vragen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uw aanvraag loopt via ons portaal: daar levert u uw bestanden aan en daar komt uw offerte online te staan. Werkt u liever niet via het portaal? Bel of mail ons uw tekening; wij nemen uw aanvraag dan gewoon in behandeling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is mijn aanvraag vrijblijvend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. U ontvangt een duidelijke, vrijblijvende offerte en het werk start pas na uw akkoord. Tot dat moment verplicht een aanvraag u tot niets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe snel ontvang ik mijn offerte?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standaardwerk offreert het portaal volledig automatisch: uw offerte staat direct online, binnen enkele minuten. Complexe opdrachten en bijzondere materialen beoordelen wij persoonlijk, binnen korte tijd. Dagen wachten op een offerte hoeft in geen van beide gevallen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik een complete samenstelling aanvragen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Samenbouwen tot complete samenstellingen loopt via ons zusterbedrijf Tentije Industriële Automatisering B.V., waarmee wij dezelfde werkplaats en hetzelfde team delen. Hoort er poedercoaten of een andere oppervlaktebehandeling bij, dan besteden wij dat uit en regelen wij het volledig. U houdt één aanspreekpunt voor het geheel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welke bewerkingen kunnen wij voor u verzorgen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lasersnijden, buislasersnijden, kanten, lassen, nabewerking en CNC-verspanen doen wij in eigen huis, in onze werkplaats in Goor. Assemblage loopt via ons zusterbedrijf Tentije Industriële Automatisering B.V.; oppervlaktebehandeling besteden wij uit en regelen wij voor u. Samen zijn dat acht bewerkingen onder één dak."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik losse stuks of kleine series laten maken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Wij maken uniek maatwerk en series, van enkelstuks tot seriematige productie; ook voor één onderdeel dient u gewoon een aanvraag in. Komt dezelfde aanvraag later terug, dan offreren wij die volgens dezelfde vaste calculatie, zodat de offerte navolgbaar blijft."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Naar de inhoud</a>
+
+<!-- De header en het mobiele paneel staan bewust BUITEN #smooth-wrapper.
+     ScrollSmoother verschuift de inhoud met een transform, en onder een
+     transform hangt position:fixed aan dat element in plaats van aan het
+     scherm. Ze blijven daardoor ook staan bij een pagina-overgang; welke
+     menulink actief is wordt in page-transitions.js bijgewerkt. -->
+<header class="header header--scrolled" id="siteHeader">
+  <div class="header--container">
+    <a href="index.html" class="header--logo" aria-label="Vorma Metaal, naar de homepage">
+      <img class="header--logo-kleur" src="assets/logo/vorma-metaal.svg" alt="Vorma Metaal" width="85" height="40">
+      <img class="header--logo-wit" src="assets/logo/vorma-metaal-wit.svg" alt="" aria-hidden="true" width="85" height="40">
+    </a>
+
+    <nav class="submenu" aria-label="Hoofdmenu">
+      <a class="submenu--link is-actief" href="index.html" aria-current="page">Home</a>
+      <button type="button" class="submenu--link submenu--trigger" data-uitklap="diensten" aria-expanded="false" aria-controls="uitklap-diensten">Diensten<svg class="submenu--chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.4 5.6 9 7 7.6l5 5 5-5L18.4 9 12 15.4Z"/></svg></button>
+      <a class="submenu--link" href="werkwijze.html">Werkwijze</a>
+      <a class="submenu--link" href="materialen.html">Materialen</a>
+      <a class="submenu--link" href="voor-wie.html">Voor wie</a>
+      <a class="submenu--link" href="over-vorma-metaal.html">Over Vorma Metaal</a>
+      <a class="submenu--link highlight" href="contact.html">Contact</a>
+    </nav>
+
+    <button type="button" id="hamburger" class="hamburger" aria-expanded="false" aria-controls="mobilePanel">
+      Menu
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v2H2V5Zm0 6h20v2H2v-2Zm0 6h20v2H2v-2Z"/></svg>
+    </button>
+  </div>
+
+  <div class="uitklap" id="uitklap-diensten" data-uitklap-paneel="diensten" inert>
+    <div class="uitklap__inner">
+      <div class="uitklap__kolom">
+        <span class="subtitle">Diensten</span>
+        <ul class="uitklap__lijst" role="list">
+          <li><a class="uitklap__link" href="diensten.html"><span class="uitklap__naam">Alle diensten</span><span class="uitklap__uitleg">De acht bewerkingen op een rij</span></a></li>
+          <li><a class="uitklap__link" href="dienst-lasersnijden.html"><span class="uitklap__naam">Lasersnijden</span><span class="uitklap__uitleg">Nauwkeurig snijden van plaatmateriaal</span></a></li>
+          <li><a class="uitklap__link" href="dienst-buislasersnijden.html"><span class="uitklap__naam">Buislasersnijden</span><span class="uitklap__uitleg">Snijden en bewerken van buis en profiel</span></a></li>
+          <li><a class="uitklap__link" href="dienst-kanten.html"><span class="uitklap__naam">Kanten</span><span class="uitklap__uitleg">Plaatmateriaal zetten tot de gewenste vorm</span></a></li>
+          <li><a class="uitklap__link" href="dienst-lassen.html"><span class="uitklap__naam">Lassen</span><span class="uitklap__uitleg">Lassen met TIG, MIG of laser</span></a></li>
+          <li><a class="uitklap__link" href="dienst-nabewerking.html"><span class="uitklap__naam">Nabewerking</span><span class="uitklap__uitleg">Afbramen, tappen, boren en verzinken</span></a></li>
+          <li><a class="uitklap__link" href="dienst-assemblage.html"><span class="uitklap__naam">Assemblage</span><span class="uitklap__uitleg">Samenbouwen via ons zusterbedrijf</span></a></li>
+          <li><a class="uitklap__link" href="dienst-oppervlaktebehandeling.html"><span class="uitklap__naam">Oppervlaktebehandeling</span><span class="uitklap__uitleg">Poedercoaten, volledig geregeld</span></a></li>
+          <li><a class="uitklap__link" href="dienst-cnc-verspanen.html"><span class="uitklap__naam">CNC-verspanen</span><span class="uitklap__uitleg">Draaien en frezen in eigen huis</span></a></li>
+        </ul>
+      </div>
+      <div class="uitklap__kaart">
+        <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 1199px) 0px, 40vw" width="1024" height="309" alt="" loading="lazy" decoding="async">
+        <span class="uitklap__sluier" aria-hidden="true"></span>
+        <div class="uitklap__kaart-tekst">
+          <p class="uitklap__kaart-kop">Niet zeker welke bewerkingen u nodig heeft?</p>
+          <p class="uitklap__kaart-body">Stuur uw CAD-bestand in. Wij controleren de maakbaarheid en zetten de bewerkingen in de offerte.</p>
+          <a href="contact.html" class="button button--primary"><span class="button__inhoud">Offerte aanvragen<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel--overlay" id="panelOverlay" hidden></div>
+<div class="mobile-panel" id="mobilePanel" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mobile-panel--topbar">
+    <a class="mobile-panel--chip" href="contact.html">Contact</a>
+    <button type="button" class="mobile-panel--chip is-close" id="panelSluit">
+      Sluiten
+      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4Z"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-panel--nav" aria-label="Hoofdmenu">
+    <span class="mobile-panel--label">Menu</span>
+    <ul class="mobile-panel--list" role="list">
+      <li><a class="mobile-panel--nav-link" href="index.html" data-panel-sluit style="transition-delay:0ms"><span class="mobile-panel--text-slide"><span class="mobile-panel--text-slide-inner"><span>Home</span><span>Home</span></span></span></a></li>
+      <li>
+        <button type="button" class="mobile-panel--nav-link mobile-panel--nav-knop"
+                data-mobiel-uitklap="diensten" aria-expanded="false"
+                aria-controls="mobiel-diensten" style="transition-delay:60ms"><span class="mobile-panel--text-slide"><span class="mobile-panel--text-slide-inner"><span>Diensten</span><span>Diensten</span></span></span><svg class="submenu--chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.4 5.6 9 7 7.6l5 5 5-5L18.4 9 12 15.4Z"/></svg></button>
+        <ul class="mobile-panel--sublijst" id="mobiel-diensten" role="list" hidden>
+          <li><a class="mobile-panel--sublink" href="diensten.html" data-panel-sluit>Alle diensten</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-lasersnijden.html" data-panel-sluit>Lasersnijden</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-buislasersnijden.html" data-panel-sluit>Buislasersnijden</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-kanten.html" data-panel-sluit>Kanten</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-lassen.html" data-panel-sluit>Lassen</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-nabewerking.html" data-panel-sluit>Nabewerking</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-assemblage.html" data-panel-sluit>Assemblage</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-oppervlaktebehandeling.html" data-panel-sluit>Oppervlaktebehandeling</a></li>
+          <li><a class="mobile-panel--sublink" href="dienst-cnc-verspanen.html" data-panel-sluit>CNC-verspanen</a></li>
+        </ul>
+      </li>
+      <li><a class="mobile-panel--nav-link" href="werkwijze.html" data-panel-sluit style="transition-delay:120ms"><span class="mobile-panel--text-slide"><span class="mobile-panel--text-slide-inner"><span>Werkwijze</span><span>Werkwijze</span></span></span></a></li>
+      <li><a class="mobile-panel--nav-link" href="materialen.html" data-panel-sluit style="transition-delay:180ms"><span class="mobile-panel--text-slide"><span class="mobile-panel--text-slide-inner"><span>Materialen</span><span>Materialen</span></span></span></a></li>
+      <li><a class="mobile-panel--nav-link" href="voor-wie.html" data-panel-sluit style="transition-delay:240ms"><span class="mobile-panel--text-slide"><span class="mobile-panel--text-slide-inner"><span>Voor wie</span><span>Voor wie</span></span></span></a></li>
+      <li><a class="mobile-panel--nav-link" href="over-vorma-metaal.html" data-panel-sluit style="transition-delay:300ms"><span class="mobile-panel--text-slide"><span class="mobile-panel--text-slide-inner"><span>Over Vorma Metaal</span><span>Over Vorma Metaal</span></span></span></a></li>
+    </ul>
+  </nav>
+  <div class="mobile-panel--cta button__mobile-width">
+    <a href="contact.html" class="button button--primary"><span class="button__inhoud">Vraag een offerte aan<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+  </div>
+</div>
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+<div data-barba="wrapper">
+<div class="app__wrapper" data-barba="container" data-barba-namespace="home">
+<div class="content__wrapper">
+
+<main id="main-content">
+
+  <!-- ================= 01 INTRODUCTIE ================= -->
+  <section class="hero" id="s01-introductie" data-header-theme="light">
+    <div class="hero--beeld" aria-hidden="true">
+      <img src="assets/foto/werkplaats-2260.webp" srcset="assets/foto/werkplaats-1130.webp 1130w, assets/foto/werkplaats-2260.webp 2260w" sizes="100vw" width="2260" height="1440" alt="Lasersnijmachine in een productiehal" loading="eager" fetchpriority="high" decoding="async">
+      <!-- site.js hangt de bron hierin; zie de toelichting daar voor de vier
+           gevallen waarin dat niet gebeurt. Dan blijft de foto staan. -->
+      <video class="hero--video" width="1130" height="720" muted loop playsinline preload="none"
+             data-herovideo="assets/video/hero-werkplaats.mp4"></video>
+      <span class="hero--sluier"></span>
+    </div>
+    <div class="container hero--container">
+      <div class="hero--content">
+        <span class="subtitle" style="color:var(--color-white)">Maatwerk in metaal</span>
+        <h1 class="hero--title">Wij geven vorm aan uw metaal</h1>
+        <div class="hero--intro article-body">
+<p>Vorma Metaal maakt onderdelen van metaal op maat: plaatwerk, buis- en profielwerk, verspaande delen en complete samenstellingen. Acht bewerkingen, van lasersnijden tot lassen en verspanen, onder &eacute;&eacute;n dak.</p>
+          <p>Wij werken voor zakelijke opdrachtgevers, van enkelstuks tot seriematige productie. Upload uw STEP-, DXF- of DWG-bestand in ons portaal en u ontvangt een duidelijke, vrijblijvende offerte.</p>
+        </div>
+        <div class="hero--actions">
+          <a href="contact.html" class="button button--primary"><span class="button__inhoud">Offerte aanvragen<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+          <a href="diensten.html" class="button button--secondary"><span class="button__inhoud">Bekijk de bewerkingen<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 WAT VORMA METAAL DOET ================= -->
+  <section class="content-text-side-cta" id="s02-wat-we-doen">
+    <div class="container">
+      <div class="content-text-side-cta--container background--grey">
+        <div class="row gx-0">
+          <div class="col-lg-8 col-12">
+            <div class="content-text-side-cta--body">
+              <p>Vorma Metaal is een metaalbewerker in Goor. Uit het CAD-bestand dat u aanlevert maken wij onderdelen op maat: gesneden, gekant, gelast, verspaand en nabewerkt, van &eacute;&eacute;n stuk tot een serie.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-text-side-visual background--white" id="s03-hoe-we-werken">
+    <div class="container">
+      <div class="row gx-0">
+        <article class="col-lg-4 col-12">
+          <div class="content-text-side-visual--stack content-text-side-visual--article">
+            <h2>Van uw tekening tot levering in vijf stappen</h2>
+            <div class="content-text-side-visual--body content-fit--quarter">
+<p>Elke aanvraag loopt langs dezelfde vijf stappen. U levert uw tekening aan, wij controleren of die maakbaar is en u ontvangt een vrijblijvende offerte. Pas na uw akkoord gaat het werk de werkplaats in.</p>
+              <p>Het portaal leest STEP-, DXF- en DWG-bestanden in, eventueel met een PDF-tekening erbij. Bij een complexe opdracht nemen wij eerst contact met u op, voordat de offerte uitgaat.</p>
+            </div>
+            <a href="werkwijze.html" class="button button--primary"><span class="button__inhoud">Zo werkt een aanvraag<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="content-text-side-visual--visual added-distance">
+      <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 991px) calc(100vw - 32px), (max-width: 1199px) calc(100vw - 96px), (max-width: 1352px) 940px, 70vw" width="1024" height="309" alt="Productiehal met medewerkers aan de lijn" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- ================= 04 DE ACHT DIENSTEN ================= -->
+  <section class="content-block" id="s04-diensten">
+    <div class="container">
+      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
+        <div class="row">
+          <div class="col-md-8 col-12">
+            <span class="subtitle" style="margin-bottom:var(--space-500)">Onze bewerkingen</span>
+            <h2 class="section-heading">Acht bewerkingen, van lasersnijden tot verspanen</h2>
+            <p class="article-body" style="margin-top:var(--space-500); max-width:var(--content-max-half)">
+              Zes bewerkingen doen wij in eigen huis: lasersnijden, buislasersnijden, kanten, lassen, nabewerking en CNC-verspanen. Assemblage loopt via ons zusterbedrijf, oppervlaktebehandeling besteden wij uit en regelen wij voor u.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-lasersnijden.html"
+             aria-label="Lasersnijden: Nauwkeurig snijden van plaatmateriaal">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 33vw" width="1024" height="309" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-grey">
+              <span class="subtitle">Dienst 01</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">Lasersnijden</h3>
+                  <div class="cta-blocks-advanced__content"><p>Nauwkeurig snijden van plaatmateriaal</p><p>Uw plaatdelen komen rechtstreeks uit uw eigen bestand, in staal, RVS of aluminium. Natekenen hoeft niet.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-buislasersnijden.html"
+             aria-label="Buislasersnijden: Snijden en bewerken van buis en profiel">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/transport-1024.webp" srcset="assets/foto/transport-640.webp 640w, assets/foto/transport-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 33vw" width="1024" height="683" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-white">
+              <span class="subtitle">Dienst 02</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">Buislasersnijden</h3>
+                  <div class="cta-blocks-advanced__content"><p>Snijden en bewerken van buis en profiel</p><p>Buis en profiel krijgt u op maat gesneden en bewerkt, zodat er bij u niets meer op lengte hoeft.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-kanten.html"
+             aria-label="Kanten: Plaatmateriaal zetten tot de gewenste vorm">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 33vw" width="1024" height="309" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-grey">
+              <span class="subtitle">Dienst 03</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">Kanten</h3>
+                  <div class="cta-blocks-advanced__content"><p>Plaatmateriaal zetten tot de gewenste vorm</p><p>De gesneden plaat wordt in dezelfde werkplaats gezet, in de vorm die op uw tekening staat.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-lassen.html"
+             aria-label="Lassen: Lassen met TIG, MIG of laser">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/lassen-1024.webp" srcset="assets/foto/lassen-640.webp 640w, assets/foto/lassen-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 33vw" width="1024" height="683" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-white">
+              <span class="subtitle">Dienst 04</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">Lassen</h3>
+                  <div class="cta-blocks-advanced__content"><p>Lassen met TIG, MIG of laser</p><p>Losse delen worden &eacute;&eacute;n geheel; wij kiezen TIG, MIG of laser bij het werk dat er ligt.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-nabewerking.html"
+             aria-label="Nabewerking: Afbramen, tappen, boren en verzinken">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/lassen-1024.webp" srcset="assets/foto/lassen-640.webp 640w, assets/foto/lassen-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 33vw" width="1024" height="683" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-grey">
+              <span class="subtitle">Dienst 05</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">Nabewerking</h3>
+                  <div class="cta-blocks-advanced__content"><p>Afbramen, tappen, boren en verzinken</p><p>Het werk dat een onderdeel afmaakt, in dezelfde aanvraag geregeld in plaats van bij een ander bedrijf.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-assemblage.html"
+             aria-label="Assemblage: Samenbouwen via ons zusterbedrijf">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/overleg-960.webp" srcset="assets/foto/overleg-640.webp 640w, assets/foto/overleg-960.webp 960w" sizes="(max-width: 991px) 100vw, 33vw" width="960" height="640" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-white">
+              <span class="subtitle">Dienst 06</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">Assemblage</h3>
+                  <div class="cta-blocks-advanced__content"><p>Samenbouwen via ons zusterbedrijf</p><p>Een complete samenstelling bouwt ons zusterbedrijf Tentije samen: dezelfde werkplaats, hetzelfde team.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-oppervlaktebehandeling.html"
+             aria-label="Oppervlaktebehandeling: Poedercoaten, volledig geregeld">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/haven-960.webp" srcset="assets/foto/haven-640.webp 640w, assets/foto/haven-960.webp 960w" sizes="(max-width: 991px) 100vw, 33vw" width="960" height="540" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-grey">
+              <span class="subtitle">Dienst 07</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">Oppervlaktebehandeling</h3>
+                  <div class="cta-blocks-advanced__content"><p>Poedercoaten, volledig geregeld</p><p>Coaten besteden wij uit en regelen wij volledig. U krijgt uw onderdeel afgewerkt terug, van &eacute;&eacute;n adres.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-12 kolom--vullend">
+          <a class="cta-blocks-advanced__card cta-blocks-advanced__card--linked hover--icon" href="dienst-cnc-verspanen.html"
+             aria-label="CNC-verspanen: Draaien en frezen in eigen huis">
+            <figure class="cta-blocks-advanced__banner cta-blocks-advanced__banner--verhouding">
+              <img src="assets/foto/bouwplaats-2400.webp" srcset="assets/foto/bouwplaats-1200.webp 1200w, assets/foto/bouwplaats-2400.webp 2400w" sizes="(max-width: 991px) 100vw, 33vw" width="2400" height="1350" alt="" loading="lazy" decoding="async">
+            </figure>
+            <div class="cta-blocks-advanced__body cta-blocks-advanced__body--bg-white">
+              <span class="subtitle">Dienst 08</span>
+              <div class="cta-blocks-advanced__wrapper">
+                <div>
+                  <h3 class="cta-blocks-advanced__title" style="margin-bottom:var(--space-500)">CNC-verspanen</h3>
+                  <div class="cta-blocks-advanced__content"><p>Draaien en frezen in eigen huis</p><p>Verspaande delen komen uit dezelfde aanvraag als uw plaatwerk, dus bij dezelfde leverancier vandaan.</p></div>
+                </div>
+                <span class="button--icon button--icon--56" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 MATERIALEN ================= -->
+  <section class="cases-grid" id="s05-materialen">
+    <div class="container">
+      <div class="cases-grid__header">
+        <h2 class="cases-grid__heading">Staal, RVS en aluminium</h2>
+        <a href="materialen.html" class="button button--secundair"><span class="button__inhoud">Bekijk de materialen<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+      </div>
+      <div class="cases-grid__list">
+      <a class="cases-grid__row cases-grid__row--grey hover--icon"
+         href="materialen.html" aria-label="Staal: voorbeeldkwaliteiten">
+        <div class="cases-grid__body">
+          <div class="cases-grid__meta">
+            <span class="cases-grid__meta-item">Materiaal 01</span>
+            <span class="cases-grid__meta-item">DC01 &middot; DD11</span>
+          </div>
+          <h3 class="cases-grid__title">Staal</h3>
+          <div class="cases-grid__wrapper">
+            <p class="cases-grid__text">Sterk, veelzijdig en geschikt voor uiteenlopende constructieve en industri&euml;le toepassingen.</p>
+            <span class="button--icon button--icon--54 button--secundair" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+          </div>
+        </div>
+        <figure class="cases-grid__image">
+          <img src="assets/foto/lassen-1024.webp" srcset="assets/foto/lassen-640.webp 640w, assets/foto/lassen-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 50vw" width="1024" height="683" alt="Lasser aan het werk aan een constructie" loading="lazy" decoding="async">
+        </figure>
+      </a>
+      <a class="cases-grid__row cases-grid__row--white hover--icon"
+         href="materialen.html" aria-label="RVS: voorbeeldkwaliteiten">
+        <div class="cases-grid__body">
+          <div class="cases-grid__meta">
+            <span class="cases-grid__meta-item">Materiaal 02</span>
+            <span class="cases-grid__meta-item">RVS 304 &middot; RVS 316</span>
+          </div>
+          <h3 class="cases-grid__title">RVS</h3>
+          <div class="cases-grid__wrapper">
+            <p class="cases-grid__text">Corrosiebestendig en duurzaam materiaal voor toepassingen waar hygi&euml;ne, uitstraling en een lange levensduur belangrijk zijn.</p>
+            <span class="button--icon button--icon--54 button--secundair" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+          </div>
+        </div>
+        <figure class="cases-grid__image">
+          <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 50vw" width="1024" height="309" alt="Productiehal met medewerkers aan de lijn" loading="lazy" decoding="async">
+        </figure>
+      </a>
+      <a class="cases-grid__row cases-grid__row--grey hover--icon"
+         href="materialen.html" aria-label="Aluminium: voorbeeldkwaliteiten">
+        <div class="cases-grid__body">
+          <div class="cases-grid__meta">
+            <span class="cases-grid__meta-item">Materiaal 03</span>
+            <span class="cases-grid__meta-item">EN AW-1050A &middot; EN AW-5005 (AlMg1)</span>
+          </div>
+          <h3 class="cases-grid__title">Aluminium</h3>
+          <div class="cases-grid__wrapper">
+            <p class="cases-grid__text">Lichtgewicht, sterk en goed te bewerken, met een uitstekende verhouding tussen gewicht en sterkte.</p>
+            <span class="button--icon button--icon--54 button--secundair" aria-hidden="true" inert><span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></span>
+          </div>
+        </div>
+        <figure class="cases-grid__image">
+          <img src="assets/foto/transport-1024.webp" srcset="assets/foto/transport-640.webp 640w, assets/foto/transport-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 50vw" width="1024" height="683" alt="Industriële transportbrug en constructie" loading="lazy" decoding="async">
+        </figure>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 IN CIJFERS ================= -->
+  <section class="content-block" id="s06-usps">
+    <div class="container">
+      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
+        <div class="row">
+          <div class="col-md-8 col-12">
+            <span class="subtitle" style="margin-bottom:var(--space-500)">In cijfers</span>
+            <h2 class="section-heading">22 jaar ervaring, acht bewerkingen, drie materialen</h2>
+          </div>
+        </div>
+      </div>
+      <div class="panel-row panel-row--3">
+        <div>
+          <div class="panel panel--grey">
+            <p class="usp__getal" data-telop="22">22</p>
+            <p class="usp__label">jaar ervaring</p>
+            <p class="panel__body">Ervaring uit de machinebouw en automatisering, meegenomen naar het metaalwerk dat wij nu maken.</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel--wit">
+            <p class="usp__getal" data-telop="8">8</p>
+            <p class="usp__label">bewerkingen</p>
+            <p class="panel__body">Van snijden en kanten tot lassen, verspanen en coaten &mdash; onder &eacute;&eacute;n dak geregeld.</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel--grey">
+            <p class="usp__getal" data-telop="3">3</p>
+            <p class="usp__label">materialen</p>
+            <p class="panel__body">Staal, RVS en aluminium. Bijzondere metalen zijn op aanvraag leverbaar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07 WAAROM VORMA METAAL ================= -->
+  <section class="content-block" id="s07-waarom">
+    <div class="container">
+      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
+        <div class="row">
+          <div class="col-md-8 col-12">
+            <span class="subtitle" style="margin-bottom:var(--space-500)">Waarom Vorma Metaal</span>
+            <h2 class="section-heading">Zes redenen om uw metaalwerk bij ons aan te vragen</h2>
+            <p class="article-body" style="margin-top:var(--space-500); max-width:var(--content-max-half)">
+              Wij maken uw onderdelen in onze eigen werkplaats in Goor. Aanvragen doet u online, offreren gebeurt volgens een vaste calculatie en u heeft &eacute;&eacute;n aanspreekpunt.
+            </p>
+          </div>
+          <div class="col-md-4 col-12 text-md-end">
+            <a href="diensten.html" class="button button--primary"><span class="button__inhoud">Bekijk alle bewerkingen<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="panel-row panel-row--4">
+        <div>
+          <div class="panel panel--wit panel--beeld">
+            <figure class="panel__beeld">
+              <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 25vw" width="1024" height="309" alt="" loading="lazy" decoding="async">
+            </figure>
+            <span class="panel__meta">01</span>
+            <h3 class="panel__title">22 jaar in de techniek</h3>
+            <p class="panel__body">Opgebouwd in diverse technische sectoren, met name in de machinebouw en automatisering.</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel--grey panel--beeld">
+            <figure class="panel__beeld">
+              <img src="assets/foto/lassen-1024.webp" srcset="assets/foto/lassen-640.webp 640w, assets/foto/lassen-1024.webp 1024w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 25vw" width="1024" height="683" alt="" loading="lazy" decoding="async">
+            </figure>
+            <span class="panel__meta">02</span>
+            <h3 class="panel__title">Persoonlijk contact</h3>
+            <p class="panel__body">Bel of mail ons over uw opdracht. Bij een complexe aanvraag nemen wij zelf contact met u op.</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel--wit panel--beeld">
+            <figure class="panel__beeld">
+              <img src="assets/foto/overleg-960.webp" srcset="assets/foto/overleg-640.webp 640w, assets/foto/overleg-960.webp 960w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 25vw" width="960" height="640" alt="" loading="lazy" decoding="async">
+            </figure>
+            <span class="panel__meta">03</span>
+            <h3 class="panel__title">Online aanvragen</h3>
+            <p class="panel__body">Uw STEP-, DXF- of DWG-bestand wordt in ons portaal direct ingelezen, met het materiaal dat u kiest.</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel--grey panel--beeld">
+            <figure class="panel__beeld">
+              <img src="assets/foto/transport-1024.webp" srcset="assets/foto/transport-640.webp 640w, assets/foto/transport-1024.webp 1024w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 25vw" width="1024" height="683" alt="" loading="lazy" decoding="async">
+            </figure>
+            <span class="panel__meta">04</span>
+            <h3 class="panel__title">Vaste calculatie</h3>
+            <p class="panel__body">U ontvangt een heldere offerte volgens een vaste calculatie, ook bij een herhaalaanvraag, zodat u weet waar u aan toe bent.</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel--wit panel--beeld">
+            <figure class="panel__beeld">
+              <img src="assets/foto/haven-960.webp" srcset="assets/foto/haven-640.webp 640w, assets/foto/haven-960.webp 960w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 25vw" width="960" height="540" alt="" loading="lazy" decoding="async">
+            </figure>
+            <span class="panel__meta">05</span>
+            <h3 class="panel__title">U weet waar het staat</h3>
+            <p class="panel__body">Van offerte tot levering hoort u van ons wanneer het ertoe doet.</p>
+          </div>
+        </div>
+        <div>
+          <div class="panel panel--grey panel--beeld">
+            <figure class="panel__beeld">
+              <img src="assets/foto/bouwplaats-2400.webp" srcset="assets/foto/bouwplaats-1200.webp 1200w, assets/foto/bouwplaats-2400.webp 2400w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 25vw" width="2400" height="1350" alt="" loading="lazy" decoding="async">
+            </figure>
+            <span class="panel__meta">06</span>
+            <h3 class="panel__title">Van &eacute;&eacute;n stuk tot serie</h3>
+            <p class="panel__body">Wij maken uniek maatwerk en seriematige productie; ook voor &eacute;&eacute;n onderdeel dient u een aanvraag in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quotes" id="s08-verwachten">
+    <div class="container">
+      <div class="quotes__kop">
+        <span class="subtitle">Wat wij afspreken</span>
+        <h2 class="section-heading">Wat er gebeurt nadat u uw aanvraag verstuurt</h2>
+      </div>
+      <div class="quotes__venster" data-quoteslider aria-live="polite">
+        <figure class="quote" role="group" aria-roledescription="afspraak"
+               aria-label="Afspraak 1 van 3">
+          <div class="quote__beeld">
+            <img src="assets/foto/overleg-960.webp" srcset="assets/foto/overleg-640.webp 640w, assets/foto/overleg-960.webp 960w" sizes="(max-width: 767px) 100vw, 40vw" width="960" height="640" alt="Werkoverleg met een klein team" loading="lazy" decoding="async">
+          </div>
+          <div class="quote__body">
+            <div class="quote__tekst"><p>Wij kijken eerst of uw onderdeel te maken is zoals het getekend staat. Is er iets onduidelijk, dan nemen wij contact met u op.</p></div>
+            <hr class="quote__streep">
+            <figcaption class="quote__naam">Vorma Metaal, Controle</figcaption>
+            
+          </div>
+        </figure>
+        <figure class="quote" role="group" aria-roledescription="afspraak"
+               aria-label="Afspraak 2 van 3">
+          <div class="quote__beeld">
+            <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 767px) 100vw, 40vw" width="1024" height="309" alt="Productiehal met medewerkers aan de lijn" loading="lazy" decoding="async">
+          </div>
+          <div class="quote__body">
+            <div class="quote__tekst"><p>Daarna ontvangt u een duidelijke, vrijblijvende offerte volgens een vaste calculatie. Het werk start pas nadat u die goedkeurt.</p></div>
+            <hr class="quote__streep">
+            <figcaption class="quote__naam">Vorma Metaal, Offerte</figcaption>
+            
+          </div>
+        </figure>
+        <figure class="quote" role="group" aria-roledescription="afspraak"
+               aria-label="Afspraak 3 van 3">
+          <div class="quote__beeld">
+            <img src="assets/foto/transport-1024.webp" srcset="assets/foto/transport-640.webp 640w, assets/foto/transport-1024.webp 1024w" sizes="(max-width: 767px) 100vw, 40vw" width="1024" height="683" alt="Industriële transportbrug en constructie" loading="lazy" decoding="async">
+          </div>
+          <div class="quote__body">
+            <div class="quote__tekst"><p>Uw producten worden geleverd of staan klaar om af te halen in Goor. Van offerte tot levering hoort u van ons wanneer het ertoe doet.</p></div>
+            <hr class="quote__streep">
+            <figcaption class="quote__naam">Vorma Metaal, Levering</figcaption>
+            
+          </div>
+        </figure>
+      </div>
+      <!-- De pijlen staan hidden en worden door site.js zichtbaar gemaakt.
+           Zonder JavaScript staan alle citaten gewoon onder elkaar en zou je
+           op knoppen klikken die niets doen. -->
+      <div class="quotes__nav" hidden>
+        <button type="button" class="button--icon button--icon--56 button--grijs quotes__pijl" data-quote="vorige" aria-label="Vorige quote">
+          <span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="transform:scaleX(-1)"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="transform:scaleX(-1)"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span>
+        </button>
+        <button type="button" class="button--icon button--icon--56 button--grijs quotes__pijl" data-quote="volgende" aria-label="Volgende quote">
+          <span class="button--circle"><span class="circle-container"><svg class="arrow--animation is-1" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span>
+        </button>
+        <p class="quotes__teller" data-quote-teller>1 / 3</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band background--white" id="s09-faq">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <span class="subtitle">FAQ</span>
+          <h2 class="font-size--lg" style="margin-top:var(--space-500)">Wat u wilt weten voordat u aanvraagt</h2>
+        </div>
+        <div class="col-md-8 col-12">
+          <div class="accordion">
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false" aria-controls="faq-09-0">
+              <span class="accordion__number">01</span>
+              <span class="accordion__title">Hoe vraag ik een offerte aan?</span>
+              <span class="accordion__suffix" aria-hidden="true"><span class="accordion__icon"></span></span>
+            </button>
+            <div class="accordion__details" id="faq-09-0">
+              <div class="accordion__details-inner article-body"><p>Via ons portaal. U uploadt uw CAD-bestanden &mdash; STEP, DXF of DWG &mdash; eventueel met een PDF-tekening erbij, en u kiest het materiaal: staal, RVS of aluminium.</p><p>Wij nemen uw aanvraag daarna in behandeling en controleren of die maakbaar is. Wilt u liever eerst overleggen? Bel of mail ons uw tekening; ook dan gaat uw aanvraag in behandeling.</p></div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false" aria-controls="faq-09-1">
+              <span class="accordion__number">02</span>
+              <span class="accordion__title">Heb ik een account nodig om een offerte aan te vragen?</span>
+              <span class="accordion__suffix" aria-hidden="true"><span class="accordion__icon"></span></span>
+            </button>
+            <div class="accordion__details" id="faq-09-1">
+              <div class="accordion__details-inner article-body"><p>Uw aanvraag loopt via ons portaal: daar levert u uw bestanden aan en daar komt uw offerte online te staan.</p><p>Werkt u liever niet via het portaal? Bel of mail ons uw tekening; wij nemen uw aanvraag dan gewoon in behandeling.</p></div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false" aria-controls="faq-09-2">
+              <span class="accordion__number">03</span>
+              <span class="accordion__title">Is mijn aanvraag vrijblijvend?</span>
+              <span class="accordion__suffix" aria-hidden="true"><span class="accordion__icon"></span></span>
+            </button>
+            <div class="accordion__details" id="faq-09-2">
+              <div class="accordion__details-inner article-body"><p>Ja. U ontvangt een duidelijke, vrijblijvende offerte en het werk start pas na uw akkoord. Tot dat moment verplicht een aanvraag u tot niets.</p></div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false" aria-controls="faq-09-3">
+              <span class="accordion__number">04</span>
+              <span class="accordion__title">Hoe snel ontvang ik mijn offerte?</span>
+              <span class="accordion__suffix" aria-hidden="true"><span class="accordion__icon"></span></span>
+            </button>
+            <div class="accordion__details" id="faq-09-3">
+              <div class="accordion__details-inner article-body"><p>Standaardwerk offreert het portaal volledig automatisch: uw offerte staat direct online, binnen enkele minuten.</p><p>Complexe opdrachten en bijzondere materialen beoordelen wij persoonlijk, binnen korte tijd. Dagen wachten op een offerte hoeft in geen van beide gevallen.</p></div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false" aria-controls="faq-09-4">
+              <span class="accordion__number">05</span>
+              <span class="accordion__title">Kan ik een complete samenstelling aanvragen?</span>
+              <span class="accordion__suffix" aria-hidden="true"><span class="accordion__icon"></span></span>
+            </button>
+            <div class="accordion__details" id="faq-09-4">
+              <div class="accordion__details-inner article-body"><p>Ja. Samenbouwen tot complete samenstellingen loopt via ons zusterbedrijf Tentije Industri&euml;le Automatisering B.V., waarmee wij dezelfde werkplaats en hetzelfde team delen.</p><p>Hoort er poedercoaten of een andere oppervlaktebehandeling bij, dan besteden wij dat uit en regelen wij het volledig. U houdt &eacute;&eacute;n aanspreekpunt voor het geheel.</p></div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false" aria-controls="faq-09-5">
+              <span class="accordion__number">06</span>
+              <span class="accordion__title">Welke bewerkingen kunnen wij voor u verzorgen?</span>
+              <span class="accordion__suffix" aria-hidden="true"><span class="accordion__icon"></span></span>
+            </button>
+            <div class="accordion__details" id="faq-09-5">
+              <div class="accordion__details-inner article-body"><p>Lasersnijden, buislasersnijden, kanten, lassen, nabewerking en CNC-verspanen doen wij in eigen huis, in onze werkplaats in Goor.</p><p>Assemblage loopt via ons zusterbedrijf Tentije Industri&euml;le Automatisering B.V.; oppervlaktebehandeling besteden wij uit en regelen wij voor u. Samen zijn dat acht bewerkingen onder &eacute;&eacute;n dak.</p></div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false" aria-controls="faq-09-6">
+              <span class="accordion__number">07</span>
+              <span class="accordion__title">Kan ik losse stuks of kleine series laten maken?</span>
+              <span class="accordion__suffix" aria-hidden="true"><span class="accordion__icon"></span></span>
+            </button>
+            <div class="accordion__details" id="faq-09-6">
+              <div class="accordion__details-inner article-body"><p>Ja. Wij maken uniek maatwerk en series, van enkelstuks tot seriematige productie; ook voor &eacute;&eacute;n onderdeel dient u gewoon een aanvraag in.</p><p>Komt dezelfde aanvraag later terug, dan offreren wij die volgens dezelfde vaste calculatie, zodat de offerte navolgbaar blijft.</p></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10 WAAR VORMA VANDAAN KOMT ================= -->
+  <!-- Was het portret met de biografie van Martin de Groot. Van Vorma Metaal
+       is geen medewerkersfoto beschikbaar en die verzinnen kan niet; het
+       beeldslot houdt zijn plek en verhouding en krijgt een werkplaatsfoto. -->
+  <section class="streamer streamer--employee streamer--employee--portret background--groen" id="s10-herkomst">
+    <div class="container">
+      <div class="streamer--employee-row">
+        <figure class="streamer--employee-portrait">
+          <img src="assets/foto/productiehal-1024.webp" srcset="assets/foto/productiehal-640.webp 640w, assets/foto/productiehal-1024.webp 1024w" sizes="(max-width: 991px) 100vw, 40vw" width="1024" height="309" alt="Productiehal met medewerkers aan de lijn" loading="lazy" decoding="async">
+        </figure>
+        <div class="streamer--employee-panel band">
+          <span class="subtitle" style="color:var(--color-white)">Herkomst</span>
+          <h2 class="streamer--employee-name">Uit de machinebouw, in Goor</h2>
+          <div class="article-body content-fit--half">
+<p>Vorma Metaal komt uit Tentije Industri&euml;le Automatisering B.V., in 2004 in Goor opgericht door Richard ten Tije als eenmanszaak in PLC-programmering en besturingskasten.</p>
+            <p>Tentije doet nu machinebouw, onderhoud en besturingstechniek. Daar is ook de 22 jaar ervaring opgebouwd die wij meenemen: in diverse technische sectoren, met name in de machinebouw en automatisering.</p>
+            <p>Voor het maatwerk in metaal is Vorma Metaal daaruit ontstaan. Beide bedrijven werken in dezelfde werkplaats met hetzelfde team, dus u heeft met dezelfde mensen te maken.</p>
+          </div>
+          <div>
+            <a href="over-vorma-metaal.html" class="button button--primary"><span class="button__inhoud">Over Vorma Metaal<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="logo-slider" id="s11-partners" aria-label="Logoband" data-logoband>
+    <div class="logo-slider__venster">
+      <div class="logo-slider__spoor">
+        <ul class="logo-slider__set">
+          <li class="logo-slider__logo"><img data-src="assets/partners/alstom.webp" alt="Alstom" width="408" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ballast-nedam.webp" alt="Ballast Nedam" width="452" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/bilfinger.webp" alt="Bilfinger" width="210" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/cosun.webp" alt="Cosun Beet Company" width="345" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ebert-hera.webp" alt="Ebert Hera" width="389" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/electrabel.webp" alt="Electrabel / GDF Suez" width="203" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/freesmij.webp" alt="Freesmij" width="309" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ge-vernova.webp" alt="GE Vernova" width="362" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/huhtamaki.webp" alt="Huhtamaki" width="478" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ivens.webp" alt="Ivens" width="237" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ooms.webp" alt="Ooms Bouw &amp; Ontwikkeling" width="248" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/stork.webp" alt="Stork" width="197" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/tes.webp" alt="TES Industrial Systems" width="160" height="80" decoding="async"></li>
+        </ul>
+        <ul class="logo-slider__set" aria-hidden="true">
+          <li class="logo-slider__logo"><img data-src="assets/partners/alstom.webp" alt="Alstom" width="408" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ballast-nedam.webp" alt="Ballast Nedam" width="452" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/bilfinger.webp" alt="Bilfinger" width="210" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/cosun.webp" alt="Cosun Beet Company" width="345" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ebert-hera.webp" alt="Ebert Hera" width="389" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/electrabel.webp" alt="Electrabel / GDF Suez" width="203" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/freesmij.webp" alt="Freesmij" width="309" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ge-vernova.webp" alt="GE Vernova" width="362" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/huhtamaki.webp" alt="Huhtamaki" width="478" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ivens.webp" alt="Ivens" width="237" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/ooms.webp" alt="Ooms Bouw &amp; Ontwikkeling" width="248" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/stork.webp" alt="Stork" width="197" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img data-src="assets/partners/tes.webp" alt="TES Industrial Systems" width="160" height="80" decoding="async"></li>
+        </ul>
+      </div>
+    </div>
+    <noscript>
+      <div class="logo-slider__venster">
+        <div class="logo-slider__spoor">
+        <ul class="logo-slider__set">
+          <li class="logo-slider__logo"><img src="assets/partners/alstom.webp" alt="Alstom" width="408" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ballast-nedam.webp" alt="Ballast Nedam" width="452" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/bilfinger.webp" alt="Bilfinger" width="210" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/cosun.webp" alt="Cosun Beet Company" width="345" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ebert-hera.webp" alt="Ebert Hera" width="389" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/electrabel.webp" alt="Electrabel / GDF Suez" width="203" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/freesmij.webp" alt="Freesmij" width="309" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ge-vernova.webp" alt="GE Vernova" width="362" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/huhtamaki.webp" alt="Huhtamaki" width="478" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ivens.webp" alt="Ivens" width="237" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ooms.webp" alt="Ooms Bouw &amp; Ontwikkeling" width="248" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/stork.webp" alt="Stork" width="197" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/tes.webp" alt="TES Industrial Systems" width="160" height="80" decoding="async"></li>
+        </ul>
+        <ul class="logo-slider__set" aria-hidden="true">
+          <li class="logo-slider__logo"><img src="assets/partners/alstom.webp" alt="Alstom" width="408" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ballast-nedam.webp" alt="Ballast Nedam" width="452" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/bilfinger.webp" alt="Bilfinger" width="210" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/cosun.webp" alt="Cosun Beet Company" width="345" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ebert-hera.webp" alt="Ebert Hera" width="389" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/electrabel.webp" alt="Electrabel / GDF Suez" width="203" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/freesmij.webp" alt="Freesmij" width="309" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ge-vernova.webp" alt="GE Vernova" width="362" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/huhtamaki.webp" alt="Huhtamaki" width="478" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ivens.webp" alt="Ivens" width="237" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/ooms.webp" alt="Ooms Bouw &amp; Ontwikkeling" width="248" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/stork.webp" alt="Stork" width="197" height="80" decoding="async"></li>
+          <li class="logo-slider__logo"><img src="assets/partners/tes.webp" alt="TES Industrial Systems" width="160" height="80" decoding="async"></li>
+        </ul>
+        </div>
+      </div>
+    </noscript>
+  </section>
+
+  <section class="cta-slot" id="s12-contact">
+    <div class="container">
+      <div class="cta-slot__hoofd">
+        <span class="subtitle cta-slot__label">Contact</span>
+        <h2 class="cta-slot__kop">Een vraag over uw project?</h2>
+        <p class="cta-slot__tekst">Wilt u uw aanvraag eerst bespreken? Bel ons, mail ons of laat uw nummer achter.</p>
+        <div class="cta-slot__actie">
+          <a href="contact.html" class="button button--primary"><span class="button__inhoud">Vraag een offerte aan<span class="button__spoor" aria-hidden="true"><svg class="arrow--animation is-1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg><svg class="arrow--animation is-2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4.6 20.6 12l-7.4 7.4-1.4-1.4 5-5H3.4v-2h13.4l-5-5 1.4-1.4Z"/></svg></span></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer--widgets">
+      <div class="row footer--gap">
+        <div class="col-lg-3 col-md-4 col-12 widget">
+          <img src="assets/logo/vorma-metaal.svg" alt="Vorma Metaal" width="85" height="40" style="margin-bottom:var(--space-500)">
+          <p class="footer--intro">Maatwerk in metaal, van enkelstuks tot seriematige productie. Lasersnijden, buislasersnijden, kanten, lassen, nabewerking, assemblage, oppervlaktebehandeling en CNC-verspanen.</p>
+        </div>
+        <div class="col-lg-3 col-md-4 col-12 widget">
+          <h3>Diensten</h3>
+          <ul role="list">
+            <li><a href="dienst-lasersnijden.html">Lasersnijden</a></li>
+            <li><a href="dienst-buislasersnijden.html">Buislasersnijden</a></li>
+            <li><a href="dienst-kanten.html">Kanten</a></li>
+            <li><a href="dienst-lassen.html">Lassen</a></li>
+            <li><a href="dienst-nabewerking.html">Nabewerking</a></li>
+            <li><a href="dienst-assemblage.html">Assemblage</a></li>
+            <li><a href="dienst-oppervlaktebehandeling.html">Oppervlaktebehandeling</a></li>
+            <li><a href="dienst-cnc-verspanen.html">CNC-verspanen</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4 col-12 widget">
+          <h3>Site</h3>
+          <ul role="list">
+            <li><a href="werkwijze.html">Werkwijze</a></li>
+            <li><a href="materialen.html">Materialen</a></li>
+            <li><a href="voor-wie.html">Voor wie</a></li>
+            <li><a href="over-vorma-metaal.html">Over Vorma Metaal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://www.linkedin.com/company/vormametaal/" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-4 col-12 widget">
+          <h3>Contact</h3>
+          <ul role="list">
+            <li><a href="tel:+31547227000">0547 227 000</a></li>
+            <li><a href="mailto:info@vormametaal.nl">info@vormametaal.nl</a></li>
+          </ul>
+          <p class="footer--adres">Dammaten 14<br>7472 DJ Goor</p>
+          <p class="footer--adres">maandag t/m vrijdag: 07:30&ndash;16:30<br>zaterdag en zondag: gesloten</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer--line"></div>
+    <div class="footer--copyright">
+      <span>&copy; 2026 Vorma Metaal</span>
+      <a href="privacybeleid.html">Privacybeleid</a>
+      <a href="cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="contactformulier.js"></script>
+<script src="index.js"></script>
+</div><!-- /.content__wrapper -->
+</div><!-- /[data-barba=container] -->
+</div><!-- /[data-barba=wrapper] -->
+
+</div><!-- /#smooth-content -->
+</div><!-- /#smooth-wrapper -->
+
+<!-- ================= COOKIEMELDING ================= -->
+<aside id="cookiebalk" class="cookiebalk" hidden aria-label="Cookiemelding">
+  <h2>Cookie-instellingen</h2>
+  <p>Deze site plaatst alleen wat nodig is om hem te laten werken. Zet u analytische cookies aan, dan helpt u ons te zien wat werkt en wat niet. Lees het <a href="cookies.html">cookiebeleid</a>.</p>
+
+  <div id="cookieKeuzes" class="cookie-keuzes" hidden>
+    <div class="cookie-optie">
+      <label class="cookie-schakelaar">
+        <input type="checkbox" checked disabled aria-label="Functionele cookies, altijd aan">
+        <span aria-hidden="true"></span>
+      </label>
+      <div>
+        <span class="cookie-optie-naam">Functioneel</span>
+        <p>Nodig om de site te laten werken. Staat altijd aan.</p>
+      </div>
+    </div>
+    <div class="cookie-optie">
+      <label class="cookie-schakelaar">
+        <input type="checkbox" id="cookieAnalytisch" aria-label="Analytische cookies">
+        <span aria-hidden="true"></span>
+      </label>
+      <div>
+        <span class="cookie-optie-naam">Analytisch</span>
+        <p>Laat ons zien welke pagina&rsquo;s bezocht worden, zodat we de site kunnen verbeteren.</p>
+      </div>
+    </div>
+    <div class="cookie-optie">
+      <label class="cookie-schakelaar">
+        <input type="checkbox" id="cookieMarketing" aria-label="Marketingcookies">
+        <span aria-hidden="true"></span>
+      </label>
+      <div>
+        <span class="cookie-optie-naam">Marketing</span>
+        <p>Voor advertenties en het meten daarvan. Nu niet in gebruik.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-knoppen">
+    <button type="button" class="cookie-knop" data-cookie="weigeren">Weigeren</button>
+    <button type="button" class="cookie-knop" data-cookie="aanpassen">Aanpassen</button>
+    <button type="button" class="cookie-knop cookie-knop--donker" data-cookie="toestaan">Toestaan</button>
+  </div>
+</aside>
+
+<!-- ================= PAGINA-OVERGANGEN =================
+     Barba wisselt alleen de container hierboven om, GSAP animeert de wissel. -->
+<!-- defer: de browser haalt ze op terwijl hij de pagina nog aan het ontleden is
+     en voert ze daarna uit, in deze volgorde. Die volgorde is nodig, want
+     ScrollTrigger heeft gsap nodig en page-transitions.js heeft Barba nodig. -->
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.js"></script>
+<script defer src="cookiebalk.js"></script>
+<script defer src="analytics.js"></script>
+<script defer src="smooth-scroll.js"></script>
+<script defer src="page-transitions.js"></script>
+
+</body>
+</html>

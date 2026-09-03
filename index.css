@@ -1,0 +1,102 @@
+/* ============================================================================
+   index.css: alleen wat op de homepage staat
+   Het systeem zelf staat in styleguide.css.
+   ========================================================================== */
+
+/* ---- Hero (§6.7) --------------------------------------------------------
+   Beeld over de volle breedte met de inhoud linksonder, zoals in de gids.
+   Onderop een foto, daarover een film die pas in beeld komt als hij speelt.
+   De film laat vijf van de acht bewerkingen zien; zie
+   assets/video/HERKOMST.md. Het is nog stockbeeld en niet de werkplaats aan
+   Dammaten 14. */
+.hero--beeld { position: absolute; inset: 0; overflow: hidden; }
+.hero--beeld img,
+.hero--video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* De film staat op nul en vervaagt erin zodra hij loopt. Weigert de browser het
+   automatisch afspelen, dan blijft dit op nul staan en zie je de foto; dat is
+   het eerste beeldje van dezelfde film, dus je mist niets. */
+.hero--video { opacity: 0; transition: opacity var(--duration-image) var(--ease-standard); }
+.hero--video.is-zichtbaar { opacity: 1; }
+
+/* Geen kleur over de film: de film houdt zijn eigen kleuren. Wat er ligt is een
+   donkere aanloop naar onderen. Dat is geen filter maar het temmen van het beeld
+   waar de tekst staat, en zonder is het onbruikbaar: in de lasscene staat een
+   lasboog en op die beeldjes haalt wit onbedekt 1,15:1. De tekst is dan
+   letterlijk weg.
+
+   Gemeten over 24 beeldjes verdeeld over de hele film, op de lichtste vijf
+   procent van elk tekstvak, in een herovak van 1425x900:
+
+     bovenkopje (11px)  4,59:1   eis 4,5
+     kop (72px)         4,89:1   eis 3,0
+     introtekst         8,73:1   eis 4,5
+     knoppen           11,32:1   eis 4,5
+
+   38% boven met 70% onder is de lichtste stand waarop alle vier het halen.
+
+   Hier stond 30% boven. Dat is verhoogd, en niet vanwege de nieuwe film: de
+   meting die hier stond noemde kop, introtekst en knoppen maar niet het
+   bovenkopje, en dat haalde met 30% maar 3,92:1. Bij de film van de template
+   was dat 3,94:1, dus het zakte daar al. Het bovenkopje staat op 41% van de
+   hoogte, waar de aanloop nog licht is; het is het kleinste tekstje in de hero
+   en daarmee het strengste vak.
+
+   Wil je deze laag weg, dan is het één regel; zie CONTENT-TODO.md voor wat dat
+   kost. */
+.hero--sluier {
+  position: absolute; inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, .38) 0%, rgba(0, 0, 0, .70) 100%);
+}
+/* De hero vult het scherm. min-height en niet height, zodat hij meegroeit als de
+   tekst niet past; op een kleine telefoon in liggende stand is 100vh nog geen
+   400px en dan moet de inhoud eruit kunnen lopen in plaats van afgesneden te
+   worden.
+
+   svh en niet vh: op een telefoon rekent vh met de balken van de browser
+   weggeklapt, en dan steekt de hero er bij het openen onderuit. De vh-regel
+   staat er als terugval voor browsers die svh niet kennen. */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: var(--color-groen);
+  display: flex;
+}
+
+.hero--container {
+  position: relative; width: 100%; max-width: var(--container-max); margin-inline: auto;
+  display: flex; align-items: flex-end;
+  padding: 160px var(--inset-x) var(--space-650);
+}
+@media (max-width: 576px) { .hero--container { padding: 120px var(--inset-x) var(--space-650); } }
+
+.hero--content { width: 100%; max-width: 900px; }
+.hero--title { margin: var(--space-500) 0; color: var(--color-white); font-size: clamp(24px, 6vw, 72px); }
+@media (max-width: 576px) { .hero--title { font-size: 36px; } }
+.hero--intro { color: var(--color-white); max-width: var(--content-max-half); }
+.hero--intro p + p { margin-top: 1.6em; }
+.hero--actions { margin-top: var(--space-700); display: flex; flex-wrap: wrap; gap: var(--space-300); }
+
+/* ---- USP's --------------------------------------------------------------- */
+.usp__getal { font-family: var(--font-light); font-weight: var(--weight-light);
+              font-size: clamp(3rem, 2rem + 4vw, 5rem); line-height: 1; margin: 0; }
+.usp__label { font-family: var(--font-medium); font-weight: var(--weight-medium);
+              font-size: 0.6875rem; letter-spacing: var(--tracking-label);
+              text-transform: uppercase; margin: 0; }
+
+/* ---- Projecten ---------------------------------------------------------- */
+.projectkaart__klant {
+  font-family: var(--font-medium); font-weight: var(--weight-medium);
+  font-size: 0.6875rem; letter-spacing: var(--tracking-label); text-transform: uppercase;
+  margin: 0;
+}
+
+
+/* ---- 03 Tekst met uitlopend beeld --------------------------------------
+   De opzet uit §6.10: tekstkolom links, beeld rechts dat op desktop voorbij
+   de rand loopt. Onder 991px komt het beeld gewoon onder de tekst.
+   De kop hier is een h2 in plaats van de h3 uit de gids, want dit is de
+   eerste sectiekop van de pagina na de h1 in de hero. */
+.content-text-side-visual { background-color: var(--color-white); }
+/* De rest van dit component staat in styleguide.css; de cursuspagina's
+   gebruiken het ook. */
