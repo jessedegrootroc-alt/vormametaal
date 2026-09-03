@@ -22,7 +22,7 @@ CONTROLES = [
     "JSON-LD kapot", "TODO in html", "verboden kop",
     "plaatshouder-logoband (MAG NIET LIVE)", "verzonnen termijn",
     "onvervangen plaatshouder", "oud patroon-woord",
-    "ontbrekend bestand",
+    "ontbrekend bestand", "sitemap/robots",
 ]
 fouten = {k: [] for k in CONTROLES}
 
@@ -222,6 +222,47 @@ for p in PAGINAS:
     for m in re.finditer(r"(?i)gele stral|groene patroon", ruw):
         fouten["oud patroon-woord"].append(f"{p}: {knip(ruw, m)}")
 
+
+# ---------------------------------------------------------------------------
+# sitemap.xml en robots.txt. Die gaan ook live en stonden er nog als die van
+# het bronproject in: robots.txt wees naar de sitemap op een ander domein en de
+# sitemap somde pagina's op die hier niet bestaan.
+# ---------------------------------------------------------------------------
+import xml.etree.ElementTree as ET
+
+BASIS = "https://www.vormametaal.nl"
+
+if not os.path.exists("sitemap.xml"):
+    fouten["sitemap/robots"].append("sitemap.xml ontbreekt")
+else:
+    ruw = open("sitemap.xml", encoding="utf-8").read()
+    try:
+        boom = ET.fromstring(ruw)
+        adressen = [e.text for e in boom.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
+    except Exception as e:
+        adressen = []
+        fouten["sitemap/robots"].append(f"sitemap.xml is geen geldige XML: {e}")
+    in_sitemap = set()
+    for a in adressen:
+        if not a.startswith(BASIS + "/"):
+            fouten["sitemap/robots"].append(f"sitemap: verkeerd domein -> {a}")
+            continue
+        bestand = a[len(BASIS) + 1:]
+        in_sitemap.add(bestand)
+        if not os.path.exists(bestand):
+            fouten["sitemap/robots"].append(f"sitemap: pagina bestaat niet -> {bestand}")
+    for p in PAGINAS:
+        if p not in in_sitemap:
+            fouten["sitemap/robots"].append(f"sitemap: {p} staat er niet in")
+
+if not os.path.exists("robots.txt"):
+    fouten["sitemap/robots"].append("robots.txt ontbreekt")
+else:
+    r = open("robots.txt", encoding="utf-8").read()
+    if f"Sitemap: {BASIS}/sitemap.xml" not in r:
+        fouten["sitemap/robots"].append("robots.txt verwijst niet naar de eigen sitemap")
+    for m in re.finditer(r"(?i)madegro", r):
+        fouten["sitemap/robots"].append(f"robots.txt: {knip(r, m)}")
 
 breed = max(len(k) for k in CONTROLES)
 print(f"{len(PAGINAS)} pagina's\n")
