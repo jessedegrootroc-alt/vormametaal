@@ -73,7 +73,7 @@ MATERIALEN_PAGINA = {
     # "Onderdelen op maat" stond hier eerst; dat is de holle claim uit COPY.md
     # en is nu "onderdelen uit uw eigen CAD-bestand", wat hetzelfde zegt en
     # meteen laat zien hoe u een onderdeel aanlevert.
-    "intro_tekst": "<p>Vorma Metaal maakt onderdelen uit uw eigen CAD-bestand in staal, RVS en aluminium. Per materiaal staat hieronder waarvoor het geschikt is, met voorbeeldkwaliteiten erbij. Dat is geen voorraadlijst: welke kwaliteit u nodig heeft, geeft u bij uw aanvraag op.</p>\n            <p>U kiest het materiaal in het portaal, tijdens het uploaden van uw tekening. Wij controleren daarna of uw aanvraag maakbaar is. Staat uw metaal niet in de lijst? Bijzondere metalen zijn op aanvraag leverbaar; vermeld het bij uw aanvraag of bel ons.</p>",
+    "intro_tekst": "<p>U kiest het materiaal in het portaal, tijdens het uploaden van uw tekening. Uw keuze gaat mee in de calculatie, dus hij bepaalt mede wat de offerte wordt.</p>\n            <p>Hieronder staat per materiaal waarvoor het geschikt is, met voorbeeldkwaliteiten. Dat is geen voorraadlijst: welke kwaliteit uw onderdeel nodig heeft, geeft u zelf op bij uw aanvraag.</p>",
 
     # De drie materialen in de volgorde van de brief, in panel-row--3. De
     # typering en de kwaliteiten zijn woord voor woord de brontekst: dit is
@@ -84,14 +84,17 @@ MATERIALEN_PAGINA = {
     "materialen": [
         {"nr": "01",
          "naam": "Staal",
+         "eigenschap": "Sterk en veelzijdig",
          "tekst": "Sterk, veelzijdig en geschikt voor uiteenlopende constructieve en industri&euml;le toepassingen.",
          "kwaliteiten": ["DC01", "DD11", "S235JR", "S355MC", "DX51D+Z (sendzimir verzinkt)"]},
         {"nr": "02",
          "naam": "RVS",
+         "eigenschap": "Corrosiebestendig",
          "tekst": "Corrosiebestendig en duurzaam materiaal voor toepassingen waar hygi&euml;ne, uitstraling en een lange levensduur belangrijk zijn.",
          "kwaliteiten": ["RVS 304", "RVS 316", "Afwerking 2B of 1D, met of zonder beschermfolie"]},
         {"nr": "03",
          "naam": "Aluminium",
+         "eigenschap": "Lichtgewicht en sterk",
          "tekst": "Lichtgewicht, sterk en goed te bewerken, met een uitstekende verhouding tussen gewicht en sterkte.",
          "kwaliteiten": ["EN AW-1050A", "EN AW-5005 (AlMg1)", "EN AW-5754 H111", "EN AW-5083"]},
     ],
@@ -119,13 +122,13 @@ MATERIALEN_PAGINA = {
     # derde herhaling van de introalinea is.
     "vlakken": [
         ("Wanneer staal",
-         "Voor constructie- en industriewerk waar sterkte de eis is. Kwaliteiten als DC01, DD11, S235JR en S355MC, ook verzinkt (DX51D+Z)."),
+         "Als sterkte de eis is, voor constructie- en industriewerk."),
         ("Wanneer RVS",
-         "Als het onderdeel niet mag roesten, of als uitstraling en een lange levensduur meewegen. RVS 304 en 316, glad (2B) of mat (1D)."),
+         "Als het onderdeel niet mag roesten, of als uitstraling en levensduur meewegen."),
         ("Wanneer aluminium",
-         "Als gewicht meetelt en het onderdeel toch sterk moet zijn. Goed te bewerken, in legeringen als EN AW-1050A en EN AW-5083."),
+         "Als gewicht meetelt en het onderdeel toch sterk moet zijn."),
         ("Niet in de lijst?",
-         "Bijzondere metalen zijn op aanvraag leverbaar. Noem het bij uw aanvraag of bel ons; zo&rsquo;n opdracht beoordelen wij persoonlijk."),
+         "Bijzondere metalen zijn op aanvraag leverbaar; zo&rsquo;n opdracht beoordelen wij persoonlijk."),
     ],
 
     # Drie vragen in de volgorde waarin de bezoeker ze stelt: wat kan er, kan
@@ -145,16 +148,16 @@ MATERIALEN_PAGINA = {
     # gebeurt en dwaalt niet af naar de offerte in het algemeen.
     "faq": [
         ("In welke materialen kunt u mijn onderdeel maken?", [
-            "Staal, RVS en aluminium. Per materiaal kiest u de kwaliteit: in staal bijvoorbeeld DC01 of S235JR, in RVS 304 of 316, in aluminium EN AW-5754 H111.",
-            "De kwaliteiten op deze pagina zijn voorbeelden en geen voorraadlijst. Welke kwaliteit uw onderdeel nodig heeft, geeft u zelf op bij uw aanvraag.",
+            "Staal, RVS en aluminium. Alle acht bewerkingen gelden voor alle drie: wat wij uit staal snijden, kanten en lassen, doen wij ook uit RVS en aluminium.",
+            "Welke kwaliteit binnen dat materiaal, bepaalt u. De voorbeelden hierboven geven de richting; uw eigen opgave is wat wij aanhouden.",
         ]),
         ("Kunt u ook een metaal verwerken dat er niet bij staat?", [
-            "Bijzondere metalen zijn op aanvraag leverbaar. Vermeld het gewenste metaal bij uw aanvraag of bel 0547 227 000, dan bekijken wij het aan de hand van uw tekening.",
-            "Wij controleren eerst of uw onderdeel maakbaar is zoals het getekend staat. Bij een bijzonder materiaal of een complexe opdracht stemmen wij persoonlijk met u af.",
+            "Vermeld het gewenste metaal bij uw aanvraag of bel 0547 227 000, dan bekijken wij het aan de hand van uw tekening.",
+            "Zo&rsquo;n aanvraag gaat niet automatisch door de calculatie. Wij beoordelen hem persoonlijk, samen met de vraag of uw onderdeel maakbaar is zoals het getekend staat.",
         ]),
         ("Hoe geef ik het materiaal op bij mijn aanvraag?", [
-            "U selecteert het materiaal in het portaal, bij het uploaden van uw STEP-, DXF- of DWG-bestand, eventueel met een PDF-tekening erbij.",
-            "Uw materiaalkeuze gaat mee in de calculatie. Standaardwerk wordt automatisch geoffreerd: uw offerte staat binnen enkele minuten online.",
+            "Bij het uploaden van uw STEP-, DXF- of DWG-bestand, eventueel met een PDF-tekening erbij.",
+            "Staat de kwaliteit die u nodig heeft niet in de keuzelijst, zet hem dan bij de aanvraag in het bericht. Dan houden wij die aan in plaats van de standaard.",
         ]),
     ],
 

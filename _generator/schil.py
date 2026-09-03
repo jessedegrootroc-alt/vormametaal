@@ -73,6 +73,12 @@ STAPPEN = [
 
 # De drie materialen met hun voorbeeldkwaliteiten. Voorbeelden, geen
 # voorraadlijst; bijzondere metalen zijn op aanvraag leverbaar.
+def materiaal_slug(naam):
+    """Het anker waar de materiaalrijen op de homepage naartoe wijzen.
+       "Staal" -> #staal, "RVS" -> #rvs, "Aluminium" -> #aluminium."""
+    return naam.lower()
+
+
 MATERIALEN = [
     ("Staal",
      "Sterk, veelzijdig en geschikt voor uiteenlopende constructieve en "

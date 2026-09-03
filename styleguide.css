@@ -320,7 +320,15 @@ ol[role="list"], ul[role="list"] { list-style: none; margin: 0; padding: 0; }
 
 a:not([class]) { color: currentColor; text-decoration-skip-ink: auto; }
 
-:target { scroll-margin-block: 5ex; }
+/* Waar een anker landt. 5ex stond hier, en dat is ongeveer 44px: minder dan de
+   116px van de vaste balk, dus het doel kwam eronder te liggen. Dat gold ook
+   voor de skip-link naar #main-content, en dat is precies de link die het moet
+   doen voor wie met het toetsenbord werkt.
+
+   --balk-hoogte volgt de breedte al (116, 109 en 77px), dus deze regel klopt
+   op elk formaat. De ruimte erbij is zodat het doel niet tegen de balk aan
+   plakt. */
+:target { scroll-margin-block-start: calc(var(--balk-hoogte) + var(--space-500)); }
 
 /* Geen border-radius, nergens, behalve waar een component het expliciet zet. */
 img, figure, section, article, aside { border-radius: var(--radius-none); }

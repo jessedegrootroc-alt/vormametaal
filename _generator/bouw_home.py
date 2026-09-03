@@ -47,6 +47,9 @@ diensten = "\n".join(dienstkaart(i, d, intro)
                      for i, (d, intro) in enumerate(zip(SERVICES, cfg["diensten_intros"])))
 
 # ---- s05: was cases-rijen, draagt nu de materialen -----------------------
+# Elke rij wijst naar zijn eigen materiaal op materialen.html en niet meer
+# naar de kale pagina: drie rijen die alle drie op dezelfde plek uitkomen is
+# voor een bezoeker een doodlopende klik.
 # Zelfde rij: beeld rechts, meta, kop, tekst en de pijlknop. De metaregels
 # droegen branche en plaats van een case en dragen nu het rijnummer en het
 # woord "materiaal".
@@ -55,7 +58,7 @@ diensten = "\n".join(dienstkaart(i, d, intro)
 # bewerkingen, en dan zag je op de homepage twee keer hetzelfde.
 _MAT_BEELD = ["staal", "rvs", "aluminium"]
 materiaalrijen = "\n".join(f'''      <a class="cases-grid__row {'cases-grid__row--grey' if i % 2 == 0 else 'cases-grid__row--white'} hover--icon"
-         href="materialen.html" aria-label="{m["naam"]}: voorbeeldkwaliteiten">
+         href="materialen.html#{materiaal_slug(m["naam"])}" aria-label="{m["naam"]}: waarvoor het geschikt is en welke kwaliteiten">
         <div class="cases-grid__body">
           <div class="cases-grid__meta">
             <span class="cases-grid__meta-item">Materiaal {i + 1:02d}</span>

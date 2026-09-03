@@ -179,17 +179,37 @@ def bouw_materialen():
     cfg = laad("materialen.py", "MATERIALEN_PAGINA")
     if not cfg:
         return
-    kaarten = []
+
+    # Elk materiaal een eigen blok over de volle breedte, met de foto ernaast
+    # en een id om naartoe te linken. Dit was een rij van drie smalle panelen
+    # zonder beeld; de drie materiaalrijen op de homepage wezen alle drie naar
+    # de kale pagina, dus je kwam nergens uit.
+    #
+    # Zelfde component als die rijen op de homepage (cases-grid__row), maar als
+    # div en niet als link: dit IS de bestemming. De klasse doet het op een div,
+    # de twee regels die eruit vallen zijn de linkresets.
+    blokken = []
     for i, m in enumerate(cfg["materialen"]):
+        slug = materiaal_slug(m["naam"])
         lijst = "".join(f'<li class="check-lijst__item">{k}</li>' for k in m["kwaliteiten"])
-        kaarten.append(f'''        <div>
-          <div class="panel panel--{'grey' if i % 2 else 'wit'}">
-            <span class="panel__meta">{m["nr"]}</span>
-            <h3 class="panel__title">{m["naam"]}</h3>
-            <p class="panel__body">{m["tekst"]}</p>
-            <ul class="check-lijst" role="list" style="margin-top:var(--space-400)">{lijst}</ul>
+        grijs = "grey" if i % 2 == 0 else "white"
+        blokken.append(f'''      <div class="cases-grid__row cases-grid__row--{grijs}" id="{slug}">
+        <div class="cases-grid__body">
+          <div class="cases-grid__meta">
+            <span class="cases-grid__meta-item">Materiaal {m["nr"]}</span>
+            <span class="cases-grid__meta-item">{m["eigenschap"]}</span>
           </div>
-        </div>''')
+          <h3 class="cases-grid__title">{m["naam"]}</h3>
+          <div class="cases-grid__wrapper">
+            <p class="cases-grid__text">{m["tekst"]}</p>
+          </div>
+          <ul class="check-lijst" role="list">{lijst}</ul>
+        </div>
+        <figure class="cases-grid__image">
+          {foto(slug, maten="(max-width: 991px) 100vw, 50vw")}
+        </figure>
+      </div>''')
+
     inhoud = f'''{patroonhero("01", "materialen", cfg["hero_label"], cfg["hero_titel"])}
 
   <section class="band background--white" id="s02-introductie">
@@ -205,20 +225,14 @@ def bouw_materialen():
     </div>
   </section>
 
-  <section class="content-block" id="s03-materialen">
+  <section class="cases-grid" id="s03-materialen">
     <div class="container">
-      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
-        <div class="row">
-          <div class="col-md-8 col-12">
-            <span class="subtitle" style="margin-bottom:var(--space-500)">Drie materialen</span>
-            <h2 class="section-heading">Staal, RVS en aluminium</h2>
-          </div>
-        </div>
+      <div class="cases-grid__header">
+        <span class="subtitle">Drie materialen</span>
+        <h2 class="cases-grid__heading">Staal, RVS en aluminium</h2>
       </div>
       <!-- De kwaliteiten zijn voorbeelden, geen voorraadlijst. Zie schil.MATERIALEN. -->
-      <div class="panel-row panel-row--3">
-{chr(10).join(kaarten)}
-      </div>
+{chr(10).join(blokken)}
     </div>
   </section>
 
