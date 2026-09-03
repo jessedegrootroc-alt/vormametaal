@@ -96,14 +96,15 @@ usps = "\n".join(f'''        <div>
 # de browser een groter bestand op. Met de oude maat van 25vw kwam er een
 # te klein beeld in een vak dat de helft breder is.
 BEELD_MATEN_WAAROM = "(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
-# Zes beelden die er ook echt verschillend uitzien. "werkplaats" stond hier
-# eerst op plek 1, maar dat is dezelfde snijtafel als "lasersnijden" op plek 3;
-# op kaartformaat las dat als twee keer dezelfde foto. Vervangen door de
-# lasboog. Nu staan er zes taferelen naast elkaar die je niet verwart: een
-# lasboog, een operator aan de kantbank, de snijtafel, een koker met vonken,
-# de hal, en de freeskop.
-_WAAROM_BEELD = ["lassen", "kanten", "lasersnijden",
-                 "buislasersnijden", "productiehal", "verspanen"]
+# Zes aangeleverde beelden, in de nummering waarin ze zijn aangeleverd: 01.png
+# hoort bij kaart 01. Hier stonden beeldjes uit de herofilm; die staan al bij
+# de bewerkingen en de materialen.
+#
+# Elk beeld sluit aan op zijn reden: de rekenmachine bij de vaste calculatie,
+# de telefoon bij het op de hoogte blijven, de laptop bij het online
+# aanvragen, en de rij gekante delen bij een stuk of een serie.
+_WAAROM_BEELD = ["handdruk", "uitleg", "laptop",
+                 "calculator", "telefoon", "plaatdelen"]
 waarom = "\n".join(f'''        <div>
           <div class="panel panel--{'grey' if i % 2 else 'wit'} panel--beeld">
             <figure class="panel__beeld">

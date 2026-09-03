@@ -46,6 +46,37 @@ materiaalrijen staan; de andere twee zijn wel bruikbaar, maar er is nu geen
 plek voor: `materialen.html` heeft tekstpanelen zonder beeld. Wil je daar
 foto's bij, dan passen deze drie.
 
+## De zes beelden bij de zes redenen
+
+Aangeleverd door Jesse op 3 september 2026 als `01.png` t/m `06.png`. Die
+nummering hoort bij de zes kaarten op de homepage.
+
+| bestand | uit | kaart | wat er te zien is |
+|---|---|---|---|
+| `handdruk-640/1280.webp` | `01.png`, 2000x1000 | 01 22 jaar in de techniek | twee mensen geven elkaar een hand |
+| `uitleg-640/1280.webp` | `02.png`, 1634x913 | 02 Persoonlijk contact | man die iets uitlegt |
+| `laptop-640/970.webp` | `03.png`, 970x646 | 03 Online aanvragen | iemand werkt aan een laptop |
+| `calculator-640/1280.webp` | `04.png`, 2000x1000 | 04 Vaste calculatie | handen bij een rekenmachine |
+| `telefoon-640/885.webp` | `05.png`, 885x531 | 05 U weet waar het staat | man kijkt op zijn telefoon |
+| `plaatdelen-640/1280.webp` | `06.png`, 2048x1536 | 06 Van een stuk tot serie | rij gekante plaatdelen op een werkbank |
+
+Omgezet met `cwebp -q 88 -m 6`. `laptop` en `telefoon` houden hun eigen
+breedte: de bron is kleiner dan 1280 en opschalen doet scherper dan het is.
+Het beeldvak van de kaart staat op `aspect-ratio: 16/10` met `cover`, dus de
+verschillende bronverhoudingen (2,00 tot 1,33) worden bijgesneden.
+
+Twee dingen om te weten:
+
+1. **Vijf van de zes zijn kantoorbeelden met mensen erop.** Dat is een breuk
+   met de rest van de site, waar alleen werkplaats en machine staan. Op
+   verzoek zo gedaan.
+2. **`plaatdelen` ziet eruit als eigen werk.** Gekante delen op een werkbank,
+   met een oranje kar op de achtergrond; het lijkt met een telefoon gemaakt in
+   een echte werkplaats. Is dat werk van Vorma Metaal, dan is dit het enige
+   beeld op de site dat de eigen productie toont, en hoort het een veel
+   prominentere plek te krijgen dan een kaart van een derde pagina breed.
+   Nagaan.
+
 ## Waarom de alt-teksten geen materiaal noemen
 
 Bij de beeldjes uit de film staat "plaat" en "koker", niet "stalen plaat" of

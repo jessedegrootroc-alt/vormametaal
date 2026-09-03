@@ -229,6 +229,32 @@ FOTOS = {
                          'Gestapelde platen met een geschuurd oppervlak', 'foto', None),
     'aluminium':        ('aluminium', 1200, 630, 640, 336,
                          'Lichte metalen panelen in een ruitpatroon', 'foto', None),
+
+    # ---- De zes redenen op de homepage ----
+    # Aangeleverd door Jesse op 3 september 2026 als 01.png t/m 06.png; die
+    # nummering hoort bij de zes kaarten. Welke kaart welke foto krijgt, staat
+    # in _WAAROM_BEELD in bouw_home.py.
+    #
+    # Vijf van de zes zijn kantoorbeelden met mensen erop, en dat is een breuk
+    # met de rest van de site: daar staat alleen werkplaats en machine. Op
+    # verzoek. 'plaatdelen' is het enige productbeeld.
+    #
+    # Het beeldvak van de kaart staat op aspect-ratio 16/10 met cover, dus de
+    # verschillende bronverhoudingen (2,00 tot 1,33) worden bijgesneden en
+    # geven geen layoutprobleem. Geen maat is opgeschaald: laptop en telefoon
+    # houden hun eigen breedte omdat de bron kleiner is dan 1280.
+    'handdruk':         ('handdruk', 1280, 640, 640, 320,
+                         'Twee mensen geven elkaar een hand', 'foto', None),
+    'uitleg':           ('uitleg', 1280, 715, 640, 358,
+                         'Man die iets uitlegt aan iemand tegenover hem', 'foto', None),
+    'laptop':           ('laptop', 970, 646, 640, 426,
+                         'Iemand werkt aan een laptop', 'foto', None),
+    'calculator':       ('calculator', 1280, 640, 640, 320,
+                         'Handen bij een rekenmachine naast een laptop', 'foto', None),
+    'telefoon':         ('telefoon', 885, 531, 640, 384,
+                         'Man kijkt glimlachend op zijn telefoon', 'foto', None),
+    'plaatdelen':       ('plaatdelen', 1280, 960, 640, 480,
+                         'Rij gekante plaatdelen op een werkbank', 'foto', None),
 }
 
 
