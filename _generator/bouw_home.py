@@ -82,16 +82,29 @@ usps = "\n".join(f'''        <div>
         </div>''' for i, (getal, label, tekst) in enumerate(cfg["usps"]))
 
 # ---- s07: was cursuskaarten, draagt nu de zes redenen -------------------
-# Zelfde paneel als cursuskaart(), met de foto erboven en een metaregel. Zes
-# items in panel-row--4 vullen anderhalve rij; het grid vangt dat op.
+# Zelfde paneel als cursuskaart(), met de foto erboven en een metaregel.
+#
+# Drie per rij en niet vier: zes items vullen dan twee volle rijen. In
+# panel-row--4 stond er een rij van vier met daaronder een rij van twee, en de
+# twee lege plekken rechts lieten de sectie onafgemaakt lijken.
 # Zes verschillende beelden, elk een bewerking of de werkplaats. Hier stonden
 # een containerschip en een torenkraan bij.
-_WAAROM_BEELD = ["werkplaats", "kanten", "lasersnijden",
+# Het vak is nu een derde van de pagina breed en niet een kwart, dus vraagt
+# de browser een groter bestand op. Met de oude maat van 25vw kwam er een
+# te klein beeld in een vak dat de helft breder is.
+BEELD_MATEN_WAAROM = "(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
+# Zes beelden die er ook echt verschillend uitzien. "werkplaats" stond hier
+# eerst op plek 1, maar dat is dezelfde snijtafel als "lasersnijden" op plek 3;
+# op kaartformaat las dat als twee keer dezelfde foto. Vervangen door de
+# lasboog. Nu staan er zes taferelen naast elkaar die je niet verwart: een
+# lasboog, een operator aan de kantbank, de snijtafel, een koker met vonken,
+# de hal, en de freeskop.
+_WAAROM_BEELD = ["lassen", "kanten", "lasersnijden",
                  "buislasersnijden", "productiehal", "verspanen"]
 waarom = "\n".join(f'''        <div>
           <div class="panel panel--{'grey' if i % 2 else 'wit'} panel--beeld">
             <figure class="panel__beeld">
-              {foto(_WAAROM_BEELD[i % 6], maten=BEELD_MATEN_4, alt="")}
+              {foto(_WAAROM_BEELD[i % 6], maten=BEELD_MATEN_WAAROM, alt="")}
             </figure>
             <span class="panel__meta">{i + 1:02d}</span>
             <h3 class="panel__title">{titel}</h3>
@@ -250,7 +263,7 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
           </div>
         </div>
       </div>
-      <div class="panel-row panel-row--4">
+      <div class="panel-row panel-row--3">
 {waarom}
       </div>
     </div>

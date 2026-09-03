@@ -2006,6 +2006,17 @@ section + section { margin-top: 0; }
   .panel-row--3 > * { width: 33.3333%; }
   .panel-row--4 > * { width: 25%; }
 }
+/* panel-row--3 heeft geen tabletregel: tussen 768 en 991px staat elk item op
+   de volle breedte. Voor de andere drie-op-een-rij-secties klopt dat, die
+   hebben drie items. De zes redenen op de homepage zouden daar een stapel van
+   zes worden, en dat is een halve pagina scrollen door dezelfde kaart.
+
+   Daarom deze ene regel op de sectie zelf. Bewust niet op .panel-row--3 in het
+   algemeen: dan zouden de secties met drie items op tablet 2 + 1 worden, en
+   daar is niet om gevraagd. */
+@media (min-width: 768px) and (max-width: 991px) {
+  #s07-waarom .panel-row--3 > * { width: 50%; }
+}
 
 .panel {
   display: flex; flex-direction: column; gap: var(--space-500);
