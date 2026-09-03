@@ -41,7 +41,7 @@ SERVICES = [
     ("dienst-assemblage.html", "Assemblage",
      "Samenbouwen via ons zusterbedrijf", "werkplaats"),
     ("dienst-oppervlaktebehandeling.html", "Oppervlaktebehandeling",
-     "Poedercoaten, volledig geregeld", "productiehal"),
+     "Poedercoaten, volledig geregeld", "werkbank"),
     ("dienst-cnc-verspanen.html", "CNC-verspanen",
      "Draaien en frezen in eigen huis", "verspanen"),
 ]
@@ -180,26 +180,23 @@ OPENINGSTIJDEN = [
 # Bij de patronen staat wel een tussenmaat, want daar zit geen fijn detail in
 # dat zachter kan worden; het zijn vloeiende verlopen.
 FOTOS = {
-    # Alle beelden hieronder zijn stilstaande beeldjes uit de herofilm, dus uit
-    # dezelfde reeks en met dezelfde kleuren en lichtval. Ze laten de bewerking
-    # zien die erbij staat.
+    # ---- Beeldjes uit de herofilm: de werkplaats en de bewerkingen ----
+    # Allemaal uit dezelfde reeks, dus dezelfde hal, lichtval en kleuren.
+    # De bron is 1280x720; er staat geen opgeschaalde maat in de srcset, want
+    # dan doet een beeld scherper dan het is.
     #
-    # Hier stonden de foto's van de template: een torenkraan, een containerschip,
-    # een transportbrug en een vrachtwagen. Die zeggen niets over
-    # metaalbewerking; oppervlaktebehandeling had een containerschip en
-    # CNC-verspanen een torenkraan.
-    #
-    # De bron is 1280x720. Er staat geen opgeschaalde maat in de srcset: dan
-    # doet een beeld scherper dan het is. Op een scherm van 2x is de dienst-hero
-    # daardoor niet helemaal scherp; dat is de grens van deze bron.
+    # De alt-teksten noemen geen materiaal. Uit een filmbeeld is niet te zien
+    # of een plaat staal of RVS is, en dat dan toch opschrijven is een bewering
+    # die niet uit de bron volgt. Hier stond eerst "stalen plaat" en "stalen
+    # koker".
     'werkplaats':       ('werkplaats', 2260, 1440, 1130, 720,
                          'Lasersnijmachine in een productiehal', 'foto', None),
     'lasersnijden':     ('lasersnijden', 1280, 720, 640, 360,
-                         'Lasersnijmachine snijdt onderdelen uit een stalen plaat', 'foto', None),
+                         'Snijkop boven een plaat, met de uitgesneden onderdelen eromheen', 'foto', None),
     'buislasersnijden': ('buislasersnijden', 1280, 720, 640, 360,
-                         'Buislaser snijdt een stalen koker op maat, met een regen van vonken', 'foto', None),
-    # 1130 breed en niet 1280: op de jas van de operator staat het beeldmerk van
-    # een ander bedrijf, tussen x=1136 en de rechterrand. Zie
+                         'Buislaser snijdt een koker op maat, met een regen van vonken', 'foto', None),
+    # 1130 breed en niet 1280: op de jas van de operator staat het beeldmerk
+    # van een ander bedrijf, tussen x=1136 en de rechterrand. Zie
     # assets/video/HERKOMST.md.
     'kanten':           ('kanten', 1130, 720, 640, 408,
                          'Operator zet een plaat in de kantbank', 'foto', None),
@@ -209,6 +206,23 @@ FOTOS = {
                          'Freeskop met koelvloeistof bewerkt een metalen onderdeel', 'foto', None),
     'productiehal':     ('productiehal', 1280, 720, 640, 360,
                          'Werkplaats met medewerkers aan gesneden plaatdelen', 'foto', None),
+    'werkbank':         ('werkbank', 1280, 720, 640, 360,
+                         'Werkbanken met een samengestelde constructie op de voorgrond', 'foto', None),
+
+    # ---- De drie materialen ----
+    # Aangeleverd door Jesse op 3 september 2026, twee per materiaal. Hiervan
+    # staat de scherpste van elk paar op de site; zie assets/foto/HERKOMST.md
+    # voor welke dat zijn en wat er met de andere drie kan.
+    #
+    # Ze staan in de materiaalrijen op de homepage, in een vak van 50vw met de
+    # tekst ernaast. Geen enkele maat is opgeschaald: aluminium is 1200 breed
+    # omdat de bron dat is.
+    'staal':            ('staal', 1280, 800, 640, 400,
+                         'Stapel stalen buizen', 'foto', None),
+    'rvs':              ('rvs', 1280, 781, 640, 390,
+                         'Gestapelde platen met een geschuurd oppervlak', 'foto', None),
+    'aluminium':        ('aluminium', 1200, 630, 640, 336,
+                         'Lichte metalen panelen in een ruitpatroon', 'foto', None),
 }
 
 

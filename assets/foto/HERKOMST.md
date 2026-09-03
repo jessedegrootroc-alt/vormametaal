@@ -15,6 +15,7 @@ lichtval, dezelfde kleuren. En ze laten de bewerking zien die erbij staat.
 | `lassen-640/1280.webp` | 5,9 s | de lasboog op de verbinding tussen een koker en een plaat |
 | `verspanen-640/1280.webp` | 7,6 s | de freeskop met koelvloeistof en wegspringende spanen |
 | `productiehal-640/1280.webp` | 9,2 s | de werkplaats met medewerkers aan gesneden plaatdelen |
+| `werkbank-640/1280.webp` | 8,55 s | de werkbanken met een samengestelde constructie op de voorgrond |
 
 Omgezet met `cwebp -q 90 -m 6`, na verkleinen met Lanczos.
 
@@ -22,6 +23,35 @@ Omgezet met `cwebp -q 90 -m 6`, na verkleinen met Lanczos.
 staat op de jas van de operator het beeldmerk van een ander bedrijf, tussen
 x=1136 en de rechterrand. De film is daarom op 1130 gesneden; zie
 `assets/video/HERKOMST.md` voor de afweging.
+
+## De drie materiaalfoto's
+
+Aangeleverd door Jesse op 3 september 2026, twee per materiaal. Van elk paar
+staat de scherpste op de site.
+
+| bestand | uit | wat er te zien is |
+|---|---|---|
+| `staal-640/1280.webp` | `staal-1.png`, 2039x1274 | een stapel stalen buizen |
+| `rvs-640/1280.webp` | `rvs-1.png`, 1500x915 | gestapelde platen met een geschuurd oppervlak |
+| `aluminium-640/1200.webp` | `aluminium.png`, 1200x630 | lichte metalen panelen in een ruitpatroon |
+
+Omgezet met `cwebp -q 88 -m 6`. Geen enkele maat is opgeschaald: `aluminium`
+is 1200 breed omdat de bron dat is.
+
+De drie die niet gebruikt zijn, staan in Downloads: `staal.png` (700x438, een
+stapel profielen: kokers, buizen, hoeklijn en plaat), `rvs.png` (1024x901,
+gebogen balken in zwart-wit) en `aluminium-1.png` (1024x683, gevlochten platte
+staven). `staal.png` is met 700px te klein voor het vak van 50vw waarin de
+materiaalrijen staan; de andere twee zijn wel bruikbaar, maar er is nu geen
+plek voor: `materialen.html` heeft tekstpanelen zonder beeld. Wil je daar
+foto's bij, dan passen deze drie.
+
+## Waarom de alt-teksten geen materiaal noemen
+
+Bij de beeldjes uit de film staat "plaat" en "koker", niet "stalen plaat" of
+"stalen koker". Uit een filmbeeld is niet te zien of een plaat staal of RVS is,
+en dat dan toch opschrijven is een bewering die niet uit de bron volgt. Bij de
+drie materiaalfoto's mag het wel: die zijn per materiaal aangeleverd.
 
 ## Waarom er geen grotere maat in de srcset staat
 

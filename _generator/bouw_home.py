@@ -50,8 +50,10 @@ diensten = "\n".join(dienstkaart(i, d, intro)
 # Zelfde rij: beeld rechts, meta, kop, tekst en de pijlknop. De metaregels
 # droegen branche en plaats van een case en dragen nu het rijnummer en het
 # woord "materiaal".
-# Staal onder de laser, RVS in de kantbank, aluminium onder de freeskop.
-_MAT_BEELD = ["lasersnijden", "kanten", "verspanen"]
+# Elk materiaal zijn eigen foto, aangeleverd door Jesse. Hier stonden beeldjes
+# uit de herofilm (de laser, de kantbank, de freeskop); die staan al bij de
+# bewerkingen, en dan zag je op de homepage twee keer hetzelfde.
+_MAT_BEELD = ["staal", "rvs", "aluminium"]
 materiaalrijen = "\n".join(f'''      <a class="cases-grid__row {'cases-grid__row--grey' if i % 2 == 0 else 'cases-grid__row--white'} hover--icon"
          href="materialen.html" aria-label="{m["naam"]}: voorbeeldkwaliteiten">
         <div class="cases-grid__body">
