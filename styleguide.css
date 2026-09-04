@@ -738,12 +738,20 @@ main > section:has(+ section) > .container > .content-text-side-cta--container {
 .cta-blocks-advanced__body--bg-geel  { background-color: var(--color-geel); }
 .cta-blocks-advanced__body--bg-groen  { background-color: var(--color-groen); }
 .cta-blocks-advanced__body--bg-groen :is(h1,h2,h3,h4,h5,h6,p,li) { color: var(--color-white); }
+/* minmax(0, …) en niet een kale fr: een fr-kolom wordt nooit smaller dan het
+   langste woord erin. Op de homepage staan de dienstkaarten drie naast elkaar,
+   en dan is "Oppervlaktebehandeling" op 2,5rem breder dan de tekstkolom. De
+   kolom groeide daardoor tot buiten de kaart en nam de alinea's eronder mee.
+   Met minmax(0) blijft de kolom binnen de kaart, en het woord breekt af. */
 .cta-blocks-advanced__wrapper {
-  flex: 1 1 auto; display: grid; grid-template-columns: 5fr 1fr;
+  flex: 1 1 auto; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 1fr);
   gap: var(--space-500); width: 100%;
 }
 .cta-blocks-advanced__icon-button { justify-self: end; align-self: end; }
-.cta-blocks-advanced__title { font-size: clamp(1.5rem, 1.25rem + 1.5vw, 2.5rem); line-height: 1.1; }
+/* Afbreken zoals op de vierkoloms panelen: met lang="nl" breekt de browser
+   op de juiste plek (Oppervlakte-behandeling); overflow-wrap is het vangnet. */
+.cta-blocks-advanced__title { font-size: clamp(1.5rem, 1.25rem + 1.5vw, 2.5rem); line-height: 1.1;
+                              hyphens: auto; overflow-wrap: anywhere; }
 .cta-blocks-advanced__content { font-family: var(--font-regular); font-weight: var(--weight-regular);
                                 font-size: 1rem; line-height: 1.5; color: var(--color-ink); }
 .cta-blocks-advanced__content p { margin: 0; font: inherit; }
