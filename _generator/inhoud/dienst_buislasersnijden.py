@@ -31,7 +31,7 @@ DIENST = {
     # uit in gewone taal: de bezoeker kent het bedrijf niet en misschien de
     # bewerking niet. Alinea 2 zegt wat de inkoper eraan heeft en benoemt dat
     # het snijden in eigen huis gebeurt, naast de andere bewerkingen.
-    "intro": "<p>Vorma Metaal maakt metalen onderdelen op uw tekening. Buislasersnijden is daarvan de bewerking voor buis en profiel: de laser kort het profiel af op lengte en snijdt in dezelfde bewerking de gaten, uitsparingen en aansluitingen mee die uw onderdeel nodig heeft.</p>\n          <p>Dat scheelt losse handelingen: minder aftekenen, zagen en naboren voordat er gelast kan worden. Wij snijden in eigen huis, in dezelfde werkplaats waar ook gekant, gelast en verspaand wordt &mdash; van &eacute;&eacute;n stuk tot een serie.</p>",
+    "intro": "<p>Vorma Metaal maakt metalen onderdelen op uw tekening. Buislasersnijden is daarvan de bewerking voor buis en profiel: de laser kort het profiel af op lengte en snijdt in dezelfde bewerking de gaten, uitsparingen en aansluitingen mee die uw onderdeel nodig heeft.</p>\n          <p>Dat scheelt losse handelingen: minder aftekenen, zagen en naboren voordat er gelast kan worden. Wij snijden in eigen huis, in dezelfde werkplaats waar ook gekant, gelast en verspaand wordt, van &eacute;&eacute;n stuk tot een serie.</p>",
 
     # Twee zinnen die de drie situatiekaarten inleiden, zelfde lengte als de
     # MADEGRO-tekst. Zegt waar het bij buiswerk op aankomt en wat de kaarten
@@ -75,7 +75,7 @@ DIENST = {
          "In het portaal kiest u staal, RVS of aluminium; bijzondere metalen zijn op aanvraag leverbaar. Staat het materiaal dat u nodig hebt niet in de lijst, vermeld dat dan bij uw aanvraag of bel ons er eerst over.",
          None),
         ("De laser snijdt uw profiel",
-         "De lengte, de gaten en de uitsparingen komen uit hetzelfde model dat u aanlevert. Doordat ze in &eacute;&eacute;n bewerking gesneden worden, ligt elk gat op de plek waar uw tekening het zet &mdash; bij het eerste stuk en bij het laatste.",
+         "De lengte, de gaten en de uitsparingen komen uit hetzelfde model dat u aanlevert. Doordat ze in &eacute;&eacute;n bewerking gesneden worden, ligt elk gat op de plek waar uw tekening het zet, bij het eerste stuk en bij het laatste.",
          None),
         ("Wij bramen af en regelen het vervolg",
          "Wij bramen af, dus de scherpe snijranden gaan eraf, en tappen of boren wat er nog bij hoort. Gaat uw buiswerk daarna naar het lassen, dan blijft het in dezelfde werkplaats; poedercoaten besteden wij uit en regelen wij voor u.",
@@ -100,7 +100,7 @@ DIENST = {
         ("lijst", "Herhaalorders uit hetzelfde bestand",
          "Een vervolgorder snijden wij uit het bestand van uw eerste aanvraag, dus het laatste stuk is gelijk aan het eerste."),
         ("document", "Prijs volgens vaste calculatie",
-         "Standaardwerk offreert het portaal automatisch, dus u weet snel wat uw buiswerk kost &mdash; ook bij een herhaalaanvraag."),
+         "Standaardwerk offreert het portaal automatisch, dus u weet snel wat uw buiswerk kost, ook bij een herhaalaanvraag."),
     ],
 
     # Leeg. MADEGRO had hier drie samenwerkingspartners. Vorma Metaal heeft
@@ -123,7 +123,7 @@ DIENST = {
     "faq": [
         ("Welk bestand en welk materiaal lever ik aan?", [
             "Het portaal leest STEP, DXF en DWG in, eventueel met een PDF-tekening erbij. Voor buis en profiel zegt een STEP-model het meest: daarin liggen de vorm van het profiel en de plaats van elke bewerking vast.",
-            "Het materiaal kiest u in het portaal: staal, RVS of aluminium, met de kwaliteit erbij &mdash; bijvoorbeeld S235JR of RVS 304. De genoemde kwaliteiten zijn voorbeelden en geen voorraadlijst; bijzondere metalen zijn op aanvraag leverbaar.",
+            "Het materiaal kiest u in het portaal: staal, RVS of aluminium, met de kwaliteit erbij, bijvoorbeeld S235JR of RVS 304. De genoemde kwaliteiten zijn voorbeelden en geen voorraadlijst; bijzondere metalen zijn op aanvraag leverbaar.",
         ]),
         ("Wanneer krijg ik mijn prijs?", [
             "Wij controleren uw aanvraag zelf op maakbaarheid, voordat er een prijs uitgaat. Standaardwerk wordt automatisch geoffreerd: die offerte staat binnen enkele minuten online.",

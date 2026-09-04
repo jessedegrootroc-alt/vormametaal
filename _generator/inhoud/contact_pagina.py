@@ -100,7 +100,7 @@ CONTACT_PAGINA = {
     # offerte, het werk start pas na uw akkoord) en het is het sterkste argument
     # om nu op verzenden te drukken. De openingstijden stonden hier eerder, maar
     # die staan in het vierde vlak hieronder al voluit.
-    "intro": '''            <p>Wilt u uw opdracht eerst bespreken? Vul het formulier in of bel ons. Voor een prijs hebben wij uw CAD-bestand nodig &mdash; STEP, DXF of DWG &mdash; met het materiaal en het aantal erbij.</p>
+    "intro": '''            <p>Wilt u uw opdracht eerst bespreken? Vul het formulier in of bel ons. Voor een prijs hebben wij uw CAD-bestand nodig (STEP, DXF of DWG), met het materiaal en het aantal erbij.</p>
             <p>Aanvragen is vrijblijvend: het werk start pas na uw akkoord.</p>''',
 
     # De regel onder de intro, op de plek van MADEGRO's .contact-direct (79

@@ -139,7 +139,7 @@ commercieel gebruikt mogen worden voordat de site live gaat.
 De tweede foto per materiaal (`staal.png`, `rvs.png`, `aluminium-1.png`) is
 niet gebruikt.
 
-### De drie voorbeeldprojecten (cases.html en de casepagina's)
+### De drie cases (cases.html, de casepagina's en de homepage)
 
 | bestand | bron | wat er te zien is |
 |---|---|---|
@@ -158,5 +158,7 @@ Vorma Metaal tonen zou een onware claim zijn.
 grotere maat in de srcset die scherper doet dan het bestand is; op de
 dienst-hero, die de helft van het scherm breed is, zijn ze niet helemaal scherp.
 
-LET OP: deze beelden illustreren VOORBEELDPROJECTEN. Ze tonen niet werk van
-Vorma Metaal; zie het kader bij CASES in `_generator/schil.py`.
+LET OP: deze beelden illustreren PLAATSHOUDER-CASES. Ze tonen niet werk van
+Vorma Metaal, en de klantnamen erbij (uit de logoband) zijn niet bevestigd;
+zie het kader bij CASES in `_generator/schil.py`. Op de casepagina staan beide
+beelden in de galerij op 16:10; het hero-beeld is de eerste van het paar.

@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 """index.html.
 
-   Dezelfde twaalf secties als de MADEGRO-homepage, in dezelfde volgorde, met
-   dezelfde ids, klassen en spacing. Alleen de inhoud is van Vorma Metaal.
+   De twaalf secties van de template-homepage, in dezelfde volgorde, met
+   dezelfde klassen en spacing, plus een dertiende: de projecten, direct onder
+   de materialen (op verzoek, 4 september 2026). Alleen de inhoud is van Vorma
+   Metaal. Welke component welke inhoud draagt staat in inhoud/MAPPING.md:
 
-   Vier secties dragen andere inhoud omdat Vorma niet heeft wat MADEGRO er had.
-   Ze zijn hergebruikt in plaats van verwijderd; welke en waarom staat in
-   inhoud/MAPPING.md:
-
-     s05  cases-rijen        -> de drie materialen
-     s06  drie cijfers       -> 22 jaar, 8 bewerkingen, 3 materialen
-     s07  cursuskaarten      -> de zes redenen om voor Vorma te kiezen
-     s08  klantcitaten       -> drie procesafspraken, op naam van Vorma zelf
-     s10  portret + biografie-> de herkomst uit Tentije
-     s11  logoband           -> de tien sectoren als tekstband
+     s05  cases-rijen        -> de drie materialen, compact in drie panelen
+     s06  NIEUW              -> drie uitgelichte projecten (panelen met foto)
+     s07  drie cijfers       -> 22 jaar, 8 bewerkingen, 3 materialen
+     s08  cursuskaarten      -> de zes redenen om voor Vorma te kiezen
+     s09  klantcitaten       -> klantcitaten (PLAATSHOUDERS, zie inhoud/home.py)
+     s11  portret + biografie-> het team achter Vorma Metaal
+     s12  logoband           -> de beeldmerken uit de template (PLAATSHOUDER)
 
    De teksten staan in inhoud/home.py."""
 import sys, pathlib, importlib.util
@@ -61,12 +60,43 @@ materiaalkaarten = "\n".join(f'''        <div>
             <span class="panel__meta">Materiaal {i + 1:02d}</span>
             <h3 class="panel__title">{m["naam"]}</h3>
             <p class="panel__body">{m["tekst"]}</p>
-            <ul class="check-lijst" style="margin-top:var(--space-400)">
+            <span class="panel__meta" style="margin-top:var(--space-400)">{cfg["materialen_lijstlabel"]}</span>
+            <ul class="check-lijst" style="margin-top:calc(var(--space-300) * -1)">
 {"".join(f'              <li class="check-lijst__item">{k}</li>' + chr(10) for k in m["kwaliteiten"])}            </ul>
           </div>
         </div>''' for i, m in enumerate(cfg["materialen"]))
 
-# ---- s06: de drie cijfers, met de tellers uit index.js -------------------
+# ---- s06: drie uitgelichte projecten -------------------------------------
+# Nieuw, direct onder de materialen. Zelfde paneel als de zes redenen en de
+# cursuskaarten van de template (panel--beeld panel--link): foto, klant als
+# metaregel, titel, de bewerkingen als tweede metaregel, korte tekst en de
+# icoonknop. De hele kaart is de link.
+#
+# PLAATSHOUDERS: de klantnamen komen uit de logoband en zijn niet bevestigd;
+# zie het kader bij CASES in schil.py. Elke kaart draagt data-plaatshouder.
+pad_cases = INHOUD / "cases.py"
+spec_c = importlib.util.spec_from_file_location("cases_inhoud", pad_cases)
+_c = importlib.util.module_from_spec(spec_c)
+spec_c.loader.exec_module(_c)
+CASE_TEKSTEN = _c.CASE_TEKSTEN
+
+projecten = "\n".join(f'''        <div>
+          <a class="panel panel--{'grey' if i % 2 else 'wit'} panel--beeld panel--link hover--icon" href="{c["bestand"]}"{plaatshouder_attr(c)}>
+            <figure class="panel__beeld">
+              {foto(c["kaart"], maten="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw", alt="")}
+            </figure>
+            <span class="panel__meta">{klantnaam(c)}</span>
+            <h3 class="panel__title">{c["titel"]}</h3>
+            <span class="panel__meta" style="color:var(--color-groen-diep)">{" &middot; ".join(c["bewerkingen"])}</span>
+            <p class="panel__body">{CASE_TEKSTEN[c["slug"]]["kaart"]}</p>
+            <span class="panel__actie" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-400); width:100%">
+              <span class="panel__meta">Bekijk project</span>
+              {icoonknop()}
+            </span>
+          </a>
+        </div>''' for i, c in enumerate(CASES))
+
+# ---- s07: de drie cijfers, met de tellers uit index.js -------------------
 usps = "\n".join(f'''        <div>
           <div class="panel panel--{'grey' if i % 2 == 0 else 'wit'}">
             <p class="usp__getal" data-telop="{getal}">{getal}</p>
@@ -75,7 +105,7 @@ usps = "\n".join(f'''        <div>
           </div>
         </div>''' for i, (getal, label, tekst) in enumerate(cfg["usps"]))
 
-# ---- s07: was cursuskaarten, draagt nu de zes redenen -------------------
+# ---- s08: was cursuskaarten, draagt nu de zes redenen -------------------
 # Zelfde paneel als cursuskaart(), met de foto erboven en een metaregel.
 #
 # Drie per rij en niet vier: zes items vullen dan twee volle rijen. In
@@ -107,17 +137,18 @@ waarom = "\n".join(f'''        <div>
           </div>
         </div>''' for i, (titel, tekst) in enumerate(cfg["waarom"]))
 
-# ---- s08: was klantcitaten, draagt nu uitspraken van Vorma zelf ---------
-# Vijfde veld is False en niet None: dat laat het logoslot helemaal weg, in
-# plaats van er een invulveld "Logo opdrachtgever" te zetten. Dit zijn geen
-# klantcitaten, dus er hoort geen klantlogo bij te komen.
-verwachten = [(tekst, wie, wat, beeld, False) for tekst, wie, wat, beeld in cfg["verwachten"]]
+# ---- s09: klantcitaten, zoals het component in de template stond --------
+# PLAATSHOUDERS: er zijn nog geen echte testimonials. De citaten zijn op
+# verzoek fictief, met de bedrijven en logo's uit de logoband, en dragen
+# data-plaatshouder="testimonial"; de audit telt ze. Zie inhoud/home.py.
+testimonials = [(tekst, naam, functie, beeld, logo)
+                for tekst, naam, functie, beeld, logo in cfg["testimonials"]]
 
-# ---- s11: de logoband -----------------------------------------------------
+# ---- s12: de logoband -----------------------------------------------------
 # Draagt op verzoek weer de beeldmerken uit de template. PLAATSHOUDER, mag niet
 # live; zie het kader boven OPDRACHTGEVERS in schil.py.
 #
-# De aantoonbaar ware variant staat klaar: sectorenband("11",
+# De aantoonbaar ware variant staat klaar: sectorenband("12",
 # cfg["sectoren_label"]) zet de tien sectoren in dezelfde band, met dezelfde
 # animatie en hetzelfde dubbele spoor. Beide functies staan in schil.py.
 
@@ -229,8 +260,34 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 06 IN CIJFERS ================= -->
-  <section class="content-block" id="s06-usps">
+  <!-- ================= 06 PROJECTEN ================= -->
+  <!-- Nieuw. Zelfde kop-en-knop-opbouw als de zes redenen, zelfde panelenrij.
+       Direct onder de materialen, zodat "in welk materiaal" meteen gevolgd
+       wordt door "en wat wordt daar dan van gemaakt". -->
+  <section class="content-block" id="s06-projecten">
+    <div class="container">
+      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
+        <div class="row">
+          <div class="col-md-8 col-12">
+            <span class="subtitle" style="margin-bottom:var(--space-500)">{cfg["projecten_eyebrow"]}</span>
+            <h2 class="section-heading">{cfg["projecten_kop"]}</h2>
+            <p class="article-body" style="margin-top:var(--space-500); max-width:var(--content-max-half)">
+              {cfg["projecten_intro"]}
+            </p>
+          </div>
+          <div class="col-md-4 col-12 text-md-end">
+            {knop("Bekijk alle projecten", "cases.html")}
+          </div>
+        </div>
+      </div>
+      <div class="panel-row panel-row--3">
+{projecten}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07 IN CIJFERS ================= -->
+  <section class="content-block" id="s07-usps">
     <div class="container">
       <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
         <div class="row">
@@ -246,8 +303,9 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 07 WAAROM VORMA METAAL ================= -->
-  <section class="content-block" id="s07-waarom">
+  <!-- ================= 08 WAAROM VORMA METAAL ================= -->
+  <!-- Het id staat in styleguide.css (tabletregel voor twee per rij). -->
+  <section class="content-block" id="s08-waarom">
     <div class="container">
       <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
         <div class="row">
@@ -269,15 +327,17 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-{quoteslider("08", "verwachten", cfg["verwachten_eyebrow"], cfg["verwachten_kop"], verwachten)}
+{quoteslider("09", "testimonials", cfg["testimonials_eyebrow"], cfg["testimonials_kop"], testimonials,
+             citaat=True, plaatshouder=True)}
 
-{faq_blok("09", cfg["faq"], cfg["faq_kop"])}
+{faq_blok("10", cfg["faq"], cfg["faq_kop"])}
 
-  <!-- ================= 10 WAAR VORMA VANDAAN KOMT ================= -->
-  <!-- Was het portret met de biografie van Martin de Groot. Van Vorma Metaal
-       is geen medewerkersfoto beschikbaar en die verzinnen kan niet; het
-       beeldslot houdt zijn plek en verhouding en krijgt een werkplaatsfoto. -->
-  <section class="streamer streamer--employee streamer--employee--portret background--groen" id="s10-herkomst">
+  <!-- ================= 11 HET TEAM ================= -->
+  <!-- Was het portret met de biografie uit de template. Van Vorma Metaal is
+       geen medewerkersfoto beschikbaar en die verzinnen kan niet; het
+       beeldslot houdt zijn plek en verhouding en krijgt de werkplaatsfoto met
+       medewerkers erop. -->
+  <section class="streamer streamer--employee streamer--employee--portret background--groen" id="s11-team">
     <div class="container">
       <div class="streamer--employee-row">
         <figure class="streamer--employee-portrait">
@@ -297,9 +357,9 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-{logoslider("11")}
+{logoslider("12")}
 
-{ctablok("12", cfg["contact_kop"], cfg["contact_tekst"])}
+{ctablok("13", cfg["contact_kop"], cfg["contact_tekst"])}
 '''
 
 (UIT / "index.html").write_text(pagina(

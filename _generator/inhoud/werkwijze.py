@@ -69,7 +69,7 @@ WERKWIJZE = {
     # daarom in de tredetekst zelf.
     "stappen": [
         ("U uploadt uw bestand en kiest het materiaal",
-         "In het portaal uploadt u uw CAD-bestanden &mdash; STEP, DXF of DWG &mdash; eventueel met een PDF-tekening erbij, en kiest u het materiaal: staal, RVS of aluminium. Daarna nemen wij uw aanvraag in behandeling.",
+         "In het portaal uploadt u uw CAD-bestanden (STEP, DXF of DWG), eventueel met een PDF-tekening erbij, en kiest u het materiaal: staal, RVS of aluminium. Daarna nemen wij uw aanvraag in behandeling.",
          None),
         ("Wij controleren of uw tekening maakbaar is",
          "Voordat u een prijs krijgt, kijken wij of uw onderdelen te maken zijn zoals ze getekend staan. Bij een complexe opdracht overleggen wij eerst met u, zodat een onduidelijkheid in de tekening geen onbruikbaar onderdeel oplevert.",

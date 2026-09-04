@@ -40,7 +40,7 @@ DIENST = {
     # kent en misschien niet weet wat assemblage is: eerst wat wij doen, dan wat
     # assemblage is, dan bij wie het samenbouwen gebeurt. Alinea 2 legt uit
     # waarom dat geen doorverwijzing naar een vreemde partij is.
-    "intro": '''          <p>Vorma Metaal maakt metalen onderdelen op maat, uit het tekenbestand dat u aanlevert. Assemblage is de stap daarna: de losse delen &mdash; plaatwerk, buiswerk en verspaand werk (gedraaide en gefreesde onderdelen) &mdash; worden samengebouwd tot &eacute;&eacute;n product, zoals een frame of een omkasting. Dat samenbouwen loopt via zusterbedrijf Tentije Industri&euml;le Automatisering B.V.</p>
+    "intro": '''          <p>Vorma Metaal maakt metalen onderdelen op maat, uit het tekenbestand dat u aanlevert. Assemblage is de stap daarna: de losse delen (plaatwerk, buiswerk en verspaand werk, dus gedraaide en gefreesde onderdelen) worden samengebouwd tot &eacute;&eacute;n product, zoals een frame of een omkasting. Dat samenbouwen loopt via zusterbedrijf Tentije Industri&euml;le Automatisering B.V.</p>
           <p>Dat is geen doorverwijzing naar een vreemde partij. Tentije begon in 2004 in Goor en Vorma Metaal is daaruit voortgekomen; de twee bedrijven werken in dezelfde werkplaats, met hetzelfde team. Uw delen worden dus gemaakt en samengebouwd op dezelfde vloer, met &eacute;&eacute;n aanvraag en &eacute;&eacute;n aanspreekpunt.</p>''',
 
     # Leidt de drie kaarten in en zet de keuze neer die de bezoeker hier maakt:
@@ -48,7 +48,7 @@ DIENST = {
     "wanneer_intro": "U kunt uw onderdelen los laten leveren, of samengebouwd als &eacute;&eacute;n product. Deze drie situaties laten zien wanneer samenbouwen u werk uit handen neemt.",
 
     # Exact 3 situaties, elk met een titel die op zichzelf te lezen is.
-    # Concreet, zonder plaatdiktes, afmetingen of toleranties &mdash; die staan
+    # Concreet, zonder plaatdiktes, afmetingen of toleranties, die staan
     # niet in de bron.
     "herkenning": [
         ("Plaat, buis en verspaand werk in &eacute;&eacute;n frame",
@@ -89,7 +89,7 @@ DIENST = {
     "voordelen_kop": "U ontvangt &eacute;&eacute;n samengebouwd product, geen losse delen",
 
     # Exact 4 voordelen, iconen uit de vaste set. Elke titel is een uitkomst,
-    # geen sfeerwoord. Geen levertijd, capaciteit of garantie &mdash; alleen wat
+    # geen sfeerwoord. Geen levertijd, capaciteit of garantie, alleen wat
     # aantoonbaar uit de bron volgt.
     "voordelen": [
         ("mensen", "Hetzelfde team, dezelfde vloer",
@@ -130,7 +130,7 @@ DIENST = {
         ]),
         ("Wat gebeurt er nadat ik mijn aanvraag heb verstuurd?", [
             "Wij nemen uw aanvraag in behandeling en controleren de maakbaarheid. U ontvangt een vrijblijvende offerte; het werk start pas na uw akkoord. Daarna maken wij de onderdelen en bouwt Tentije ze in dezelfde werkplaats samen.",
-            "Van offerte tot levering hoort u van ons wanneer het ertoe doet, en u houdt &eacute;&eacute;n aanspreekpunt bij Vorma Metaal &mdash; ook voor het deel dat Tentije samenbouwt. Uw samenstelling wordt geleverd, of staat klaar om af te halen aan de Dammaten 14 in Goor.",
+            "Van offerte tot levering hoort u van ons wanneer het ertoe doet, en u houdt &eacute;&eacute;n aanspreekpunt bij Vorma Metaal, ook voor het deel dat Tentije samenbouwt. Uw samenstelling wordt geleverd, of staat klaar om af te halen aan de Dammaten 14 in Goor.",
         ]),
     ],
 }

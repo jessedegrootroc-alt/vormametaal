@@ -22,8 +22,8 @@ buislasersnijden, kanten, lassen, nabewerking en CNC-verspanen gebeuren in
 eigen huis; assemblage loopt via zusterbedrijf Tentije Industri&euml;le
 Automatisering B.V.; oppervlaktebehandeling wordt uitbesteed maar volledig
 door Vorma geregeld. "In eigen huis" wordt hier daarom alleen gebruikt waar
-het over die zes gaat, en "onder &eacute;&eacute;n dak" &mdash; de samenvatting
-van de bron zelf &mdash; waar het over alle acht gaat.
+het over die zes gaat, en "onder &eacute;&eacute;n dak" (de samenvatting
+van de bron zelf) waar het over alle acht gaat.
 
 Aanspreekvorm "u", overal. Zie inhoud/COPY.md voor de vier toetsen.
 """
@@ -35,7 +35,7 @@ DIENSTEN_OVERZICHT = {
 
     # Meta description: 153 tekens, dus binnen de 155. Noemt de bewerkingen
     # zoals een inkoper ze intypt, plus de plaats, en zet de grens eigen huis
-    # versus geregeld er meteen in &mdash; dat is de vraag waarmee iemand op
+    # versus geregeld er meteen in, want dat is de vraag waarmee iemand op
     # deze pagina klikt. Twee zinnen, want de punt na "eigen huis" zet die
     # grens harder dan een komma: de zes staan aan de ene kant, assemblage en
     # poedercoaten aan de andere. "Poedercoaten" voluit, want dat is de term
@@ -76,8 +76,8 @@ DIENSTEN_OVERZICHT = {
     # (COPY.md, toets 1). Tweede alinea: de twee die niet in eigen huis
     # gebeuren, met per bewerking waar hij dan wel loopt, zodat de kaartenrij
     # eronder niet verkeerd gelezen kan worden. De slotregel geeft het antwoord
-    # waarvoor iemand deze pagina opent &mdash; alle acht op &eacute;&eacute;n
-    # aanvraag &mdash; met "onder &eacute;&eacute;n dak", de samenvatting van de
+    # waarvoor iemand deze pagina opent (alle acht op &eacute;&eacute;n
+    # aanvraag) met "onder &eacute;&eacute;n dak", de samenvatting van de
     # bron zelf, in lopende tekst en niet als kop.
     "intro_tekst": "          <p>Vorma Metaal maakt onderdelen van metaal op maat, in staal, RVS of aluminium. Lasersnijden, buislasersnijden, kanten (plaat in vorm zetten), lassen, nabewerking en CNC-verspanen doen wij in onze eigen werkplaats in Goor, van &eacute;&eacute;n stuk tot een serie.</p>\n          <p>Assemblage loopt via ons zusterbedrijf Tentije Industri&euml;le Automatisering B.V., in dezelfde werkplaats en met hetzelfde team. Poedercoaten en andere oppervlaktebehandelingen besteden wij uit en regelen wij volledig voor u. Samen zijn dat acht bewerkingen onder &eacute;&eacute;n dak, op &eacute;&eacute;n aanvraag.</p>",
 

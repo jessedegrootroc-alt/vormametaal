@@ -1,87 +1,124 @@
 # -*- coding: utf-8 -*-
 """Inhoud van cases.html en de drie casepagina's. Het skelet staat in
-bouw_cases.py; het register met beelden, bewerkingen en bestandsnamen staat in
-schil.py onder CASES.
+bouw_cases.py; het register met klant, beelden, bewerkingen en bestandsnamen
+staat in schil.py onder CASES.
 
-LET OP: dit zijn VOORBEELDPROJECTEN. Op vormametaal.nl staan geen cases en er
-is geen opdrachtgever die deze projecten bevestigt. Daarom:
+==========================================================================
+PLAATSHOUDERS -- MAG NIET LIVE ALS FEIT
+--------------------------------------------------------------------------
+Op vormametaal.nl staan geen cases en er is geen opdrachtgever die deze
+projecten bevestigt. Op verzoek (4 september 2026) zijn het toch complete
+casestudies met een klantnaam, zodat kaarten en pagina's af zijn en later
+een-op-een te vervangen. De klantnamen komen uit de logoband (OPDRACHTGEVERS
+in schil.py): dezelfde plaatshouderset als bij de testimonials.
 
- - de opdrachtgever is anoniem: "een liftenbouwer", "een leverancier van
-   roltrappen", "een deurenfabrikant";
- - geen aantallen, jaartallen, plaatsnamen of citaten;
- - de tekst beschrijft het soort werk dat bij het beeld past en dat Vorma met
-   zijn acht bewerkingen kan maken, niet een geleverd resultaat;
- - elke pagina draagt het label "Voorbeeldproject -- nog te bevestigen".
+Wat er bewust NIET in staat: aantallen, jaartallen, plaatsnamen, doorlooptijden,
+prijzen, citaten en resultaten die niet te bewijzen zijn (tijdsbesparing,
+percentages). Het "type productie" is weggelaten: dat is niet bekend.
 
-Pas als Vorma Metaal per project bevestigt wat er echt gemaakt is, mag de
-tekst concreter worden en gaat het label eraf (CASES[...]["voorbeeld"] = False).
+Elke kaart en pagina draagt data-plaatshouder="case" en de audit meldt ze.
+Vervangen: per case de sleutels hieronder, en in CASES "plaatshouder" op False.
+==========================================================================
+
+Structuur per casepagina, voor alle drie gelijk:
+  1 hero: klant, titel, foto, samenvatting
+  2 project in het kort: opdrachtgever, sector, materiaal, bewerkingen
+  3 de vraag
+  4 onze aanpak: intro plus de stappen
+  5 het resultaat
+  6 fotogalerij
+  7 diensten in dit project
+  8 CTA
 """
 
 CASES_PAGINA = {
     "bestand": "cases.html",
     "namespace": "cases",
     "titel": "Projecten | Vorma Metaal",
-    "omschrijving": "Drie voorbeelden van plaatwerk en profielwerk voor liften, roltrappen en draaideuren: wat er gemaakt wordt, van welk materiaal en met welke bewerkingen.",
-    "hero_label": "Projecten",
-    "hero_titel": "Wat er uit onze werkplaats komt",
-    "intro_kop": "Drie voorbeelden van werk voor de installatiebranche",
+    "omschrijving": "Een selectie van onderdelen en samenstellingen die Vorma Metaal voor technische en industri&euml;le opdrachtgevers heeft geproduceerd: wat er gemaakt is, voor wie en met welke bewerkingen.",
+    "hero_label": "Wat wij maken",
+    "hero_titel": "Projecten",
+    "intro_kop": "Een selectie van ons werk",
     "intro_tekst": (
-        "          <p>Liften, roltrappen en draaideuren zijn producten waar veel plaatwerk en profielwerk in zit dat in het zicht komt: deurbekleding, zijpanelen, omlijstingen, frames. Precies het werk waarvoor onze acht bewerkingen bedoeld zijn.</p>\n"
-        "          <p>Hieronder staat per voorbeeld wat er gemaakt wordt, van welk materiaal en welke bewerkingen erbij horen. De opdrachtgevers noemen wij niet bij naam.</p>"
+        "          <p>Bekijk een selectie van onderdelen en samenstellingen die Vorma Metaal voor technische en industri&euml;le opdrachtgevers heeft geproduceerd.</p>\n"
+        "          <p>Per project staat wie de opdrachtgever was, wat er gemaakt is, van welk materiaal en welke bewerkingen erbij hoorden. Elk project heeft een eigen pagina met de vraag, onze aanpak en het resultaat.</p>"
     ),
-    "raster_kop": "Drie voorbeelden",
-    "contact_kop": "Heeft u vergelijkbaar werk?",
-    "contact_tekst": "Stuur uw CAD-bestand mee, of stel eerst uw vraag. Een aanvraag is vrijblijvend: het werk start pas na uw akkoord.",
+    "raster_kop": "Alle projecten",
+    "contact_kop": "Heeft u een vergelijkbaar onderdeel nodig?",
+    "contact_tekst": "Stuur uw CAD-bestand voor een vrijblijvende offerte of neem contact op om uw project eerst te bespreken.",
 }
 
-# Per case: de tekst op de kaart en de blokken op de eigen pagina.
+# Vaste koppen op de casepagina's, zodat alle drie dezelfde opbouw hebben.
+KOPPEN = {
+    "kort": "Project in het kort",
+    "vraag": "De vraag",
+    "aanpak": "Onze aanpak",
+    "resultaat": "Het resultaat",
+    "galerij": "Beelden van het project",
+    "diensten": "Diensten in dit project",
+}
+
+# Per case: de tekst op de kaart, de samenvatting in de hero en de blokken.
+# "stappen" is een lijst van (stap, uitleg); de stap is de bewerking of de
+# controle vooraf, de uitleg zegt wat er in dit project precies gebeurde.
 CASE_TEKSTEN = {
     "liftdeuren": {
-        "kaart": "Deurpanelen en omlijstingen in geborsteld RVS, gesneden en gezet uit plaat, met de zichtzijde beschermd tot aan de montage.",
-        "lead": "Een liftdeur is het eerste wat een gebruiker van een lift ziet en aanraakt. De bekleding moet strak zijn, kraswerend en jaren meegaan.",
-        "opdracht_kop": "Wat er gemaakt wordt",
-        "opdracht": (
-            "<p>Voor een liftenbouwer gaat het om de plaatdelen die de deur en de omlijsting bekleden: de deurpanelen zelf, de zijkanten van het kozijn en de bovenrand. Alles in RVS 304 met een geborstelde afwerking, zodat de richting van de borstel over alle delen gelijk loopt.</p>"
-            "<p>De platen komen aan met beschermfolie op de zichtzijde. Die folie blijft erop tijdens het snijden, zetten en vervoeren, zodat er geen kras op de zichtzijde komt voordat de deur hangt.</p>"
+        "kaart": "Deurpanelen en omlijstingen in geborsteld RVS voor de liften van een kantoorgebouw: uit plaat gesneden en gezet, geleverd met folie op de zichtzijde.",
+        "samenvatting": "Voor een kantoorgebouw van Ballast Nedam maakten wij de RVS bekleding van de liftdeuren en de omlijstingen eromheen: deurpanelen, kozijnzijkanten en bovenranden, uit plaat gesneden, gezet en gelast.",
+        "vraag": (
+            "<p>Bij de afbouw van het gebouw moesten de liften een omlijsting en deurbekleding in geborsteld RVS krijgen, met dezelfde uitstraling op elke verdieping. De liftinstallatie was al besteld; de bekleding moest daar precies op passen.</p>"
+            "<p>Ballast Nedam zocht een leverancier die de plaatdelen uit de tekening kon snijden, zetten en lassen, en ze zonder krassen op de bouwplaats kon afleveren. De zichtzijde is geborsteld, dus elke kras blijft zichtbaar.</p>"
         ),
-        "aanpak_kop": "Hoe het door de werkplaats gaat",
-        "aanpak": (
-            "<p>De contouren en uitsparingen komen uit het CAD-bestand van de liftenbouwer en worden met de laser uit de plaat gesneden. Daarna gaan de delen naar de kantbank: de randen worden omgezet, zodat een deurpaneel stijf wordt en een schone kant krijgt.</p>"
-            "<p>Waar delen aan elkaar moeten, wordt gelast en daarna de naad afgewerkt. Afbramen en het aanbrengen van bevestigingsgaten horen bij de nabewerking, in dezelfde aanvraag.</p>"
+        "aanpak_intro": "De tekeningen kwamen als STEP- en DXF-bestanden binnen. Wij controleerden of de zettingen te maken waren en of de borstelrichting op alle delen gelijk kon lopen, en zetten daarna de bewerkingen op een rij.",
+        "stappen": [
+            ("CAD-bestanden controleren", "De maakbaarheid van de zettingen en de borstelrichting nagekeken voordat de offerte uitging."),
+            ("Lasersnijden", "Contouren, uitsparingen en bevestigingsgaten uit de RVS-plaat gesneden, met de beschermfolie erop."),
+            ("Kanten", "De randen van de panelen en kozijndelen gezet, zodat de delen stijf worden en een schone kant krijgen."),
+            ("Lassen", "De hoeken van de omlijsting gelast en de naden afgewerkt tot ze in de borstelstructuur wegvallen."),
+            ("Nabewerking", "Snijkanten afgebraamd; de folie blijft tot aan de montage op de zichtzijde."),
+        ],
+        "resultaat": (
+            "<p>Ballast Nedam ontving per lift een complete set: de deurpanelen, de kozijnzijkanten en de bovenrand, in RVS 304 met dezelfde borstelrichting en met de folie er nog op.</p>"
+            "<p>Snijden, zetten, lassen en nabewerken liepen in &eacute;&eacute;n aanvraag en in &eacute;&eacute;n werkplaats. Voor de bouwplaats was er &eacute;&eacute;n leverancier en &eacute;&eacute;n levering.</p>"
         ),
-        "materiaal_kop": "Materiaal en afwerking",
-        "materiaal": "RVS 304, afwerking geborsteld, geleverd met beschermfolie op de zichtzijde.",
     },
     "roltrappen": {
-        "kaart": "Zijpanelen, sokkels en leuningsteunen voor roltrappen: vlak plaatwerk in RVS en gesneden buis en profiel voor het dragende deel.",
-        "lead": "Bij een roltrap zit het plaatwerk aan de buitenkant: de zijpanelen langs de treden en de sokkels onder de balustrade. Dat werk moet vlak zijn en aansluiten op de glazen delen.",
-        "opdracht_kop": "Wat er gemaakt wordt",
-        "opdracht": (
-            "<p>Voor een leverancier van roltrappen gaat het om twee soorten delen. De zijpanelen en sokkels zijn plaatwerk in RVS, lang en smal, met een gezette rand die tegen het glas van de balustrade aansluit. De steunen onder de leuning zijn buis- en profielwerk in staal.</p>"
-            "<p>De panelen komen in beeld op ooghoogte, dus de zichtzijde telt. De dragende delen komen niet in beeld, maar moeten wel maatvast zijn omdat de leuning erop wordt uitgelijnd.</p>"
+        "kaart": "Zijpanelen, sokkels en leuningsteunen voor roltrappen in een stationshal: vlak plaatwerk in RVS en gesneden buis voor het dragende deel.",
+        "samenvatting": "Voor Alstom maakten wij het zichtbare plaatwerk van roltrappen in een stationshal: de zijpanelen langs de treden, de sokkels onder de balustrade en de stalen steunen onder de leuning.",
+        "vraag": (
+            "<p>De roltrappen krijgen aan de buitenkant panelen die op ooghoogte in beeld komen en tegen het glas van de balustrade aansluiten. Dat plaatwerk moet vlak zijn en over de hele lengte dezelfde naad houden.</p>"
+            "<p>Onder de leuning zitten steunen van buis die niet in beeld komen, maar wel maatvast moeten zijn: de leuning wordt erop uitgelijnd. Alstom wilde beide soorten delen bij &eacute;&eacute;n leverancier onderbrengen.</p>"
         ),
-        "aanpak_kop": "Hoe het door de werkplaats gaat",
-        "aanpak": (
-            "<p>De plaatdelen worden met de laser gesneden en op de kantbank gezet. Omdat de panelen lang zijn, wordt de zetvolgorde vooraf bepaald zodat het deel na de laatste zetting nog op de machine past.</p>"
-            "<p>De leuningsteunen komen van de buislaser: de buis wordt op lengte gesneden en de bevestigingsgaten worden in dezelfde gang gemaakt. Afbramen van alle snijkanten hoort bij de nabewerking.</p>"
+        "aanpak_intro": "Lange, smalle panelen vragen een zetvolgorde die vooraf vaststaat; anders past het deel na de laatste zetting niet meer in de kantbank. Die volgorde hebben wij bij de controle van de bestanden bepaald.",
+        "stappen": [
+            ("CAD-bestanden controleren", "De zetvolgorde van de lange panelen vastgelegd en de buisdelen op de maten van de leuning nagekeken."),
+            ("Lasersnijden", "Zijpanelen en sokkels uit RVS-plaat gesneden, met de bevestigingsgaten erin."),
+            ("Kanten", "De aansluitranden tegen het glas gezet, in de vooraf bepaalde volgorde."),
+            ("Buislasersnijden", "De leuningsteunen van stalen buis op lengte gesneden, met de gaten in dezelfde gang."),
+            ("Nabewerking", "Alle snijkanten afgebraamd; de stalen delen klaargemaakt om te coaten."),
+        ],
+        "resultaat": (
+            "<p>Alstom ontving per roltrap de zijpanelen en sokkels in RVS 304 en de leuningsteunen in staal, gereed om te coaten, in &eacute;&eacute;n levering.</p>"
+            "<p>Plaat en buis kwamen uit dezelfde werkplaats en dezelfde aanvraag, zodat het zichtwerk en het dragende werk op elkaar waren afgestemd voordat de montage begon.</p>"
         ),
-        "materiaal_kop": "Materiaal en afwerking",
-        "materiaal": "Zijpanelen en sokkels in RVS 304; leuningsteunen in staal, geschikt om te coaten.",
     },
     "draaideuren": {
-        "kaart": "Het ronde frame en de dorpel van een draaideur: kokerprofiel op maat gesneden, gelast tot een geheel en gepoedercoat in de kleur van de gevel.",
-        "lead": "Een draaideur bestaat uit glas en een frame. Het frame draagt het glas, bepaalt de ronding en moet buiten jaren tegen weer en gebruik kunnen.",
-        "opdracht_kop": "Wat er gemaakt wordt",
-        "opdracht": (
-            "<p>Voor een deurenfabrikant gaat het om het stalen frame: de ronde bovenrand, de stijlen die het glas vasthouden en de dorpel onderin. Het frame wordt gemaakt uit kokerprofiel en afgewerkt met een poedercoating in de kleur die bij de gevel past.</p>"
-            "<p>De ronding is het lastige deel. De bovenrand bestaat uit gesneden segmenten die tot een cirkel worden gelast, en die cirkel moet rond zijn, want anders loopt de deur aan.</p>"
+        "kaart": "Het ronde frame en de dorpel van draaideuren voor een kantoorgebouw: kokerprofiel op maat gesneden, gelast tot &eacute;&eacute;n geheel en gepoedercoat in de gevelkleur.",
+        "samenvatting": "Voor een kantoorgebouw van Ooms Bouw &amp; Ontwikkeling maakten wij de stalen frames van de draaideuren in de entree: de ronde bovenrand, de stijlen die het glas dragen en de dorpel, gelast en gepoedercoat.",
+        "vraag": (
+            "<p>De entree kreeg draaideuren met een stalen frame dat het glas draagt en de ronding bepaalt. Het frame staat buiten, in het zicht, en moet in de kleur van de gevel worden afgewerkt.</p>"
+            "<p>De ronding is het lastige deel: de bovenrand bestaat uit gesneden segmenten die tot een cirkel worden gelast, en die cirkel moet rond zijn, anders loopt de deur aan. Ooms zocht een leverancier die het snijden, lassen en coaten in &eacute;&eacute;n opdracht kon regelen.</p>"
         ),
-        "aanpak_kop": "Hoe het door de werkplaats gaat",
-        "aanpak": (
-            "<p>De kokerprofielen komen van de buislaser: op lengte, met de verstekken en de gaten voor het glas in dezelfde gang gesneden. De segmenten van de bovenrand worden in een mal tegen elkaar gezet en gelast, daarna wordt de naad afgewerkt zodat hij onder de coating niet meer te zien is.</p>"
-            "<p>Het poedercoaten besteden wij uit en regelen wij: het frame gaat na het lassen naar de coater en komt afgewerkt terug, en de opdrachtgever heeft daar geen tweede leverancier voor nodig.</p>"
+        "aanpak_intro": "Het frame is opgebouwd uit kokerprofiel. De verstekken en de gaten voor de glasbevestiging komen uit het model, zodat er na het snijden niets meer afgetekend of nageboord hoeft te worden.",
+        "stappen": [
+            ("CAD-bestanden controleren", "De segmentverdeling van de ronde bovenrand en de lasvolgorde nagekeken."),
+            ("Buislasersnijden", "Kokerprofiel op lengte gesneden, met de verstekken en de gaten voor het glas in dezelfde gang."),
+            ("Lassen", "De segmenten in een mal tot een cirkel gelast, de stijlen en de dorpel aangelast en de naden afgewerkt."),
+            ("Oppervlaktebehandeling", "Poedercoaten in de gevelkleur, uitbesteed aan een coater en door ons geregeld."),
+        ],
+        "resultaat": (
+            "<p>Ooms ontving per deur een compleet frame: rond, gelast tot &eacute;&eacute;n geheel en gepoedercoat in de gevelkleur, klaar om het glas in te zetten.</p>"
+            "<p>Snijden en lassen gebeurden in onze werkplaats; het coaten regelden wij bij de coater. Voor de bouw was er &eacute;&eacute;n aanspreekpunt voor het hele frame.</p>"
         ),
-        "materiaal_kop": "Materiaal en afwerking",
-        "materiaal": "Stalen kokerprofiel, gelast, gepoedercoat in een gevelkleur.",
     },
 }

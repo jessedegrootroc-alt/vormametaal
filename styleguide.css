@@ -2023,7 +2023,7 @@ section + section { margin-top: 0; }
    algemeen: dan zouden de secties met drie items op tablet 2 + 1 worden, en
    daar is niet om gevraagd. */
 @media (min-width: 768px) and (max-width: 991px) {
-  #s07-waarom .panel-row--3 > * { width: 50%; }
+  #s08-waarom .panel-row--3 > * { width: 50%; }
 }
 
 .panel {

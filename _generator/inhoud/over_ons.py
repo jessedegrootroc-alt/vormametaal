@@ -20,10 +20,10 @@ van MADEGRO aan.
 De vraag waarmee iemand deze pagina opent, is: met wie heb ik te maken en
 kunnen zij dit aan. Daarom antwoordt elke kop op een stuk van die vraag en
 zegt geen enkele kop alleen maar waar de sectie over gaat. Wie de koppen
-scant, leest: maatwerk in metaal met 22 jaar technische ervaring &mdash; van
-besturingskasten in 2004 naar maatwerk in metaal &mdash; ervaring, direct
-overleg en werk vanaf &eacute;&eacute;n stuk &mdash; Tentije bouwt machines, wij maken het
-metaalwerk &mdash; waar u ons vindt &mdash; heeft u een tekening klaarliggen?
+scant, leest: maatwerk in metaal met 22 jaar technische ervaring; van
+besturingskasten in 2004 naar maatwerk in metaal; ervaring, direct
+overleg en werk vanaf &eacute;&eacute;n stuk; Tentije bouwt machines, wij maken het
+metaalwerk; waar u ons vindt; heeft u een tekening klaarliggen?
 
 Aanspreekvorm "u", overal. Zie inhoud/COPY.md voor de vier toetsen.
 """
@@ -59,7 +59,7 @@ OVER_ONS = {
     # "PLC-programmering" is uitgeschreven als machinebesturingen
     # programmeren; dat is hetzelfde feit, leesbaar voor wie geen
     # besturingstechnicus is. Alinea 2: welke bewerkingen in eigen werkplaats
-    # gebeuren en wat wij erbij regelen &mdash; samenbouwen loopt via Tentije en
+    # gebeuren en wat wij erbij regelen: samenbouwen loopt via Tentije en
     # oppervlaktebehandeling is uitbesteed, dus "regelen wij erbij" en nooit
     # "doen wij". Alinea 3: voor wie, uit welk bestand en in welke aantallen;
     # de opdrachtgevers zijn zes van de tien sectoren uit de brief.

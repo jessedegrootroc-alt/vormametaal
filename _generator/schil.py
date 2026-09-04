@@ -4,7 +4,7 @@ Gedeelde paginaschil voor de Vorma Metaal-site, op de MADEGRO-template.
 
 Dit script schrijft platte HTML-bestanden weg. De site zelf heeft geen build-stap:
 wat hier uitkomt is gewone HTML die je met een statische server serveert. Dit
-bestand hoort dan ook niet bij de site, het is gereedschap om de dertien pagina's
+bestand hoort dan ook niet bij de site, het is gereedschap om de twintig pagina's
 identiek te houden terwijl ze gebouwd worden.
 """
 
@@ -104,48 +104,77 @@ SECTOREN = [
 ]
 
 # ============================================================================
-# VOORBEELDPROJECTEN -- NOG TE BEVESTIGEN DOOR VORMA METAAL
+# PLAATSHOUDER-CASES -- MAG NIET LIVE ALS FEIT
 # ----------------------------------------------------------------------------
-# Drie projecten op verzoek, rond de aangeleverde beelden: liftdeuren,
-# roltrappen en draaideuren. Op vormametaal.nl staan geen cases, en er is geen
-# opdrachtgever die deze projecten bevestigt. Daarom:
+# Drie projecten rond de aangeleverde beelden: liftdeuren, roltrappen en
+# draaideuren. Op vormametaal.nl staan geen cases en er is geen opdrachtgever
+# die deze projecten bevestigt. Op verzoek zijn het toch complete casestudies
+# met een klantnaam, zodat de opbouw van de kaarten en de pagina's af is.
 #
-#  - geen klantnamen, geen aantallen, geen jaartallen, geen citaten;
-#  - de opdrachtgever is anoniem ("voor een liftenbouwer"), zoals gebruikelijk
-#    als een klant geen naam wil geven;
-#  - elke case draagt zichtbaar het label "Voorbeeldproject" met de
-#    aantekening dat Vorma Metaal het nog moet bevestigen, en de audit meldt
-#    elke pagina waar dat label staat.
+# De klantnaam komt uit dezelfde lijst als de logoband en de testimonials
+# (OPDRACHTGEVERS): zo is er op de hele site een plaatshouderset, die in een
+# keer vervangen wordt zodra Vorma echte projecten aanlevert. Geen aantallen,
+# jaartallen, plaatsnamen of citaten in de casetekst.
 #
-# Pas als Vorma per project bevestigt wat er echt gemaakt is, gaat het label
-# eraf: zet "voorbeeld" op False. Tot die tijd mogen ze niet live als feit.
+# Elke kaart en pagina draagt data-plaatshouder="case" en de audit meldt ze.
+# Pas als Vorma per project bevestigt wat er echt gemaakt is en voor wie, gaat
+# "plaatshouder" op False en vervalt de melding.
 # ============================================================================
 CASES = [
     {"bestand": "case-liftdeuren.html", "slug": "liftdeuren",
      "titel": "RVS bekleding voor liftdeuren en omlijstingen",
      "kort": "Liftdeuren",
-     "sector": "Installatietechniek", "materiaal": "RVS 304, geborsteld",
+     "klant": "ballast-nedam", "sector": "Bouwgerelateerde bedrijven",
+     "materiaal": "RVS 304, geborsteld",
      "bewerkingen": ["Lasersnijden", "Kanten", "Lassen", "Nabewerking"],
-     "kaart": "case-lift-2", "hero": "case-lift", "tweede": "case-lift-2",
-     "voorbeeld": True},
+     "kaart": "case-lift-2", "hero": "case-lift",
+     "galerij": ["case-lift", "case-lift-2"],
+     "plaatshouder": True},
     {"bestand": "case-roltrappen.html", "slug": "roltrappen",
      "titel": "Zijpanelen en sokkels voor roltrappen",
      "kort": "Roltrappen",
-     "sector": "Installatietechniek", "materiaal": "RVS 304 en staal",
+     "klant": "alstom", "sector": "Installatietechniek",
+     "materiaal": "RVS 304 en staal",
      "bewerkingen": ["Lasersnijden", "Kanten", "Buislasersnijden", "Nabewerking"],
-     "kaart": "case-roltrap-2", "hero": "case-roltrap", "tweede": "case-roltrap-2",
-     "voorbeeld": True},
+     "kaart": "case-roltrap-2", "hero": "case-roltrap",
+     "galerij": ["case-roltrap", "case-roltrap-2"],
+     "plaatshouder": True},
     {"bestand": "case-draaideuren.html", "slug": "draaideuren",
      "titel": "Gelaste frames voor draaideuren",
      "kort": "Draaideuren",
-     "sector": "Bouwgerelateerde bedrijven", "materiaal": "Staal, gepoedercoat",
+     "klant": "ooms", "sector": "Bouwgerelateerde bedrijven",
+     "materiaal": "Staal, gepoedercoat",
      "bewerkingen": ["Buislasersnijden", "Lassen", "Oppervlaktebehandeling"],
-     "kaart": "case-draaideur", "hero": "case-draaideur", "tweede": "case-draaideur-2",
-     "voorbeeld": True},
+     "kaart": "case-draaideur", "hero": "case-draaideur",
+     "galerij": ["case-draaideur", "case-draaideur-2"],
+     "plaatshouder": True},
 ]
 
-VOORBEELD_LABEL = ('<span class="invulveld" data-plaatshouder="voorbeeldcase">'
-                   'Voorbeeldproject &mdash; nog te bevestigen</span>')
+
+def klantnaam(c):
+    """De naam bij de klantslug van een case, uit OPDRACHTGEVERS."""
+    return {slug: naam for slug, naam, _ in OPDRACHTGEVERS}[c["klant"]]
+
+
+def plaatshouder_attr(c, soort="case"):
+    """Het merkteken op een kaart of pagina die nog niet bevestigd is."""
+    return f' data-plaatshouder="{soort}"' if c.get("plaatshouder") else ""
+
+
+def bewerkingen_tekst(bewerkingen):
+    """"Lasersnijden, kanten, lassen en nabewerking": de lijst als zin, alles
+       na het eerste woord in kleine letters."""
+    woorden = [bewerkingen[0]] + [b[0].lower() + b[1:] for b in bewerkingen[1:]]
+    if len(woorden) == 1:
+        return woorden[0]
+    return ", ".join(woorden[:-1]) + " en " + woorden[-1]
+
+
+def dienst_bij_bewerking(naam):
+    """De regel uit SERVICES bij de naam van een bewerking, of None als er geen
+       dienstpagina bij hoort."""
+    return next((d for d in SERVICES if d[1] == naam), None)
+
 
 # De bestandsformaten die het portaal inleest.
 FORMATEN = ["STEP", "DXF", "DWG", "PDF"]
@@ -758,6 +787,11 @@ def pagina(bestand, titel, omschrijving, namespace, pagina_css, css_naam,
 # op elke pagina waar hij staat; die melding hoort pas weg te zijn als er echte
 # logo's met toestemming staan, of als de band terug is op sectorenband().
 #
+# Dezelfde dertien namen staan op verzoek ook als plaatshouder bij de
+# testimonials op de homepage (inhoud/home.py, "testimonials") en als klant bij
+# de drie cases (CASES hierboven). Dat is bewust een set: wie de echte namen
+# heeft, vervangt ze op drie plekken tegelijk, en de audit telt alle drie.
+#
 # Terugzetten op de sectorenband is één regel: in slotblok() en in
 # bouw_home.py logoslider(...) vervangen door sectorenband(...). Die functie
 # staat hieronder en draagt de tien sectoren, wat aantoonbaar waar is.
@@ -889,18 +923,26 @@ def ctablok(nr, kop, tekst=None):
             '  </section>')
 
 
-def paginahero(nr, ident, label, titel, beeld, alt=None, positie=None):
+def paginahero(nr, ident, label, titel, beeld, alt=None, positie=None,
+               intro=None, extra=""):
     """De hero met links de kop op grijs en rechts een foto. De <h1> staat in de
        HTML voor het beeld; onder 768px zet de CSS het beeld met order bovenaan,
-       zodat de leesvolgorde blijft kloppen."""
+       zodat de leesvolgorde blijft kloppen.
+
+       intro is een optionele samenvatting onder de kop, in dezelfde
+       article-body als de intro's elders; de casepagina's gebruiken hem.
+       extra zijn attributen op de sectie, zoals het plaatshoudermerk."""
     stijl = f' style="object-position:{positie}"' if positie else ""
     beeldtag = foto(beeld, laden="eager", maten="(max-width: 767px) 100vw, 50vw", alt=alt)
     if stijl:
         beeldtag = beeldtag.replace("<img ", f"<img{stijl} ")
-    return (f'  <section class="paginahero" id="s{nr}-{ident}">\n'
+    samenvatting = (f'      <div class="article-body" style="margin-top:var(--space-500); '
+                    f'max-width:var(--content-max-half)"><p>{intro}</p></div>\n') if intro else ""
+    return (f'  <section class="paginahero" id="s{nr}-{ident}"{extra}>\n'
             '    <div class="paginahero__kop">\n'
             f'      <span class="subtitle">{label}</span>\n'
             f'      <h1 class="paginahero__titel">{titel}</h1>\n'
+            f'{samenvatting}'
             '    </div>\n'
             '    <div class="paginahero__beeld">\n'
             f'      {beeldtag}\n'
@@ -1062,36 +1104,64 @@ def quotelogo(slug):
     if slug is None:
         return ('<p class="quote__logo quote__logo--leeg">'
                 '<span class="invulveld">Logo opdrachtgever</span></p>')
+    band = {s: (n, b) for s, n, b in OPDRACHTGEVERS}
+    if slug in band:
+        # Het beeldmerk uit de logoband, op de maat van een echt logo. Zelfde
+        # bestand als in de band, dus geen tweede asset. Zie de toelichting bij
+        # OPDRACHTGEVERS: dit zijn plaatshouders.
+        naam, breedte = band[slug]
+        return (f'<p class="quote__logo">'
+                f'<img src="assets/partners/{slug}.webp" alt="{naam}" '
+                f'width="{breedte}" height="80" loading="lazy" decoding="async"></p>')
     naam, breedte = PLAATSHOUDER_LOGOS[slug]
     return (f'<p class="quote__logo quote__logo--plaatshouder">'
             f'<img src="assets/partners/{slug}.svg" alt="{naam}" '
             f'width="{breedte}" height="80" loading="lazy" decoding="async"></p>')
 
 
-def quoteslider(nr, ident, subtitel, kop, items):
+def quoteslider(nr, ident, subtitel, kop, items, citaat=False, plaatshouder=False):
     """Een uitspraak per keer, groot uitgelicht: beeld links, tekst rechts, met
        een streepje boven de afzender. Pijlen eronder om te bladeren.
 
-       In de template droeg dit component klantcitaten. Vorma Metaal heeft geen
-       testimonials met naam en toestemming, dus staan hier de afspraken die het
-       bedrijf zelf maakt, met Vorma Metaal als afzender. Daarom geen
-       <blockquote> en geen "citaat" in de toegankelijkheidslabels: het is geen
-       aangehaalde uitspraak van een derde, en een schermlezer hoort dat verschil.
+       Twee standen. citaat=False: afspraken van Vorma Metaal zelf, zonder
+       <blockquote> en zonder "citaat" in de toegankelijkheidslabels, want het
+       is geen aangehaalde uitspraak van een derde. citaat=True: klantcitaten,
+       zoals het component in de template stond: <blockquote>, "Citaat n van m",
+       afzender met functie en bedrijf, en het logo eronder.
+
+       plaatshouder=True zet data-plaatshouder="testimonial" op elke dia. Dat
+       merkteken telt de audit; het hoort weg zodra er echte citaten met naam
+       en toestemming staan.
 
        items is een lijst van (tekst, naam, functie, fotosleutel, logoslug). De
        foto is een werkplek en geen portret. Voor logoslug: zie quotelogo()."""
-    dias = "\n".join(f'''        <figure class="quote" role="group" aria-roledescription="afspraak"
-               aria-label="Afspraak {i + 1} van {len(items)}">
+    rol = "citaat" if citaat else "afspraak"
+    woord = "Citaat" if citaat else "Afspraak"
+    merk = ' data-plaatshouder="testimonial"' if plaatshouder else ""
+    band = {s: n for s, n, _ in OPDRACHTGEVERS}
+
+    def dia(i, citaat_tekst, naam, functie, sleutel, logo):
+        if citaat:
+            tekst = f'<blockquote class="quote__tekst"><p>{citaat_tekst}</p></blockquote>'
+        else:
+            tekst = f'<div class="quote__tekst"><p>{citaat_tekst}</p></div>'
+        wie = f"{naam}, {functie}"
+        if logo in band:
+            wie += f" bij {band[logo]}"
+        return f'''        <figure class="quote" role="group" aria-roledescription="{rol}"
+               aria-label="{woord} {i + 1} van {len(items)}"{merk}>
           <div class="quote__beeld">
             {foto(sleutel, maten="(max-width: 767px) 100vw, 40vw")}
           </div>
           <div class="quote__body">
-            <div class="quote__tekst"><p>{citaat}</p></div>
+            {tekst}
             <hr class="quote__streep">
-            <figcaption class="quote__naam">{naam}, {functie}</figcaption>
+            <figcaption class="quote__naam">{wie}</figcaption>
             {quotelogo(logo)}
           </div>
-        </figure>''' for i, (citaat, naam, functie, sleutel, logo) in enumerate(items))
+        </figure>'''
+
+    dias = "\n".join(dia(i, *item) for i, item in enumerate(items))
 
     return f'''  <section class="quotes" id="s{nr}-{ident}">
     <div class="container">

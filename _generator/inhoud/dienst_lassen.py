@@ -71,7 +71,7 @@ DIENST = {
     # maakbaarheidscontrole met afstemming, vrijblijvende offerte die pas na
     # akkoord tot werk leidt, productie en levering of afhalen. Geen termijn voor
     # de productie genoemd, die staat er niet.
-    "aanpak_intro": "U uploadt uw CAD-bestanden in het portaal &mdash; STEP, DXF of DWG, eventueel met een PDF-tekening. Wij controleren of uw onderdeel maakbaar is en bellen u bij een complexe opdracht voordat de offerte uitgaat. Die offerte is vrijblijvend; het werk start pas na uw akkoord. Daarna lassen wij uw delen, bewerken ze na en leveren ze bij u af, of uw werk staat klaar om af te halen.",
+    "aanpak_intro": "U uploadt uw CAD-bestanden in het portaal: STEP, DXF of DWG, eventueel met een PDF-tekening. Wij controleren of uw onderdeel maakbaar is en bellen u bij een complexe opdracht voordat de offerte uitgaat. Die offerte is vrijblijvend; het werk start pas na uw akkoord. Daarna lassen wij uw delen, bewerken ze na en leveren ze bij u af, of uw werk staat klaar om af te halen.",
 
     # Vier treden binnen de bewerking zelf, elk ongeveer 200 tekens zoals de
     # MADEGRO-treden. Trede 4 zet de grens goed: nabewerking eigen huis,
@@ -81,7 +81,7 @@ DIENST = {
          "Bij de maakbaarheidscontrole kijken wij hoe de delen samenkomen: waar de naden liggen, of ze bereikbaar zijn en welke methode daarbij past. Bij een complexe opdracht stemmen wij dat eerst met u af.",
          None),
         ("Delen uitrichten voordat er gelast wordt",
-         "De gesneden en gekante delen komen uit dezelfde werkplaats. Ze worden eerst uitgericht &mdash; op de juiste plaats en hoek gezet &mdash; en vastgezet: de pasvorm bepaalt hoe sterk en hoe strak het geheel wordt.",
+         "De gesneden en gekante delen komen uit dezelfde werkplaats. Ze worden eerst uitgericht (op de juiste plaats en hoek gezet) en vastgezet: de pasvorm bepaalt hoe sterk en hoe strak het geheel wordt.",
          None),
         ("Lassen met TIG, MIG of laser",
          "Dat zijn drie lasmethodes. Welke het wordt, volgt uit het materiaal en uit wat de constructie moet dragen: staal, RVS en aluminium vragen elk een eigen aanpak. Ligt de naad in het zicht, dan weegt het aanzicht mee.",
@@ -135,10 +135,10 @@ DIENST = {
         ]),
         ("Wie beoordeelt mijn tekening, en wanneer krijg ik de prijs?", [
             "Wij controleren zelf of uw aanvraag maakbaar is, voordat er een prijs uitgaat. Bij een complexe opdracht of een bijzonder materiaal beoordelen wij uw tekening persoonlijk en stemmen wij die eerst met u af.",
-            "Standaardwerk offreren wij volledig automatisch: die offerte staat binnen enkele minuten online. Complexe aanvragen beoordelen wij persoonlijk, binnen korte tijd &mdash; u wacht geen dagen op uw prijs.",
+            "Standaardwerk offreren wij volledig automatisch: die offerte staat binnen enkele minuten online. Complexe aanvragen beoordelen wij persoonlijk, binnen korte tijd. U wacht geen dagen op uw prijs.",
         ]),
         ("Wat gebeurt er nadat ik mijn aanvraag heb verstuurd?", [
-            "U ontvangt een duidelijke, vrijblijvende offerte; het werk start pas na uw akkoord. Daarna maken wij uw delen in onze werkplaats &mdash; snijden, kanten, lassen &mdash; met de afgesproken nabewerking erbij.",
+            "U ontvangt een duidelijke, vrijblijvende offerte; het werk start pas na uw akkoord. Daarna maken wij uw delen in onze werkplaats (snijden, kanten, lassen), met de afgesproken nabewerking erbij.",
             "Poedercoaten en andere oppervlaktebehandelingen besteden wij uit en regelen wij volledig voor u; samenbouw tot een complete samenstelling loopt via zusterbedrijf Tentije Industri&euml;le Automatisering B.V. Daarna leveren wij uw werk, of het staat klaar om af te halen.",
         ]),
     ],

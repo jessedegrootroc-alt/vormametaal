@@ -7,8 +7,8 @@ machines, diktes, toleranties of doorlooptijden, dus staat dat hier ook niet.
 De brontekst is input en geen waarheid: de formulering hieronder is nieuw,
 alleen de feiten zijn overgenomen.
 
-De pagina houdt &eacute;&eacute;n lijn vast: het onderdeel montageklaar maken &mdash; braamvrije
-kanten, schroefdraad in het onderdeel zelf, gaten en verzinkingen waar ze horen &mdash;
+De pagina houdt &eacute;&eacute;n lijn vast: het onderdeel montageklaar maken (braamvrije
+kanten, schroefdraad in het onderdeel zelf, gaten en verzinkingen waar ze horen),
 zonder dat er een tweede leverancier bij komt. De koppen zijn zo geschreven dat
 iemand die alleen scant de pagina begrijpt, en de FAQ neemt de vragen weg die
 iemand nog heeft voordat hij een aanvraag verstuurt.
@@ -39,7 +39,7 @@ DIENST = {
     # wij maken, dan wat nabewerking is, uitgelegd aan de vier bewerkingen uit
     # de bron. Alinea 2 is de eerste vertrouwensstap: eigen huis, dezelfde
     # werkplaats, dezelfde offerte. Geen claim over machines, maten of termijnen.
-    "intro": '''          <p>Vorma Metaal maakt metaalonderdelen op tekening: wij snijden, zetten, lassen en verspanen plaat, buis en profiel voor zakelijke opdrachtgevers. Nabewerking is alles wat daarna nog aan het onderdeel gebeurt &mdash; de scherpe snijrand (braam) wegnemen, schroefdraad in de gaten tappen, boren, en verzinken zodat een schroefkop niet uitsteekt.</p>
+    "intro": '''          <p>Vorma Metaal maakt metaalonderdelen op tekening: wij snijden, zetten, lassen en verspanen plaat, buis en profiel voor zakelijke opdrachtgevers. Nabewerking is alles wat daarna nog aan het onderdeel gebeurt: de scherpe snijrand (braam) wegnemen, schroefdraad in de gaten tappen, boren, en verzinken zodat een schroefkop niet uitsteekt.</p>
           <p>Wij doen dat in eigen huis, in dezelfde werkplaats waar uw onderdeel is gesneden, gezet of gelast. De nabewerking loopt mee in dezelfde aanvraag en dezelfde offerte als het snijwerk, van &eacute;&eacute;n stuk tot een serie.</p>''',
 
     # Eén à twee zinnen, ongeveer 24 woorden zoals MADEGRO, als inleiding op de

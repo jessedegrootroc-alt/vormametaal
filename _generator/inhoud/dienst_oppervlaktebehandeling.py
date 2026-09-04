@@ -48,7 +48,7 @@ DIENST = {
     # Een of twee zinnen die de drie kaarten hieronder inleiden, zoals MADEGRO.
     # Zegt wanneer deze bewerking aan de orde is. Geen uitspraak over hoe vaak
     # een behandeling nodig is: de bron zegt daar niets over.
-    "wanneer_intro": "Poedercoaten of een andere behandeling is niet bij elk onderdeel nodig. In deze drie situaties wel &mdash; en dan zet u die het beste in dezelfde aanvraag.",
+    "wanneer_intro": "Poedercoaten of een andere behandeling is niet bij elk onderdeel nodig. In deze drie situaties wel, en dan zet u die het beste in dezelfde aanvraag.",
 
     # Drie situaties waarin een inkoper deze bewerking nodig heeft. De titel
     # benoemt de situatie zelf, zodat wie alleen de kaarten scant het herkent.

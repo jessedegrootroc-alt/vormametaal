@@ -113,7 +113,7 @@ DIENST = {
         ]),
         ("Wie beoordeelt mijn tekening, en wanneer weet ik de prijs?", [
             "Wij kijken zelf naar uw tekening, in dezelfde werkplaats waar het zetwerk gebeurt. Standaardwerk wordt automatisch geoffreerd en staat binnen enkele minuten online; complexe opdrachten en bijzondere materialen beoordelen wij persoonlijk, binnen korte tijd.",
-            "Is de opdracht complex, of is een zetting zo niet te maken, dan nemen wij eerst contact met u op &mdash; voordat de offerte uitgaat. Dan bespreken wij wat er in de tekening aangepast moet worden.",
+            "Is de opdracht complex, of is een zetting zo niet te maken, dan nemen wij eerst contact met u op, voordat de offerte uitgaat. Dan bespreken wij wat er in de tekening aangepast moet worden.",
         ]),
         ("In welk materiaal en welke aantallen kan het?", [
             "Wij verwerken staal, RVS en aluminium. Elk van de drie veert anders terug, dus wij rekenen de vlakke plaat per materiaal door. Voor RVS is plaat met beschermfolie een van de mogelijkheden; die folie beschermt de zichtzijde tijdens het bewerken en het transport.",

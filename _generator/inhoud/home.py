@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Inhoud van de homepage. Het skelet staat in bouw_home.py en verandert niet:
-dezelfde twaalf secties in dezelfde volgorde als bij MADEGRO.
+de twaalf secties van de template in dezelfde volgorde, plus de
+projectensectie direct onder de materialen.
 
 Enige bron voor de feiten: inhoud/BRIEF.md. Welke MADEGRO-component welke
 Vorma-inhoud krijgt staat in inhoud/MAPPING.md.
@@ -24,9 +25,9 @@ en waarom_intro zelf in een <p>, dus die drie velden zijn platte tekst zonder
 tags. hero_intro en over_tekst komen in een div met de klasse article-body en
 dragen hun eigen <p>-alinea's.
 
-Vier sleutels blijven staan omdat het bouwscript op de sleutelverzameling
+Drie sleutels blijven staan omdat het bouwscript op de sleutelverzameling
 rekent, maar bouw_home.py rendert ze op de homepage niet: wat_eyebrow, wat_kop
-(dit component heeft geen kopslot), werkwijze_eyebrow en materialen_intro.
+(dit component heeft geen kopslot) en werkwijze_eyebrow.
 De vijf stappen in "stappen" staan hier om dezelfde reden; op de homepage draagt
 s03 alleen tekst met beeld en verwijst de knop naar werkwijze.html, waar de
 stappen wel als treden staan.
@@ -78,7 +79,7 @@ HOME = {
     # leest die nog niets van Vorma weet. Daarom in deze orde: wat het bedrijf
     # is, waar het staat, wat u aanlevert, wat u terugkrijgt en in welke
     # aantallen. Geen enkele claim, alleen de plaatsbepaling.
-    "wat_tekst": "Wat u aanlevert is een CAD-bestand; wat u terugkrijgt is het onderdeel &mdash; gesneden, gekant, gelast, verspaand en nabewerkt. Voor de stappen daartussen hoeft u geen tweede leverancier te zoeken.",
+    "wat_tekst": "Wat u aanlevert is een CAD-bestand. Wat u terugkrijgt is het onderdeel: gesneden, gekant, gelast, verspaand en nabewerkt. Voor de stappen daartussen hoeft u geen tweede leverancier te zoeken.",
 
     # ----------------------------------------------------- s03 hoe we werken
     # Blijft staan voor de sleutelverzameling; bouw_home.py rendert in deze
@@ -197,17 +198,29 @@ HOME = {
     # MADEGRO-casebeschrijvingen op deze plek.
     "materialen": [
         {"naam": "Staal",
-         "tekst": "Sterk, veelzijdig en geschikt voor uiteenlopende constructieve en industri&euml;le toepassingen.",
-         "kwaliteiten": ["DC01", "DD11", "S235JR", "S355MC", "DX51D+Z (sendzimir verzinkt)"]},
+         "tekst": "Voor constructieve en industri&euml;le toepassingen.",
+         "kwaliteiten": ["DC01", "DD11", "S235JR", "S355MC", "DX51D+Z"]},
         {"naam": "RVS",
-         "tekst": "Corrosiebestendig en duurzaam materiaal voor toepassingen waar hygi&euml;ne, uitstraling en een lange levensduur belangrijk zijn.",
-         "kwaliteiten": ["RVS 304", "RVS 316", "Afwerking 2B of 1D, met of zonder beschermfolie"]},
+         "tekst": "Voor toepassingen waar corrosiebestendigheid en duurzaamheid belangrijk zijn.",
+         "kwaliteiten": ["RVS 304", "RVS 316", "2B of 1D", "Met of zonder beschermfolie"]},
         {"naam": "Aluminium",
-         "tekst": "Lichtgewicht, sterk en goed te bewerken, met een uitstekende verhouding tussen gewicht en sterkte.",
-         "kwaliteiten": ["EN AW-1050A", "EN AW-5005 (AlMg1)", "EN AW-5754 H111", "EN AW-5083"]},
+         "tekst": "Licht, sterk en goed te bewerken.",
+         "kwaliteiten": ["EN AW-1050A", "EN AW-5005", "EN AW-5754 H111", "EN AW-5083"]},
     ],
+    # Het label boven de lijst per materiaal. "Beschikbare kwaliteiten" zegt
+    # de bron letterlijk; de inleiding erboven zegt al dat het voorbeelden
+    # zijn en dat een andere kwaliteit op aanvraag kan.
+    "materialen_lijstlabel": "Kwaliteiten",
 
-    # -------------------------------------------------------------- s06 usps
+    # -------------------------------------------------------------- s06 projecten
+    # Nieuw, direct onder de materialen. Drie kaarten uit CASES (schil.py) met
+    # de kaarttekst uit inhoud/cases.py; hier alleen de kop van de sectie.
+    # PLAATSHOUDERS: de klantnamen zijn niet bevestigd, zie het kader bij CASES.
+    "projecten_eyebrow": "Projecten",
+    "projecten_kop": "Wat wij voor opdrachtgevers hebben gemaakt",
+    "projecten_intro": "Drie voorbeelden van plaatwerk en profielwerk uit onze werkplaats, met de bewerkingen die erbij hoorden. Van gesneden plaat tot gelast en gecoat frame.",
+
+    # -------------------------------------------------------------- s07 usps
     # Was "Waar we vandaan komen" (21 tekens). Die kop zei niets over de drie
     # cijfers eronder en botste met s10, dat pas echt over de herkomst gaat.
     # Deze kop is 51 tekens (de kop van s04 is er 47) en noemt alle drie de
@@ -237,7 +250,7 @@ HOME = {
          "Bijzondere metalen zijn op aanvraag leverbaar."),
     ],
 
-    # ----------------------------------------------------- s07 waarom Vorma
+    # ----------------------------------------------------- s08 waarom Vorma
     # Waar MADEGRO het cursusgrid had. Cursussen zijn er niet; de zes punten
     # uit de brief vullen hetzelfde paneelraster.
     # De kop was "Waarom Vorma Metaal": een label, geen kop, en van dezelfde
@@ -278,37 +291,41 @@ HOME = {
          "Een enkel onderdeel vraagt u op dezelfde manier aan als een serie."),
     ],
 
-    # ------------------------------------------------------- s08 verwachten
-    # MADEGRO had hier drie klantcitaten met naam, functie en logo. Vorma
-    # Metaal heeft geen testimonials, quotes of reviews op zijn site, en die
-    # verzinnen zou een bestaand persoon iets laten zeggen wat hij nooit
-    # gezegd heeft. De slider blijft staan met drie procesafspraken die
-    # w&eacute;l op de site staan, op naam van Vorma Metaal zelf. Daarmee is
-    # het geen citaat maar een belofte die na te lezen is.
-    # De kop was "Wat u kunt verwachten": dat zei niet waarvan. Deze kop (44
-    # tekens) is de vraag van de bezoeker die net op de knop wil drukken, en is
-    # los te lezen.
-    "verwachten_eyebrow": "Wat wij afspreken",
-    "verwachten_kop": "Wat er gebeurt nadat u uw aanvraag verstuurt",
+    # ------------------------------------------------------ s09 testimonials
+    # ==================================================================
+    # PLAATSHOUDERS -- FICTIEVE CITATEN, MAG NIET LIVE ALS FEIT
+    # ------------------------------------------------------------------
+    # Er zijn nog geen echte klantreviews van Vorma Metaal. Op verzoek (4
+    # september 2026) draagt de slider toch drie citaten, zodat de sectie af
+    # is en later een-op-een te vervangen: quote, naam, functie, bedrijf en
+    # logo. Het bedrijf en het logo komen uit de logoband (OPDRACHTGEVERS in
+    # schil.py), zodat er geen nieuwe assets nodig zijn.
+    #
+    #  - De persoonsnaam staat als "Naam klant": er is geen echte persoon en
+    #    een verzonnen naam bij een bestaand bedrijf is erger dan een zichtbare
+    #    plaatshouder.
+    #  - De citaten gaan over wat op de site staat: meerdere bewerkingen bij
+    #    een leverancier, meedenken op de tekening, de offertetermijn en het
+    #    nakomen van de levering. Geen cijfers, geen percentages, geen
+    #    resultaten die niet te bewijzen zijn.
+    #  - Elke dia draagt data-plaatshouder="testimonial"; de audit telt ze.
+    #
+    # Vervangen: (tekst, naam, functie, fotosleutel, logoslug) per citaat; de
+    # logoslug is een sleutel uit OPDRACHTGEVERS of None voor een invulveld.
+    # ==================================================================
+    "testimonials_eyebrow": "Wat opdrachtgevers zeggen",
+    "testimonials_kop": "Zo ervaren opdrachtgevers het werken met Vorma Metaal",
 
-    # Elk (tekst, wie, wat, fotosleutel). De teksten zijn 127 tot 133 tekens,
-    # tegen 109 tot 165 bij de MADEGRO-citaten. "wie" is steeds Vorma Metaal
-    # zelf; "wat" is een korte rol-aanduiding en geen functietitel, want er
-    # is geen medewerker aan verbonden. De fotosleutels zijn werkplekken uit
-    # FOTOS, geen portretten.
-    # De drie dia's staan nu in de orde waarin de bezoeker ze meemaakt
-    # (controle, offerte, levering) in plaats van door elkaar; daarmee leest de
-    # slider als het antwoord op de kop erboven.
-    "verwachten": [
-        ("Standaardwerk offreert het portaal volledig automatisch: uw offerte staat binnen enkele minuten online. Dagen wachten hoeft niet.",
-         "Vorma Metaal", "Offertetermijn", "lasersnijden"),
-        ("Loopt een deel van uw opdracht via ons zusterbedrijf of via een coater, dan regelen wij dat. U houdt &eacute;&eacute;n aanspreekpunt voor het geheel.",
-         "Vorma Metaal", "&Eacute;&eacute;n aanspreekpunt", "productiehal"),
-        ("Uw producten worden geleverd of staan klaar om af te halen. Van offerte tot levering hoort u van ons wanneer het ertoe doet.",
-         "Vorma Metaal", "Levering", "werkbank"),
+    "testimonials": [
+        ("Wij laten onze plaatdelen snijden, kanten en lassen bij Vorma Metaal en krijgen ze afgewerkt terug. Dat scheelt ons het afstemmen tussen drie leveranciers.",
+         "Naam klant", "Technical Buyer", "lasersnijden", "tes"),
+        ("Toen een zetting op onze tekening niet te maken was, belden ze voordat de offerte uitging. Dat meedenken op de tekening maakt voor ons het verschil.",
+         "Naam klant", "Werkvoorbereider", "kanten", "stork"),
+        ("De offerte voor standaardwerk staat er binnen een paar minuten, en de levering komt op het moment dat is afgesproken. Daar plannen wij ons onderhoud op.",
+         "Naam klant", "Hoofd Technische Dienst", "werkbank", "huhtamaki"),
     ],
 
-    # --------------------------------------------------------------- s09 faq
+    # --------------------------------------------------------------- s10 faq
     # Was "Wat mensen meestal eerst vragen" (31 tekens). Deze kop (36 tekens)
     # zegt wanneer deze vragen spelen, en spreekt de bezoeker aan in plaats van
     # over "klanten" te praten.
@@ -323,7 +340,7 @@ HOME = {
     # tekens, als de MADEGRO-antwoorden (169 en 194).
     "faq": [
         ("Hoe vraag ik een offerte aan?", [
-            "Via ons portaal. U uploadt uw CAD-bestanden &mdash; STEP, DXF of DWG &mdash; eventueel met een PDF-tekening erbij, en u kiest het materiaal: staal, RVS of aluminium.",
+            "Via ons portaal. U uploadt uw CAD-bestanden (STEP, DXF of DWG), eventueel met een PDF-tekening erbij, en u kiest het materiaal: staal, RVS of aluminium.",
             "Wij nemen uw aanvraag daarna in behandeling en controleren of die maakbaar is. Wilt u liever eerst overleggen? Bel of mail ons uw tekening; ook dan gaat uw aanvraag in behandeling.",
         ]),
         # TODO-CONTENT: op vormametaal.nl staat niet of het portaal een account
@@ -359,28 +376,31 @@ HOME = {
         ]),
     ],
 
-    # ---------------------------------------------------- s10 over Vorma
-    # Was de medewerkersband met een portret van Martin. Van Vorma Metaal is
-    # geen medewerkersfoto beschikbaar, dus het beeldslot houdt zijn plek en
-    # krijgt een werkplaatsfoto. De naamregel is daarom geen persoonsnaam maar
-    # de herkomst. Hij wordt 2rem groot, dus 36 tekens kan; "Ontstaan uit
-    # Tentije" was korter maar zei niets tegen wie Tentije niet kent, terwijl
-    # deze kop zelf de twee feiten noemt die iemand plaatsen: het vak waar
-    # Vorma uit komt en de plaats waar het staat.
-    "over_eyebrow": "Herkomst",
-    "over_kop": "Uit de machinebouw, in Goor",
+    # ------------------------------------------------------------ s11 team
+    # Was de medewerkersband met een portret. Van Vorma Metaal is geen
+    # medewerkersfoto beschikbaar, dus het beeldslot houdt zijn plek en krijgt
+    # de werkplaatsfoto met mensen erop.
+    #
+    # Deze sectie ging over de herkomst (oprichting, Richard ten Tije, 2004).
+    # Op verzoek (4 september 2026) gaat hij over het team: wie uw aanvraag
+    # beoordeelt en waarom dat mensen zijn die het werk kennen. De feiten komen
+    # alle uit de brief: Goor, dezelfde werkplaats en hetzelfde team als
+    # Tentije, sinds 2004 besturingstechniek en machinebouw, persoonlijke
+    # beoordeling van complexe aanvragen. Geen namen, functies of aantallen:
+    # die staan nergens. De oprichtingsgeschiedenis staat nog op
+    # over-vorma-metaal.html, waar de knop heen gaat.
+    #
+    # Het bovenkopje is de ondertitel van de sectie en de naamregel de kop; de
+    # naamregel wordt 2rem, dus 29 tekens past.
+    "over_eyebrow": "Technische kennis vanuit de machinebouw",
+    "over_kop": "De mensen achter Vorma Metaal",
 
-    # Drie alinea's van samen ca. 530 tekens, gelijk aan de twee
-    # MADEGRO-alinea's op deze plek (232 en 301). Feitelijk en in deze orde:
-    # oprichting, wat Tentije nu doet en waar de 22 jaar vandaan komt, en waarom
-    # dat voor de bezoeker uitmaakt (dezelfde werkplaats, hetzelfde team). Geen
-    # heldenverhaal, geen mijlpalen die niet in de bron staan.
-    "over_tekst": "<p>Vorma Metaal komt uit Tentije Industri&euml;le Automatisering B.V., in 2004 in Goor opgericht door Richard ten Tije als eenmanszaak in PLC-programmering en besturingskasten.</p>\n            <p>Tentije doet nu machinebouw, onderhoud en besturingstechniek. Daar is ook de 22 jaar ervaring opgebouwd die wij meenemen: in diverse technische sectoren, met name in de machinebouw en automatisering.</p>\n            <p>Voor het maatwerk in metaal is Vorma Metaal daaruit ontstaan. Beide bedrijven werken in dezelfde werkplaats met hetzelfde team, dus u heeft met dezelfde mensen te maken.</p>",
+    "over_tekst": "<p>Vorma Metaal werkt vanuit Goor, in dezelfde werkplaats en met hetzelfde team als zusterbedrijf Tentije Industri&euml;le Automatisering B.V. Dat bedrijf bouwt sinds 2004 besturingskasten en machines, en daar komt onze technische achtergrond vandaan.</p>\n            <p>Uw aanvraag wordt beoordeeld door mensen die weten hoe een onderdeel gemaakt wordt en waar het straks in terechtkomt. Is een opdracht complex, dan nemen wij eerst contact met u op, voordat de offerte uitgaat.</p>\n            <p>Persoonlijk contact hoort daarbij. Heeft u een vraag over uw project, bel of mail ons dan; wij bespreken die met u voordat u aanvraagt.</p>",
 
-    # Was "Meer over MADEGRO" (17 tekens). Wijst naar over-vorma-metaal.html.
+    # Wijst naar over-vorma-metaal.html, waar de herkomst staat.
     "over_knop": "Over Vorma Metaal",
 
-    # ---------------------------------------------------------- s11 sectoren
+    # ---------------------------------------------------------- s12 sectoren
     # Was de logoband van opdrachtgevers, met aria-label "Opdrachtgevers". In
     # assets/partners/ staan beeldmerken van bestaande bedrijven (Alstom,
     # Stork, Ballast Nedam en meer) die bij MADEGRO horen en geen
@@ -389,7 +409,7 @@ HOME = {
     # aria-label zegt wat er langsschuift zonder een klantclaim te doen.
     "sectoren_label": "Sectoren waarvoor wij werken",
 
-    # ------------------------------------------------------------ s12 contact
+    # ------------------------------------------------------------ s13 contact
     # Kop en tekst uit de contactsectie van de brief. De kop is 26 tekens tegen
     # 32 bij MADEGRO en past daarmee in de 20ch van cta-slot__kop; de tekst is
     # 81 tekens en past in de 46ch van cta-slot__tekst. De knop van dit blok

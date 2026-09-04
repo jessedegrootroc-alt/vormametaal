@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Nakijken van de geleverde HTML. Draaien: python3 _generator/audit.py
 
-Zestien controles, alle op nul als het goed is. Ze staan er niet voor de
+Twintig controles, alle op nul als het goed is. Ze staan er niet voor de
 netheid: elke controle hoort bij een fout die in dit project echt is gemaakt.
 De regels waar ze op letten staan in inhoud/BRIEF.md en inhoud/COPY.md.
 """
@@ -23,7 +23,9 @@ CONTROLES = [
     "plaatshouder-logoband (MAG NIET LIVE)", "verzonnen termijn",
     "onvervangen plaatshouder", "oud patroon-woord",
     "ontbrekend bestand", "sitemap/robots",
-    "voorbeeldcase (nog te bevestigen)",
+    "plaatshouder-case (MAG NIET LIVE)",
+    "plaatshouder-testimonial (MAG NIET LIVE)",
+    "gedachtestreepje (verboden)",
 ]
 fouten = {k: [] for k in CONTROLES}
 
@@ -217,12 +219,23 @@ for p in PAGINAS:
                 continue
             fouten["verzonnen termijn"].append(f"{p}: {fragment}")
 
-    # De voorbeeldprojecten: anonieme opdrachtgever, geen cijfers, maar wel
-    # een bewering dat Vorma dit soort werk maakte. Zolang Vorma dat niet per
-    # project bevestigt staat er een label op, en meldt de audit de pagina.
-    n_vb = ruw.count('data-plaatshouder="voorbeeldcase"')
+    # De cases: klantnaam uit de logoband, niet bevestigd. Zolang Vorma dat
+    # niet per project bevestigt draagt elke kaart en pagina het merkteken en
+    # meldt de audit de pagina. Zie het kader bij CASES in schil.py.
+    n_vb = ruw.count('data-plaatshouder="case"')
     if n_vb:
-        fouten["voorbeeldcase (nog te bevestigen)"].append(f"{p}: {n_vb} label(s)")
+        fouten["plaatshouder-case (MAG NIET LIVE)"].append(f"{p}: {n_vb} kaart(en) of pagina")
+
+    # De testimonials: fictieve citaten bij bedrijven uit de logoband. Zie
+    # inhoud/home.py; het merkteken hoort weg als er echte citaten staan.
+    n_tm = ruw.count('data-plaatshouder="testimonial"')
+    if n_tm:
+        fouten["plaatshouder-testimonial (MAG NIET LIVE)"].append(f"{p}: {n_tm} citaat/citaten")
+
+    # Het gedachtestreepje is op verzoek nergens in de copy toegestaan (4
+    # september 2026). Beide vormen: de entiteit en het teken zelf.
+    for m in re.finditer(r"&mdash;|\u2014", ruw):
+        fouten["gedachtestreepje (verboden)"].append(f"{p}: {knip(ruw, m)}")
 
     for m in re.finditer(r"\{[A-Z_]{3,}\}", ruw):
         fouten["onvervangen plaatshouder"].append(f"{p}: {m.group(0)}")
@@ -285,6 +298,19 @@ totaal = sum(len(v) for v in fouten.values())
 print(f"\ntotaal {totaal}")
 
 band = fouten["plaatshouder-logoband (MAG NIET LIVE)"]
+cases_ph = fouten["plaatshouder-case (MAG NIET LIVE)"]
+tm_ph = fouten["plaatshouder-testimonial (MAG NIET LIVE)"]
+if cases_ph or tm_ph:
+    print()
+    print("  " + "=" * 72)
+    print("  LET OP: de drie cases en de drie testimonials zijn PLAATSHOUDERS.")
+    print("  Klantnamen en logo's komen uit de logoband; de citaten zijn fictief,")
+    print("  de persoonsnaam staat als 'Naam klant'. Niets hiervan is bevestigd.")
+    print(f"  Cases op {len(cases_ph)} pagina's, testimonials op {len(tm_ph)}.")
+    print("  Vervangen: inhoud/cases.py en CASES in schil.py; inhoud/home.py")
+    print("  ('testimonials'). Daarna 'plaatshouder' op False in CASES en")
+    print("  plaatshouder=False bij quoteslider() in bouw_home.py.")
+    print("  " + "=" * 72)
 if band:
     print()
     print("  " + "=" * 72)

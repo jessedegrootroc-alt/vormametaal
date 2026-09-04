@@ -193,6 +193,16 @@
   object-fit: cover; object-position: center 45%;
 }
 
+/* De fotogalerij op een casepagina: twee beelden naast elkaar, op dezelfde
+   16:10 als de casekaarten en de panelen, zonder tussenruimte, zoals de rest
+   van de site zijn vlakken tegen elkaar zet. Onder 768px onder elkaar. De
+   verhouding is nodig omdat de aangeleverde beelden van 4:3 tot 2,2:1 lopen;
+   zonder vaste verhouding krijgt de rij een rafelige onderkant. */
+.case-galerij { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0; padding: 0 var(--inset-x); }
+.case-galerij figure { margin: 0; overflow: hidden; }
+.case-galerij img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+@media (max-width: 767px) { .case-galerij { grid-template-columns: 1fr; } }
+
 /* Het citaat staat nu op wit, net als in de referentie: donkere tekst, groot,
    met het streepje boven de naam in het huisstijlgroen. */
 .case-citaat { margin: 0; max-width: var(--content-max-half); }

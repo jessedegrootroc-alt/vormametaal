@@ -139,7 +139,7 @@ DIENST = {
             "Standaardwerk wordt automatisch geoffreerd; die offerte staat binnen enkele minuten online. Complexe aanvragen volgen binnen korte tijd, u wacht geen dagen. De offerte is vrijblijvend.",
         ]),
         ("Wat gebeurt er nadat ik mijn aanvraag heb verstuurd?", [
-            "Na uw akkoord op de offerte gaat het onderdeel de werkplaats in: draaien of frezen, plus de nabewerking die is afgesproken &mdash; afbramen, tappen, boren of verzinken. Daarna leveren wij het, of het staat klaar om af te halen.",
+            "Na uw akkoord op de offerte gaat het onderdeel de werkplaats in: draaien of frezen, plus de nabewerking die is afgesproken: afbramen, tappen, boren of verzinken. Daarna leveren wij het, of het staat klaar om af te halen.",
             "Moet er meer gebeuren, dan regelen wij dat. Samenbouwen tot een complete samenstelling loopt via ons zusterbedrijf Tentije Industri&euml;le Automatisering B.V.; poedercoaten en andere oppervlaktebehandelingen besteden wij uit en co&ouml;rdineren wij voor u.",
         ]),
     ],
