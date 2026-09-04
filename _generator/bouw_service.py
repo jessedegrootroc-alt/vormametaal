@@ -73,15 +73,15 @@ def materiaalpanelen():
 
        Het paneel, het grid en de spacing blijven exact; ze dragen nu de drie
        materialen die Vorma verwerkt, met hun voorbeeldkwaliteiten. De link in
-       het paneel wijst naar materialen.html in plaats van naar een externe
-       site, dus target="_blank" is eruit."""
+       het paneel wijst naar de materialensectie op de homepage; een eigen
+       materialenpagina is er niet meer."""
     return "\n".join(f'''        <div>
           <div class="panel panel--{'grey' if i % 2 == 0 else 'wit'}">
             <span class="panel__meta">{f'0{i + 1}'}</span>
             <h3 class="panel__title">{naam}</h3>
             <p class="panel__body">{tekst}</p>
             <p class="panel__actie">
-              <a class="button button--link" href="materialen.html">
+              <a class="button button--link" href="index.html#s05-materialen">
                 Voorbeeldkwaliteiten
               </a>
             </p>

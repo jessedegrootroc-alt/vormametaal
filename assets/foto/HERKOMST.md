@@ -121,3 +121,42 @@ bronproject die niets met Vorma Metaal te maken heeft.
 2. **Het is niet de werkplaats van Vorma Metaal.** De machines, de hal en de
    mensen zijn niet die aan Dammaten 14 in Goor. Eigen beeld is beter, en dan
    kan de resolutie ook hoger dan 720p.
+
+## Aangeleverde foto's, 3 september 2026
+
+Door Jesse aangeleverd als PNG in Downloads, omgezet met `cwebp -q 88 -m 6` na
+verkleinen met Lanczos. De licentie van deze beelden is niet bekend; ga na of ze
+commercieel gebruikt mogen worden voordat de site live gaat.
+
+### De drie materialen (homepage, sectie 05)
+
+| bestand | bron | wat er te zien is |
+|---|---|---|
+| `staal-640/1280.webp` | `staal-1.png` (2039 breed) | stapel ronde buizen |
+| `rvs-640/1280.webp` | `rvs-1.png` (1500 breed) | gestapelde geborstelde platen |
+| `aluminium-640/1200.webp` | `aluminium.png` (1200 breed) | witte gevelpanelen |
+
+De tweede foto per materiaal (`staal.png`, `rvs.png`, `aluminium-1.png`) is
+niet gebruikt.
+
+### De drie voorbeeldprojecten (cases.html en de casepagina's)
+
+| bestand | bron | wat er te zien is |
+|---|---|---|
+| `case-lift-640/900.webp` | `lift.png` (900 breed) | liftdeur met RVS-omlijsting |
+| `case-lift-2-640/890.webp` | `lift2.png` (890 breed) | drie liftdeuren in een hal |
+| `case-roltrap-640/1280.webp` | `roltrap.png` (2048 breed) | twee roltrappen, vooraanzicht |
+| `case-roltrap-2-640/1280.webp` | `roltrap2.png` (2560 breed) | roltrap van onderaf |
+| `case-draaideur-640/1280.webp` | `draaideur.png` (1520 breed) | ronde draaideur in een glazen gevel |
+| `case-draaideur-2-640.webp` | `draaideur2.png` (640 breed) | draaideur met voetgangers |
+
+Bij `case-draaideur` is de bovenste 20% van het beeld eraf gesneden: daar stond
+de naam van een bestaand gebouw ("KONGRESS & ..."). Dat gebouw als project van
+Vorma Metaal tonen zou een onware claim zijn.
+
+`lift.png` (900) en `draaideur2.png` (640) zijn klein aangeleverd. Er staat geen
+grotere maat in de srcset die scherper doet dan het bestand is; op de
+dienst-hero, die de helft van het scherm breed is, zijn ze niet helemaal scherp.
+
+LET OP: deze beelden illustreren VOORBEELDPROJECTEN. Ze tonen niet werk van
+Vorma Metaal; zie het kader bij CASES in `_generator/schil.py`.

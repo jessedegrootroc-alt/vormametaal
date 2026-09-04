@@ -46,34 +46,25 @@ if not cfg.get("diensten_tekst"):
 diensten = "\n".join(dienstkaart(i, d, intro)
                      for i, (d, intro) in enumerate(zip(SERVICES, cfg["diensten_intros"])))
 
-# ---- s05: was cases-rijen, draagt nu de materialen -----------------------
-# Elke rij wijst naar zijn eigen materiaal op materialen.html en niet meer
-# naar de kale pagina: drie rijen die alle drie op dezelfde plek uitkomen is
-# voor een bezoeker een doodlopende klik.
-# Zelfde rij: beeld rechts, meta, kop, tekst en de pijlknop. De metaregels
-# droegen branche en plaats van een case en dragen nu het rijnummer en het
-# woord "materiaal".
-# Elk materiaal zijn eigen foto, aangeleverd door Jesse. Hier stonden beeldjes
-# uit de herofilm (de laser, de kantbank, de freeskop); die staan al bij de
-# bewerkingen, en dan zag je op de homepage twee keer hetzelfde.
+# ---- s05: de materialen, compact ------------------------------------------
+# Hier stonden drie rijen over de volle breedte die alle drie naar
+# materialen.html wezen. Die pagina is er niet meer, en drie rijen voor drie
+# regels feiten was te veel. Nu drie panelen naast elkaar, met dezelfde opbouw
+# als de zes redenen: beeld, nummer, naam, tekst, en de voorbeeldkwaliteiten
+# als lijst. Alles wat er over de materialen te zeggen is, staat hier.
 _MAT_BEELD = ["staal", "rvs", "aluminium"]
-materiaalrijen = "\n".join(f'''      <a class="cases-grid__row {'cases-grid__row--grey' if i % 2 == 0 else 'cases-grid__row--white'} hover--icon"
-         href="materialen.html#{materiaal_slug(m["naam"])}" aria-label="{m["naam"]}: waarvoor het geschikt is en welke kwaliteiten">
-        <div class="cases-grid__body">
-          <div class="cases-grid__meta">
-            <span class="cases-grid__meta-item">Materiaal {i + 1:02d}</span>
-            <span class="cases-grid__meta-item">{" &middot; ".join(m["kwaliteiten"][:2])}</span>
+materiaalkaarten = "\n".join(f'''        <div>
+          <div class="panel panel--{'grey' if i % 2 else 'wit'} panel--beeld" id="{materiaal_slug(m["naam"])}">
+            <figure class="panel__beeld">
+              {foto(_MAT_BEELD[i % 3], maten="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw", alt="")}
+            </figure>
+            <span class="panel__meta">Materiaal {i + 1:02d}</span>
+            <h3 class="panel__title">{m["naam"]}</h3>
+            <p class="panel__body">{m["tekst"]}</p>
+            <ul class="check-lijst" style="margin-top:var(--space-400)">
+{"".join(f'              <li class="check-lijst__item">{k}</li>' + chr(10) for k in m["kwaliteiten"])}            </ul>
           </div>
-          <h3 class="cases-grid__title">{m["naam"]}</h3>
-          <div class="cases-grid__wrapper">
-            <p class="cases-grid__text">{m["tekst"]}</p>
-            {icoonknop("button--icon--54", "button--secundair")}
-          </div>
-        </div>
-        <figure class="cases-grid__image">
-          {foto(_MAT_BEELD[i % 3], maten="(max-width: 991px) 100vw, 50vw")}
-        </figure>
-      </a>''' for i, m in enumerate(cfg["materialen"]))
+        </div>''' for i, m in enumerate(cfg["materialen"]))
 
 # ---- s06: de drie cijfers, met de tellers uit index.js -------------------
 usps = "\n".join(f'''        <div>
@@ -221,14 +212,19 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
   </section>
 
   <!-- ================= 05 MATERIALEN ================= -->
-  <section class="cases-grid" id="s05-materialen">
+  <section class="content-block" id="s05-materialen">
     <div class="container">
-      <div class="cases-grid__header">
-        <h2 class="cases-grid__heading">{cfg["materialen_kop"]}</h2>
-        {knop("Bekijk de materialen", "materialen.html", "secundair")}
+      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
+        <div class="row">
+          <div class="col-md-8 col-12">
+            <span class="subtitle" style="margin-bottom:var(--space-500)">Materialen</span>
+            <h2 class="section-heading">{cfg["materialen_kop"]}</h2>
+            <p class="article-body" style="margin-top:var(--space-500); max-width:var(--content-max-half)">{cfg["materialen_intro"]}</p>
+          </div>
+        </div>
       </div>
-      <div class="cases-grid__list">
-{materiaalrijen}
+      <div class="panel-row panel-row--3">
+{materiaalkaarten}
       </div>
     </div>
   </section>

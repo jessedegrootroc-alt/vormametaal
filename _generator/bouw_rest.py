@@ -392,6 +392,6 @@ def bouw_over_ons():
 if __name__ == "__main__":
     bouw_diensten()
     bouw_werkwijze()
-    bouw_materialen()
+    # bouw_materialen() is eruit: de materialen staan compact op de homepage.
     bouw_voor_wie()
     bouw_over_ons()

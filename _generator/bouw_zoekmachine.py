@@ -19,7 +19,7 @@ HIER = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HIER))
 UIT = HIER.parent
 
-from schil import BASIS, SERVICES  # noqa: E402
+from schil import BASIS, SERVICES, CASES  # noqa: E402
 
 # Hoe belangrijk een pagina is, en hoe vaak hij verandert. De dienstpagina's
 # staan hoger dan de overige omdat daar de aanvraag vandaan komt.
@@ -28,7 +28,7 @@ PRIORITEIT = {
     "diensten.html": ("monthly", "0.9"),
     "contact.html": ("monthly", "0.9"),
     "werkwijze.html": ("monthly", "0.7"),
-    "materialen.html": ("monthly", "0.7"),
+    "cases.html": ("monthly", "0.7"),
     "voor-wie.html": ("monthly", "0.7"),
     "over-vorma-metaal.html": ("yearly", "0.6"),
     "privacybeleid.html": ("yearly", "0.3"),
@@ -36,6 +36,8 @@ PRIORITEIT = {
 }
 for bestand, *_rest in SERVICES:
     PRIORITEIT[bestand] = ("monthly", "0.8")
+for c in CASES:
+    PRIORITEIT[c["bestand"]] = ("yearly", "0.5")
 
 
 def paginas():

@@ -23,6 +23,7 @@ CONTROLES = [
     "plaatshouder-logoband (MAG NIET LIVE)", "verzonnen termijn",
     "onvervangen plaatshouder", "oud patroon-woord",
     "ontbrekend bestand", "sitemap/robots",
+    "voorbeeldcase (nog te bevestigen)",
 ]
 fouten = {k: [] for k in CONTROLES}
 
@@ -215,6 +216,13 @@ for p in PAGINAS:
             if "maand" in fragment and p == "privacybeleid.html":
                 continue
             fouten["verzonnen termijn"].append(f"{p}: {fragment}")
+
+    # De voorbeeldprojecten: anonieme opdrachtgever, geen cijfers, maar wel
+    # een bewering dat Vorma dit soort werk maakte. Zolang Vorma dat niet per
+    # project bevestigt staat er een label op, en meldt de audit de pagina.
+    n_vb = ruw.count('data-plaatshouder="voorbeeldcase"')
+    if n_vb:
+        fouten["voorbeeldcase (nog te bevestigen)"].append(f"{p}: {n_vb} label(s)")
 
     for m in re.finditer(r"\{[A-Z_]{3,}\}", ruw):
         fouten["onvervangen plaatshouder"].append(f"{p}: {m.group(0)}")

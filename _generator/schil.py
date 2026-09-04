@@ -103,6 +103,50 @@ SECTOREN = [
     "Bouwgerelateerde bedrijven",
 ]
 
+# ============================================================================
+# VOORBEELDPROJECTEN -- NOG TE BEVESTIGEN DOOR VORMA METAAL
+# ----------------------------------------------------------------------------
+# Drie projecten op verzoek, rond de aangeleverde beelden: liftdeuren,
+# roltrappen en draaideuren. Op vormametaal.nl staan geen cases, en er is geen
+# opdrachtgever die deze projecten bevestigt. Daarom:
+#
+#  - geen klantnamen, geen aantallen, geen jaartallen, geen citaten;
+#  - de opdrachtgever is anoniem ("voor een liftenbouwer"), zoals gebruikelijk
+#    als een klant geen naam wil geven;
+#  - elke case draagt zichtbaar het label "Voorbeeldproject" met de
+#    aantekening dat Vorma Metaal het nog moet bevestigen, en de audit meldt
+#    elke pagina waar dat label staat.
+#
+# Pas als Vorma per project bevestigt wat er echt gemaakt is, gaat het label
+# eraf: zet "voorbeeld" op False. Tot die tijd mogen ze niet live als feit.
+# ============================================================================
+CASES = [
+    {"bestand": "case-liftdeuren.html", "slug": "liftdeuren",
+     "titel": "RVS bekleding voor liftdeuren en omlijstingen",
+     "kort": "Liftdeuren",
+     "sector": "Installatietechniek", "materiaal": "RVS 304, geborsteld",
+     "bewerkingen": ["Lasersnijden", "Kanten", "Lassen", "Nabewerking"],
+     "kaart": "case-lift-2", "hero": "case-lift", "tweede": "case-lift-2",
+     "voorbeeld": True},
+    {"bestand": "case-roltrappen.html", "slug": "roltrappen",
+     "titel": "Zijpanelen en sokkels voor roltrappen",
+     "kort": "Roltrappen",
+     "sector": "Installatietechniek", "materiaal": "RVS 304 en staal",
+     "bewerkingen": ["Lasersnijden", "Kanten", "Buislasersnijden", "Nabewerking"],
+     "kaart": "case-roltrap-2", "hero": "case-roltrap", "tweede": "case-roltrap-2",
+     "voorbeeld": True},
+    {"bestand": "case-draaideuren.html", "slug": "draaideuren",
+     "titel": "Gelaste frames voor draaideuren",
+     "kort": "Draaideuren",
+     "sector": "Bouwgerelateerde bedrijven", "materiaal": "Staal, gepoedercoat",
+     "bewerkingen": ["Buislasersnijden", "Lassen", "Oppervlaktebehandeling"],
+     "kaart": "case-draaideur", "hero": "case-draaideur", "tweede": "case-draaideur-2",
+     "voorbeeld": True},
+]
+
+VOORBEELD_LABEL = ('<span class="invulveld" data-plaatshouder="voorbeeldcase">'
+                   'Voorbeeldproject &mdash; nog te bevestigen</span>')
+
 # De bestandsformaten die het portaal inleest.
 FORMATEN = ["STEP", "DXF", "DWG", "PDF"]
 
@@ -129,7 +173,7 @@ def bouw_nav():
             },
         },
         {"soort": "link", "href": "werkwijze.html", "label": "Werkwijze"},
-        {"soort": "link", "href": "materialen.html", "label": "Materialen"},
+        {"soort": "link", "href": "cases.html", "label": "Projecten"},
         {"soort": "link", "href": "voor-wie.html", "label": "Voor wie"},
         {"soort": "link", "href": "over-vorma-metaal.html", "label": "Over Vorma Metaal"},
     ])
@@ -229,6 +273,24 @@ FOTOS = {
                          'Gestapelde platen met een geschuurd oppervlak', 'foto', None),
     'aluminium':        ('aluminium', 1200, 630, 640, 336,
                          'Lichte metalen panelen in een ruitpatroon', 'foto', None),
+    # De zes beelden bij de drie voorbeeldprojecten, aangeleverd door Jesse:
+    # lift, roltrap en draaideur, elk twee. Bij 'case-draaideur' is de bovenste
+    # 20% eraf gesneden: daar stond de naam van een bestaand gebouw, en dat
+    # gebouw toeschrijven aan Vorma Metaal zou een onware claim zijn.
+    # lift (900) en draaideur-2 (640) zijn klein aangeleverd; er staat geen
+    # grotere maat in de srcset die scherper doet dan het bestand is.
+    'case-lift':        ('case-lift', 900, 675, 640, 480,
+                         'Liftdeur met roestvaststalen omlijsting in een gang', 'foto', None),
+    'case-lift-2':      ('case-lift-2', 890, 500, 640, 360,
+                         'Drie liftdeuren van geborsteld roestvast staal in een hal', 'foto', None),
+    'case-roltrap':     ('case-roltrap', 1280, 853, 640, 427,
+                         'Twee roltrappen met roestvaststalen balustrades in een entreehal', 'foto', None),
+    'case-roltrap-2':   ('case-roltrap-2', 1280, 854, 640, 427,
+                         'Roltrap van onderaf gezien, met glazen balustrade en stalen leuning', 'foto', None),
+    'case-draaideur':   ('case-draaideur', 1280, 574, 640, 287,
+                         'Ronde draaideur met zwart stalen frame in een glazen gevel', 'foto', None),
+    'case-draaideur-2': ('case-draaideur-2', 640, 360, 640, 360,
+                         'Draaideur in een kantoorgevel, met mensen die naar buiten lopen', 'foto', None),
 
     # ---- De zes redenen op de homepage ----
     # Aangeleverd door Jesse op 3 september 2026 als 01.png t/m 06.png; die
@@ -466,7 +528,7 @@ def footer():
           <h3>Site</h3>
           <ul role="list">
             <li><a href="werkwijze.html">Werkwijze</a></li>
-            <li><a href="materialen.html">Materialen</a></li>
+            <li><a href="cases.html">Projecten</a></li>
             <li><a href="voor-wie.html">Voor wie</a></li>
             <li><a href="over-vorma-metaal.html">Over Vorma Metaal</a></li>
             <li><a href="contact.html">Contact</a></li>

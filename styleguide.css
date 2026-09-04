@@ -2097,3 +2097,14 @@ section + section { margin-top: 0; }
                        font-size: 0.875rem; line-height: 1.35; }
 .review--name span { display: block; font-family: var(--font-light); font-weight: var(--weight-light);
                      font-size: 0.875rem; line-height: 1.35; }
+
+/* ---- Kwaliteitenlijst (check-lijst) ---------------------------------------
+   Stond in overzicht.css, bij de materialenpagina. Die pagina is weg en de lijst
+   staat nu in de materialenpanelen op de homepage, dus hoort hij in het
+   gedeelde stylesheet. */
+.check-lijst { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-400); }
+.check-lijst li { display: flex; align-items: flex-start; gap: var(--space-300);
+                  font-family: var(--font-regular); font-weight: var(--weight-regular);
+                  font-size: 1rem; line-height: 1.5; }
+.check-lijst svg { flex-shrink: 0; margin-top: 4px; fill: var(--color-text-primary); }
+.check-lijst--twee { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-500) var(--space-700); }
