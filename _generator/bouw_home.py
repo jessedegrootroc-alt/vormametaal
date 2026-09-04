@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 """index.html.
 
-   De twaalf secties van de template-homepage, in dezelfde volgorde, met
-   dezelfde klassen en spacing, plus een dertiende: de projecten, direct onder
-   de materialen (op verzoek, 4 september 2026). Alleen de inhoud is van Vorma
-   Metaal. Welke component welke inhoud draagt staat in inhoud/MAPPING.md:
+   De dertien secties van de homepage, in de volgorde die op 4 september 2026
+   is gevraagd. Het zijn dezelfde componenten als voorheen (twaalf uit de
+   template plus de projectensectie), alleen verplaatst; layout, klassen en
+   spacing zijn ongewijzigd. De ids lopen in de nieuwe volgorde door.
 
-     s05  cases-rijen        -> de drie materialen, compact in drie panelen
-     s06  NIEUW              -> drie uitgelichte projecten (panelen met foto)
-     s07  drie cijfers       -> 22 jaar, 8 bewerkingen, 3 materialen
-     s08  cursuskaarten      -> de zes redenen om voor Vorma te kiezen
-     s09  klantcitaten       -> klantcitaten (PLAATSHOUDERS, zie inhoud/home.py)
-     s11  portret + biografie-> het team achter Vorma Metaal
-     s12  logoband           -> de beeldmerken uit de template (PLAATSHOUDER)
+     s01 hero            s08 cijfers (drie tellers)
+     s02 logoband        s09 offerte (het statementblok, was "wat we doen")
+     s03 proces          s10 team (portret + tekst)
+     s04 bewerkingen     s11 testimonials (quoteslider, PLAATSHOUDERS)
+     s05 waarom Vorma    s12 faq
+     s06 materialen      s13 contact
+     s07 projecten (PLAATSHOUDERS)
 
+   Twee ids staan elders: #s05-waarom in styleguide.css (tabletregel) en
+   #s06-materialen in bouw_service.py (de link uit de materiaalpanelen).
    De teksten staan in inhoud/home.py."""
 import sys, pathlib, importlib.util
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
@@ -45,7 +47,7 @@ if not cfg.get("diensten_tekst"):
 diensten = "\n".join(dienstkaart(i, d, intro)
                      for i, (d, intro) in enumerate(zip(SERVICES, cfg["diensten_intros"])))
 
-# ---- s05: de materialen, compact ------------------------------------------
+# ---- s06: de materialen, compact ------------------------------------------
 # Hier stonden drie rijen over de volle breedte die alle drie naar
 # materialen.html wezen. Die pagina is er niet meer, en drie rijen voor drie
 # regels feiten was te veel. Nu drie panelen naast elkaar, met dezelfde opbouw
@@ -66,7 +68,7 @@ materiaalkaarten = "\n".join(f'''        <div>
           </div>
         </div>''' for i, m in enumerate(cfg["materialen"]))
 
-# ---- s06: drie uitgelichte projecten -------------------------------------
+# ---- s07: drie uitgelichte projecten -------------------------------------
 # Nieuw, direct onder de materialen. Zelfde paneel als de zes redenen en de
 # cursuskaarten van de template (panel--beeld panel--link): foto, klant als
 # metaregel, titel, de bewerkingen als tweede metaregel, korte tekst en de
@@ -96,7 +98,7 @@ projecten = "\n".join(f'''        <div>
           </a>
         </div>''' for i, c in enumerate(CASES))
 
-# ---- s07: de drie cijfers, met de tellers uit index.js -------------------
+# ---- s08: de drie cijfers, met de tellers uit index.js -------------------
 usps = "\n".join(f'''        <div>
           <div class="panel panel--{'grey' if i % 2 == 0 else 'wit'}">
             <p class="usp__getal" data-telop="{getal}">{getal}</p>
@@ -105,7 +107,7 @@ usps = "\n".join(f'''        <div>
           </div>
         </div>''' for i, (getal, label, tekst) in enumerate(cfg["usps"]))
 
-# ---- s08: was cursuskaarten, draagt nu de zes redenen -------------------
+# ---- s05: was cursuskaarten, draagt nu de zes redenen -------------------
 # Zelfde paneel als cursuskaart(), met de foto erboven en een metaregel.
 #
 # Drie per rij en niet vier: zes items vullen dan twee volle rijen. In
@@ -137,21 +139,12 @@ waarom = "\n".join(f'''        <div>
           </div>
         </div>''' for i, (titel, tekst) in enumerate(cfg["waarom"]))
 
-# ---- s09: klantcitaten, zoals het component in de template stond --------
+# ---- s11: klantcitaten, zoals het component in de template stond --------
 # PLAATSHOUDERS: er zijn nog geen echte testimonials. De citaten zijn op
 # verzoek fictief, met de bedrijven en logo's uit de logoband, en dragen
 # data-plaatshouder="testimonial"; de audit telt ze. Zie inhoud/home.py.
 testimonials = [(tekst, naam, functie, beeld, logo)
                 for tekst, naam, functie, beeld, logo in cfg["testimonials"]]
-
-# ---- s12: de logoband -----------------------------------------------------
-# Draagt op verzoek weer de beeldmerken uit de template. PLAATSHOUDER, mag niet
-# live; zie het kader boven OPDRACHTGEVERS in schil.py.
-#
-# De aantoonbaar ware variant staat klaar: sectorenband("12",
-# cfg["sectoren_label"]) zet de tien sectoren in dezelfde band, met dezelfde
-# animatie en hetzelfde dubbele spoor. Beide functies staan in schil.py.
-
 
 # De herofilm. De film uit de template was een vrachtwagen op een dijkweg en
 # zei niets over metaalbewerking; deze laat vijf van de acht bewerkingen zien,
@@ -163,7 +156,7 @@ testimonials = [(tekst, naam, functie, beeld, logo)
 #
 # NOG TE DOEN: het is nog steeds stockbeeld en niet de werkplaats aan Dammaten
 # 14. Zie assets/video/HERKOMST.md voor wat er over de herkomst bekend is.
-inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
+inhoud = f'''  <!-- ================= 01 HERO ================= -->
   <section class="hero" id="s01-introductie" data-header-theme="light">
     <div class="hero--beeld" aria-hidden="true">
       {foto("werkplaats", laden="eager", maten="100vw")}
@@ -188,21 +181,14 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 02 WAT VORMA METAAL DOET ================= -->
-  <section class="content-text-side-cta" id="s02-wat-we-doen">
-    <div class="container">
-      <div class="content-text-side-cta--container background--grey">
-        <div class="row gx-0">
-          <div class="col-lg-8 col-12">
-            <div class="content-text-side-cta--body">
-              <p>{cfg["wat_tekst"]}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ================= 02 LOGOBAND ================= -->
+  <!-- Hoog op de pagina, direct na de hero. PLAATSHOUDER, mag niet live; zie
+       het kader boven OPDRACHTGEVERS in schil.py. De band heeft geen
+       tekstslot. De aantoonbaar ware variant: sectorenband("02",
+       cfg["sectoren_label"]). -->
+{logoslider("02")}
 
+  <!-- ================= 03 PROCES ================= -->
   <section class="content-text-side-visual background--white" id="s03-hoe-we-werken">
     <div class="container">
       <div class="row gx-0">
@@ -212,7 +198,7 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
             <div class="content-text-side-visual--body content-fit--quarter">
 {cfg["werkwijze_intro"]}
             </div>
-            {knop("Zo werkt een aanvraag", "werkwijze.html")}
+            {knop(cfg["werkwijze_knop"], "werkwijze.html")}
           </div>
         </article>
       </div>
@@ -222,7 +208,7 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 04 DE ACHT DIENSTEN ================= -->
+  <!-- ================= 04 BEWERKINGEN ================= -->
   <section class="content-block" id="s04-diensten">
     <div class="container">
       <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
@@ -242,8 +228,34 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 05 MATERIALEN ================= -->
-  <section class="content-block" id="s05-materialen">
+  <!-- ================= 05 WAAROM VORMA METAAL ================= -->
+  <!-- Het id staat in styleguide.css (tabletregel voor twee per rij). -->
+  <section class="content-block" id="s05-waarom">
+    <div class="container">
+      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
+        <div class="row">
+          <div class="col-md-8 col-12">
+            <span class="subtitle" style="margin-bottom:var(--space-500)">{cfg["waarom_eyebrow"]}</span>
+            <h2 class="section-heading">{cfg["waarom_kop"]}</h2>
+            <p class="article-body" style="margin-top:var(--space-500); max-width:var(--content-max-half)">
+              {cfg["waarom_intro"]}
+            </p>
+          </div>
+          <div class="col-md-4 col-12 text-md-end">
+            {knop(cfg["waarom_knop"], "contact.html")}
+          </div>
+        </div>
+      </div>
+      <div class="panel-row panel-row--3">
+{waarom}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 MATERIALEN ================= -->
+  <!-- Het id is het doel van de link in de materiaalpanelen op de
+       dienstpagina's (bouw_service.py). -->
+  <section class="content-block" id="s06-materialen">
     <div class="container">
       <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
         <div class="row">
@@ -260,11 +272,10 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 06 PROJECTEN ================= -->
-  <!-- Nieuw. Zelfde kop-en-knop-opbouw als de zes redenen, zelfde panelenrij.
-       Direct onder de materialen, zodat "in welk materiaal" meteen gevolgd
-       wordt door "en wat wordt daar dan van gemaakt". -->
-  <section class="content-block" id="s06-projecten">
+  <!-- ================= 07 PROJECTEN ================= -->
+  <!-- Direct onder de materialen: "in welk materiaal" wordt gevolgd door
+       "en wat wordt daar dan van gemaakt". PLAATSHOUDERS, zie CASES. -->
+  <section class="content-block" id="s07-projecten">
     <div class="container">
       <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
         <div class="row">
@@ -276,7 +287,7 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
             </p>
           </div>
           <div class="col-md-4 col-12 text-md-end">
-            {knop("Bekijk alle projecten", "cases.html")}
+            {knop(cfg["projecten_knop"], "cases.html")}
           </div>
         </div>
       </div>
@@ -286,8 +297,8 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 07 IN CIJFERS ================= -->
-  <section class="content-block" id="s07-usps">
+  <!-- ================= 08 IN CIJFERS ================= -->
+  <section class="content-block" id="s08-usps">
     <div class="container">
       <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
         <div class="row">
@@ -303,41 +314,29 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-  <!-- ================= 08 WAAROM VORMA METAAL ================= -->
-  <!-- Het id staat in styleguide.css (tabletregel voor twee per rij). -->
-  <section class="content-block" id="s08-waarom">
+  <!-- ================= 09 OFFERTE ================= -->
+  <!-- Het statementblok van de template: een tekstslot in de grote lichte
+       snede, geen kop. Stond direct onder de hero; draagt nu het antwoord op
+       "hoe snel weet ik wat het kost". -->
+  <section class="content-text-side-cta" id="s09-offerte">
     <div class="container">
-      <div class="content-block--container background--white" style="padding-bottom:var(--space-700)">
-        <div class="row">
-          <div class="col-md-8 col-12">
-            <span class="subtitle" style="margin-bottom:var(--space-500)">{cfg["waarom_eyebrow"]}</span>
-            <h2 class="section-heading">{cfg["waarom_kop"]}</h2>
-            <p class="article-body" style="margin-top:var(--space-500); max-width:var(--content-max-half)">
-              {cfg["waarom_intro"]}
-            </p>
-          </div>
-          <div class="col-md-4 col-12 text-md-end">
-            {knop("Bekijk alle bewerkingen", "diensten.html")}
+      <div class="content-text-side-cta--container background--grey">
+        <div class="row gx-0">
+          <div class="col-lg-8 col-12">
+            <div class="content-text-side-cta--body">
+              <p>{cfg["offerte_tekst"]}</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="panel-row panel-row--3">
-{waarom}
       </div>
     </div>
   </section>
 
-{quoteslider("09", "testimonials", cfg["testimonials_eyebrow"], cfg["testimonials_kop"], testimonials,
-             citaat=True, plaatshouder=True)}
-
-{faq_blok("10", cfg["faq"], cfg["faq_kop"])}
-
-  <!-- ================= 11 HET TEAM ================= -->
-  <!-- Was het portret met de biografie uit de template. Van Vorma Metaal is
-       geen medewerkersfoto beschikbaar en die verzinnen kan niet; het
-       beeldslot houdt zijn plek en verhouding en krijgt de werkplaatsfoto met
-       medewerkers erop. -->
-  <section class="streamer streamer--employee streamer--employee--portret background--groen" id="s11-team">
+  <!-- ================= 10 HET TEAM ================= -->
+  <!-- Portret-en-tekstband van de template. Van Vorma Metaal is geen
+       medewerkersfoto beschikbaar en die verzinnen kan niet; het beeldslot
+       houdt zijn plek en krijgt de werkplaatsfoto met medewerkers erop. -->
+  <section class="streamer streamer--employee streamer--employee--portret background--groen" id="s10-team">
     <div class="container">
       <div class="streamer--employee-row">
         <figure class="streamer--employee-portrait">
@@ -357,8 +356,15 @@ inhoud = f'''  <!-- ================= 01 INTRODUCTIE ================= -->
     </div>
   </section>
 
-{logoslider("12")}
+  <!-- ================= 11 TESTIMONIALS ================= -->
+  <!-- PLAATSHOUDERS, zie inhoud/home.py. -->
+{quoteslider("11", "testimonials", cfg["testimonials_eyebrow"], cfg["testimonials_kop"], testimonials,
+             citaat=True, plaatshouder=True)}
 
+  <!-- ================= 12 FAQ ================= -->
+{faq_blok("12", cfg["faq"], cfg["faq_kop"])}
+
+  <!-- ================= 13 CONTACT ================= -->
 {ctablok("13", cfg["contact_kop"], cfg["contact_tekst"])}
 '''
 

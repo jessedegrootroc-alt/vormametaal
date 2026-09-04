@@ -81,7 +81,7 @@ def materiaalpanelen():
             <h3 class="panel__title">{naam}</h3>
             <p class="panel__body">{tekst}</p>
             <p class="panel__actie">
-              <a class="button button--link" href="index.html#s05-materialen">
+              <a class="button button--link" href="index.html#s06-materialen">
                 Voorbeeldkwaliteiten
               </a>
             </p>
