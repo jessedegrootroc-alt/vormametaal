@@ -9,8 +9,8 @@
    De casepagina heeft voor alle drie dezelfde acht delen, in deze volgorde:
    hero met klant, titel, foto en samenvatting; project in het kort (de
    vlakkenrij van de contactpagina); de vraag en onze aanpak naast elkaar;
-   het resultaat; de fotogalerij; de diensten die in het project zaten (de
-   rijen van de dienstpagina's); en het slotblok met de CTA.
+   het resultaat; de fotogalerij; de andere projecten (hetzelfde kaartraster
+   als het overzicht); en het slotblok met de CTA.
 
    LET OP: klantnamen en projecten zijn PLAATSHOUDERS, zie het kader bij CASES
    in schil.py en de kop van inhoud/cases.py. Elke kaart en pagina draagt
@@ -27,7 +27,7 @@ INHOUD = HIER / "inhoud"
 
 from schil import (CASES, pagina, patroonhero, paginahero, vlakkenrij,  # noqa: E402
                    foto, knop, icoonknop, slotblok, klantnaam, plaatshouder_attr,
-                   bewerkingen_tekst, dienst_bij_bewerking)
+                   bewerkingen_tekst)
 
 
 def laad(bestand, naam):
@@ -104,40 +104,12 @@ def bouw_overzicht(cfg, teksten):
     print(f'{cfg["bestand"]} geschreven')
 
 
-def dienstrijen(c):
-    """De diensten die in dit project zaten, als de rijen van de dienstpagina's
-       (cases-grid__row): beeld, naam, ondertitel, pijl. Alleen bewerkingen
-       waar een dienstpagina bij hoort; "CAD-bestanden controleren" is er geen."""
-    rijen = []
-    for i, naam in enumerate(c["bewerkingen"]):
-        d = dienst_bij_bewerking(naam)
-        if not d:
-            continue
-        bestand, titel, onder, beeld = d
-        waar = {"Assemblage": "Via ons zusterbedrijf",
-                "Oppervlaktebehandeling": "Uitbesteed en geregeld"}.get(titel, "In eigen huis")
-        rijen.append(f'''      <a class="cases-grid__row {'cases-grid__row--grey' if i % 2 == 0 else 'cases-grid__row--white'} hover--icon"
-         href="{bestand}" aria-label="{titel}: {onder}">
-        <div class="cases-grid__body">
-          <div class="cases-grid__meta">
-            <span class="cases-grid__meta-item">Dienst</span>
-            <span class="cases-grid__meta-item">{waar}</span>
-          </div>
-          <h3 class="cases-grid__title">{titel}</h3>
-          <div class="cases-grid__wrapper">
-            <p class="cases-grid__text">{onder}</p>
-            {icoonknop("button--icon--54", "button--secundair")}
-          </div>
-        </div>
-        <figure class="cases-grid__image">
-          {foto(beeld, maten="(max-width: 991px) 100vw, 50vw")}
-        </figure>
-      </a>''')
-    return "\n".join(rijen)
-
-
 def bouw_case(c, t, cfg, koppen):
     klant = klantnaam(c)
+    # De twee andere projecten, in de kaart van het overzicht. Het slot
+    # eronder heeft al "Bekijk alle projecten" in de resultaatsectie.
+    andere = "\n".join(kaart(i, d, CASE_TEKSTEN[d["slug"]]["kaart"])
+                       for i, d in enumerate(d for d in CASES if d["slug"] != c["slug"]))
     stappen = "".join(f"<li><strong>{stap}.</strong> {uitleg}</li>" for stap, uitleg in t["stappen"])
     galerij = "\n".join(f'      <figure>{foto(b, maten="(max-width: 767px) 100vw, 50vw")}</figure>'
                         for b in c["galerij"])
@@ -195,14 +167,11 @@ def bouw_case(c, t, cfg, koppen):
     </div>
   </section>
 
-  <section class="cases-grid" id="s06-diensten">
+  <section class="cases-overzicht" id="s06-andere" aria-labelledby="andere-kop">
     <div class="container">
-      <div class="cases-grid__header">
-        <h2 class="cases-grid__heading">{koppen["diensten"]}</h2>
-        {knop("Alle diensten", "diensten.html", "secundair")}
-      </div>
-      <div class="cases-grid__list">
-{dienstrijen(c)}
+      <h2 class="section-heading" id="andere-kop" style="margin:0 var(--inset-x) var(--space-600)">{koppen["andere"]}</h2>
+      <div class="cases-overzicht__raster">
+{andere}
       </div>
     </div>
   </section>

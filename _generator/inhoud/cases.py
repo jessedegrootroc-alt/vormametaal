@@ -27,7 +27,7 @@ Structuur per casepagina, voor alle drie gelijk:
   4 onze aanpak: intro plus de stappen
   5 het resultaat
   6 fotogalerij
-  7 diensten in dit project
+  7 andere projecten
   8 CTA
 """
 
@@ -55,7 +55,7 @@ KOPPEN = {
     "aanpak": "Onze aanpak",
     "resultaat": "Het resultaat",
     "galerij": "Beelden van het project",
-    "diensten": "Diensten in dit project",
+    "andere": "Andere projecten",
 }
 
 # Per case: de tekst op de kaart, de samenvatting in de hero en de blokken.
